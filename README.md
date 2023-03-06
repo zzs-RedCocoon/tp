@@ -1,4 +1,7 @@
-# Duke project template
+# CS2113-W12-4 Team Project tP
+
+To remove everything below:
+
 
 This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
 
