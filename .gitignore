@@ -14,7 +14,7 @@ src/main/resources/docs/
 bin/
 
 # DO NOT upload on GitHub! big file!
-.tsv
+*.tsv
 
 /text-ui-test/ACTUAL.TXT
 text-ui-test/EXPECTED-UNIX.TXT
