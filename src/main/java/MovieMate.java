@@ -7,11 +7,7 @@ public class MovieMate {
     private WatchedList watchedList = new WatchedList();
     private ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
-        System.out.println("Hello from Movie Mate!");
-        System.out.println("What is your name?");
-        Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine() + ", welcome to movie mate");
-        System.out.println("Please enter the command to proceed with MovieMate :))");
+        Ui.showWelcomeMessage();
         String userInput = inputCommand();
         String[] commandTypeAndParams = Parser.parseCommand(userInput);
         String commandType = commandTypeAndParams[0];
