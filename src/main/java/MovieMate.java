@@ -24,8 +24,18 @@ public class MovieMate {
             case "towatch":
                 // add to to-watch list
                 break;
+            case "help":
+                Ui.help();
+                break;
+            case "list":
+                // list the watched list
+                break;
+            case "watchlist":
+                // list the to-wathc list
+                break;
             default:
                 Ui.help();
+                break;
             }
         }
     }
