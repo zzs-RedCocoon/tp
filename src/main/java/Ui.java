@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Text UI of the application.
  */
 public class Ui {
-    public static void showWelcomeMessage(){
+    public static void showWelcomeMessage() {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
         Scanner in = new Scanner(System.in);
