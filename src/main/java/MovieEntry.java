@@ -9,9 +9,43 @@ public class MovieEntry extends Movie {
 
     public MovieEntry(String titleID, String title, int year, int runTimeMinutes, String[] genres) {
         super(titleID, title, year, runTimeMinutes, genres);
+        this.review = "";
     }
 
+    /**
+     * Overloaded constructor...
+     * @param movie
+     */
     public MovieEntry(Movie movie) {
         super(movie);
+        this.review = "";
     }
+
+    /**
+     * Add (or overwrite) a review for the particular movie listing.
+     * @param review A string for your review.
+     */
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void deleteReview(String review) {
+        this.review = "";
+    }
+
+    public String getReview() {
+        return this.review;
+    }
+
+    /**
+     * Checks if there is an existing review.
+     * @return True if the review is not null and empty.
+     */
+    public boolean hasReview() {
+        return (this.review != null && this.review != "");
+    }
+
+
+
+
 }
