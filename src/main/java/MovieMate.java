@@ -4,6 +4,7 @@ import java.util.Scanner;
  *
  */
 public class MovieMate {
+
     private WatchedList watchedList = new WatchedList();
     private ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {

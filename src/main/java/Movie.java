@@ -12,7 +12,15 @@ public class Movie implements Comparable<Movie> {
     private final int runTimeMinutes;
     private final String[] genres;
 
-    public Movie(String titleID, String title, int year, int runTimeMinutes, String[] genres) {
+    /**
+     * Default constructor.
+     * @param titleID The Unique ID assigned to a movie.
+     * @param title The full title of the movie.
+     * @param year The year the movie was made.
+     * @param runTimeMinutes The runtime (in minutes).
+     * @param genres String[] of Genres, up to 3.
+     */
+    public Movie(String titleID, String title, int year, int runTimeMinutes, String... genres) {
         this.titleID = titleID;
         this.title = title;
         this.year = year;
@@ -21,7 +29,15 @@ public class Movie implements Comparable<Movie> {
     }
 
     /**
-     * Compare a movie to another movie. For the purposes of sorting.
+     * Overloaded constructor.
+     * @param movie A movie.
+     */
+    public Movie(Movie movie) {
+        this(movie.getTitleID(), movie.getTitle(), movie.getYear(), movie.getRunTimeMinutes(), movie.getGenres());
+    }
+
+    /**
+     * Default comparator.
      * Sorting rules: Alphabetical title, then year.
      * @param o the object to be compared.
      * @return
