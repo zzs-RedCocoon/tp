@@ -11,6 +11,9 @@ public class Ui {
         System.out.println("Thanks for using Movie Mate!");
         System.out.println("Hope to see you again soon :))");
     }
+    public static void printLine() {
+        System.out.println("-------------------------------------------------------------------------");
+    }
 
     /**
      * Show welcome message to the user
@@ -36,15 +39,13 @@ public class Ui {
 
     /**
      * Shows successfully added movie to the watched/ to-watch list
-     * @param movieInfo The String array containing movieID, movie title, year, runtime, and genre
+     * @param movie The String containing movie title, year, runtime, and genre
      * @param command The type of list user added the movie into
      */
-    public static void showAddMovieMessage(String[] movieInfo, String command) {
+    public static void showAddMovieMessage(String movie, String command) {
         System.out.println("You have successfully added the movie into your" + command + " list!");
         System.out.println("Here is the movie detail");
-        for (String info: movieInfo) {
-            System.out.println(info);
-        }
+        System.out.println(movie);
         System.out.println("Feel free to continue with other features");
     }
 }
