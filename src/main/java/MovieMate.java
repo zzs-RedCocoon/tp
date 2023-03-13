@@ -9,14 +9,18 @@ public class MovieMate {
     private ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
         Ui.showWelcomeMessage();
-        String userInput = inputCommand();
-        String[] commandTypeAndParams = Parser.parseCommand(userInput);
-        String commandType = commandTypeAndParams[0];
-        String commandArg = commandTypeAndParams[1];
-        while(!commandType.equals("exit")) {
+
+        boolean isExit = false;
+        while(!isExit) {
+            String userInput = inputCommand();
+            String[] commandTypeAndParams = Parser.parseCommand(userInput);
+            String commandType = commandTypeAndParams[0];
+            String commandArg = commandTypeAndParams[1];
+
             switch (commandType) {
             case "watched":
                 // add to watched list
+
                 break;
             case "towatch":
                 // add to to-watch list
@@ -28,7 +32,10 @@ public class MovieMate {
                 // list the watched list
                 break;
             case "watchlist":
-                // list the to-wathc list
+                // list the to-watch list
+                break;
+            case "exit":
+                isExit = true;
                 break;
             default:
                 Ui.help();
