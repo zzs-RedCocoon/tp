@@ -15,7 +15,7 @@ public class Load {
 
     //Reads in each line in text file separately. For each line, reinitializes the Movie class for that
     //particular movie, then adds its to the movieList/ToWatchList
-    public static void readFileContents(ArrayList<Movie> List, String filepath) throws FileNotFoundException {
+    public static void readFileContents(ArrayList<Movie> list, String filepath) throws FileNotFoundException {
         File f = new File(filepath);
         Scanner s = new Scanner(f);
         String line;
@@ -36,7 +36,7 @@ public class Load {
             genres[1] = line.substring(slash5 + 1, slash6);
             genres[2] = line.substring(slash6 + 1);
             Movie movie = new Movie(titleID, title, year, runTimeMinutes, genres);
-            List.add(movie);
+            list.add(movie);
         }
     }
 
