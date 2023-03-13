@@ -6,8 +6,8 @@ import java.util.Scanner;
  */
 public class MovieMate {
     private static String FILEPATH = "data/movies.csv";
-    private WatchedList watchedList = new WatchedList();
-    private ToWatchList toWatchList = new ToWatchList();
+    private static WatchedList watchedList = new WatchedList();
+    private static ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
         Ui.showWelcomeMessage();
         String userInput = inputCommand();
@@ -21,6 +21,7 @@ public class MovieMate {
                 String[] movieInfo = ReadCSVFile.find(FILEPATH, commandArg);
                 Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
                         Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
+                watchedList.add(movie);
                 break;
             case "towatch":
                 // add to to-watch list
