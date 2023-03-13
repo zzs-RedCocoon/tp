@@ -26,21 +26,11 @@ public class MovieMate {
             switch (commandType) {
             case "watched":
                 // add to watched list
-                movieInfo = ReadCSVFile.find(filePath, commandArg);
-                movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
-                watchedList.add(movie);
-                Ui.showAddMovieMessage(movie.toString(), commandType);
-                Ui.printLine();
+                watchedList.add(commandArg, filePath);
                 break;
             case "towatch":
                 // add to to-watch list
-                movieInfo = ReadCSVFile.find(filePath, commandArg);
-                movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
-                toWatchList.add(movie);
-                Ui.showAddMovieMessage(movie.toString(), commandType);
-                Ui.printLine();
+                toWatchList.add(commandArg, filePath);
                 break;
             case "help":
                 Ui.help();
