@@ -45,7 +45,11 @@ public class MovieEntry extends Movie {
         return (this.review != null && this.review != "");
     }
 
-
+    @Override
+    public String getWriteFormat() {
+        return super.getWriteFormat()
+                + String.format("|%s", this.review);
+    }
 
 
 }

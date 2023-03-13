@@ -49,6 +49,19 @@ public class Movie implements Comparable<Movie> {
                 : (this.getTitle().compareTo(o.getTitle()));
     }
 
+    public String getWriteFormat() {
+        String genres = this.genres.toString();
+        genres.replace("[", "").replace("]","");
+        // TODO: See if i can extract the delimiter somehow...
+        // ID|Title|Year|RunTime|Genres
+        return String.format("%s|%s|%d|%d|%d",
+                this.titleID,
+                this.title,
+                this.year,
+                this.runTimeMinutes,
+                genres);
+    }
+
     /* Getters all here below */
     public String getTitleID() {
         return titleID;
