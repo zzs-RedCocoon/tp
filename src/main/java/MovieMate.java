@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 /**
  * Movie Mate class is the main class that starts running the program.
