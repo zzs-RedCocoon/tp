@@ -48,17 +48,28 @@ public class MovieMate {
                 break;
             case "list":
                 // list the watched list
+                Integer watchId = 1;
                 for (Movie watched: watchedList.movieList) {
-                    System.out.println(watched.toString());
-                    Ui.printLine();
+                    System.out.print(watchId);
+                    System.out.print(". ");
+                    System.out.println(watched.getTitle());
+                    watchId += 1;
                 }
+                Ui.printLine();
                 break;
             case "watchlist":
                 // list the to-watch list
+                Integer toWatchId = 1;
                 for (Movie towatch: toWatchList.movieList) {
-                    System.out.println(towatch.toString());
-                    Ui.printLine();
+                    System.out.print(toWatchId);
+                    System.out.print(". ");
+                    System.out.println(towatch.getTitle());
+                    toWatchId += 1;
                 }
+                Ui.printLine();
+                break;
+            case "seedetail":
+                // find relevant movie info
                 break;
             case "bye":
                 // TODO: Extract this process and print message, save data, upon exit.
