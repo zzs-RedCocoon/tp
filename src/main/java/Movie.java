@@ -69,4 +69,10 @@ public class Movie implements Comparable<Movie> {
     public String[] getGenres() {
         return genres;
     }
+    public String toString() {
+        return "Title: " + title + "\n" +
+                "Year: " + year + "\n" +
+                "Run time: " + runTimeMinutes + "\n" +
+                "Genres: " + genres;
+    }
 }
