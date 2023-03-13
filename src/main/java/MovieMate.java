@@ -25,21 +25,30 @@ public class MovieMate {
             case "watched":
                 // add to watched list
                 String[] movieInfo = ReadCSVFile.find(filePath, commandArg);
+
                 Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
+                        Parser.parseRunTimeMinutes(movieInfo[5]), Arrays.copyOfRange(movieInfo, 6, movieInfo.length));
                 watchedList.add(movie);
                 break;
             case "towatch":
                 // add to to-watch list
+                String[] towachMovieInfo = ReadCSVFile.find(filePath, commandArg);
+
+                Movie towatchMovie = new Movie(towachMovieInfo[0], towachMovieInfo[2],
+                        Integer.parseInt(towachMovieInfo[4]), Parser.parseRunTimeMinutes(towachMovieInfo[5]),
+                        Arrays.copyOfRange(towachMovieInfo, 6, towachMovieInfo.length));
+                toWatchList.add(towatchMovie);
                 break;
             case "help":
                 Ui.help();
                 break;
             case "list":
                 // list the watched list
+                Ui.showMovieList(watchedList);
                 break;
             case "watchlist":
                 // list the to-watch list
+                Ui.showMovieList(toWatchList);
                 break;
             case "bye":
                 // TODO: Extract this process and print message, save data, upon exit.

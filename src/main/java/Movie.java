@@ -69,4 +69,18 @@ public class Movie implements Comparable<Movie> {
     public String[] getGenres() {
         return genres;
     }
+
+    public String genresToString(){
+        String genresString = "";
+        for(String genre: genres){
+            genresString += genre + ",";
+        }
+        return genresString;
+    }
+    @Override
+    public String toString(){
+        return titleID + "," + title + ","
+        + year + "," + runTimeMinutes + ","
+        + genresToString();
+    }
 }

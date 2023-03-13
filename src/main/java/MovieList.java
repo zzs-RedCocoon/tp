@@ -47,4 +47,5 @@ public class MovieList {
         index = index - 1; // Offset 1-index
         this.movieList.remove(index);
     }
+
 }

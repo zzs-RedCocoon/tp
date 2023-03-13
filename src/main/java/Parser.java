@@ -9,5 +9,12 @@ public class Parser {
         return commandTypeAndParams;
     }
 
+    public static int parseRunTimeMinutes(String runTime){
+        try{
+            return Integer.parseInt(runTime);
+        }catch (NumberFormatException e){
+            return -1;
+        }
+    }
 
 }

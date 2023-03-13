@@ -21,4 +21,10 @@ public class Ui {
         System.out.println("tbc");
         System.out.println("Hope it helps, and have a nice day!");
     }
+
+    public static void showMovieList(MovieList movieList){
+        for(Movie m: movieList.movieList ){
+            System.out.println(m.toString());
+        }
+    }
 }
