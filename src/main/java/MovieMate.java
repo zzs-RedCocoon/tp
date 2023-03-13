@@ -34,9 +34,10 @@ public class MovieMate {
                 // list the watched list
                 break;
             case "watchlist":
-                // list the to-wathc list
+                // list the to-watch list
                 break;
             case "exit":
+                // Fallthrough
             case "bye":
                 // Fallthrough
                 // TODO: Extract this process and print message, save data, upon exit.
