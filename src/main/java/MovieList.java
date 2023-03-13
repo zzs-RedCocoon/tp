@@ -78,4 +78,17 @@ public class MovieList {
         String[] genres = genreStrings.split(",");
         return genres;
     }
+
+    public String getFileWriteFormat() {
+        String output = "";
+        for (Movie movie : this.movieList) {
+            output += movie.getWriteFormat() + '\n';
+        }
+        return output;
+    }
+
+    @Override
+    public String toString() {
+        return this.movieList.toString();
+    }
 }

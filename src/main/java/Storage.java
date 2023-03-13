@@ -67,14 +67,19 @@ public final class Storage {
      * Loads and parses each line of data in the save file.
      * @return ArrayList ({@link java.util.ArrayList}) of String (Task in parseable string format).
      */
-    public ArrayList<String[]> load() {
-        File f = new File(this.filePath);
+    public ArrayList<String[]> load(String path) {
+        if (path.isEmpty()) {
+            // Fallback to default.
+            path = this.filePath;
+        }
+        File f = new File(path);
         Scanner s;
         ArrayList<String[]> output = new ArrayList<String[]>();
         try {
             s = new Scanner(f);
             while (s.hasNext()) {
-                output.add(splitSaveFileLine(s.nextLine()));
+                String[] split = splitSaveFileLine(s.nextLine());
+                output.add(split);
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found >_<: " + e.getMessage());
@@ -83,7 +88,8 @@ public final class Storage {
     }
 
     private String[] splitSaveFileLine(String line) {
-        return line.split("\\s+" + "\\" + FILE_DELIMITER + "\\s+");
+        return line.split("\\|");
+        // return line.split("\\s+" + "\\" + FILE_DELIMITER + "\\s+");
     }
 
     /**
@@ -147,9 +153,13 @@ public final class Storage {
      * @param textToAdd Everything to be written into the file.
      * @throws IOException Unable to write successfully.
      */
-    public void writeToFile(String textToAdd) {
+    public void writeToFile(String path, String textToAdd) {
+        if (path.isEmpty()) {
+            // Fallback to default.
+            path = this.filePath;
+        }
         try {
-            FileWriter writer = new FileWriter(this.filePath);
+            FileWriter writer = new FileWriter(path);
             writer.write(textToAdd);
             // Add newline
             writer.write(System.lineSeparator());
