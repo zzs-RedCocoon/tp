@@ -1,10 +1,11 @@
+import java.util.Arrays;
 import java.util.Scanner;
 /**
  * Movie Mate class is the main class that starts running the program.
  *
  */
 public class MovieMate {
-
+    private static String FILEPATH = "data/movies.csv";
     private WatchedList watchedList = new WatchedList();
     private ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
@@ -17,6 +18,9 @@ public class MovieMate {
             switch (commandType) {
             case "watched":
                 // add to watched list
+                String[] movieInfo = ReadCSVFile.find(FILEPATH, commandArg);
+                Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
+                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
                 break;
             case "towatch":
                 // add to to-watch list
@@ -28,13 +32,18 @@ public class MovieMate {
                 // list the watched list
                 break;
             case "watchlist":
-                // list the to-wathc list
+                // list the to-watch list
                 break;
             default:
                 Ui.help();
                 break;
             }
+            userInput = inputCommand();
+            commandTypeAndParams = Parser.parseCommand(userInput);
+            commandType = commandTypeAndParams[0];
+            commandArg = commandTypeAndParams[1];
         }
+
     }
     /**
      * Scan in the user input and trim extra white space.
