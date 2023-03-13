@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Load {
+    public Load(String filepath, ArrayList<Movie> list) {
+        try {
+            readFileContents(list, filepath);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+
+    }
 
     //Reads in each line in text file separately. For each line, reinitializes the Movie class for that
     //particular movie, then adds its to the movieList/ToWatchList
@@ -32,12 +40,4 @@ public class Load {
         }
     }
 
-    public Load(String filepath, ArrayList<Movie> list) {
-        try {
-            readFileContents(list, filepath);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        }
-
-    }
 }

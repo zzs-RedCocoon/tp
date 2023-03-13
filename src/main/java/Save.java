@@ -3,11 +3,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Save {
-    private static void writeToFile(String filepath, String textToAdd) throws IOException {
-        FileWriter fw = new FileWriter(filepath);
-        fw.write(textToAdd);
-        fw.close();
-    }
 
     //method that saves current content of movieList/ToWatchList into a text file
     //For each movie, content occupies one line in the text file like this:
@@ -30,5 +25,11 @@ public class Save {
         } catch (IOException e) {
             System.out.println("Something went wrong: " + e.getMessage());
         }
+    }
+
+    private static void writeToFile(String filepath, String textToAdd) throws IOException {
+        FileWriter fw = new FileWriter(filepath);
+        fw.write(textToAdd);
+        fw.close();
     }
 }
