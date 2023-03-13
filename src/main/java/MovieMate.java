@@ -42,7 +42,6 @@ public class MovieMate {
                 // list the to-watch list
                 break;
             case "bye":
-                // Fallthrough
                 // TODO: Extract this process and print message, save data, upon exit.
                 Ui.showExitMessage();
                 System.exit(0);
