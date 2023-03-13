@@ -16,9 +16,9 @@ public class MovieEntry extends Movie {
      * Overloaded constructor...
      * @param movie
      */
-    public MovieEntry(Movie movie) {
+    public MovieEntry(Movie movie, String review) {
         super(movie);
-        this.review = "";
+        this.review = review;
     }
 
     /**
