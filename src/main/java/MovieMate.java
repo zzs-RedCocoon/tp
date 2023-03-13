@@ -45,6 +45,7 @@ public class MovieMate {
                 // TODO: Extract this process and print message, save data, upon exit.
                 Ui.showExitMessage();
                 System.exit(0);
+                break;
             default:
                 Ui.help();
                 break;
