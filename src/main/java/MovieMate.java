@@ -20,30 +20,50 @@ public class MovieMate {
             String[] commandTypeAndParams = Parser.parseCommand(userInput);
             String commandType = commandTypeAndParams[0];
             String commandArg = commandTypeAndParams[1];
+            Movie movie;
+            String[] movieInfo;
 
             switch (commandType) {
             case "watched":
                 // add to watched list
-                String[] movieInfo = ReadCSVFile.find(filePath, commandArg);
-                Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
+                movieInfo = ReadCSVFile.find(filePath, commandArg);
+                movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
                         Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
                 watchedList.add(movie);
+                Ui.showAddMovieMessage(movie.toString(), commandType);
+                Ui.printLine();
                 break;
             case "towatch":
                 // add to to-watch list
+                movieInfo = ReadCSVFile.find(filePath, commandArg);
+                movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
+                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
+                toWatchList.add(movie);
+                Ui.showAddMovieMessage(movie.toString(), commandType);
+                Ui.printLine();
                 break;
             case "help":
                 Ui.help();
+                Ui.printLine();
                 break;
             case "list":
                 // list the watched list
+                for (Movie watched: watchedList.movieList) {
+                    System.out.println(watched.toString());
+                    Ui.printLine();
+                }
                 break;
             case "watchlist":
                 // list the to-watch list
+                for (Movie towatch: toWatchList.movieList) {
+                    System.out.println(towatch.toString());
+                    Ui.printLine();
+                }
                 break;
             case "bye":
                 // TODO: Extract this process and print message, save data, upon exit.
                 Ui.showExitMessage();
+                Ui.printLine();
                 System.exit(0);
                 break;
             default:
