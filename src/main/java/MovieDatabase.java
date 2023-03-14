@@ -17,7 +17,7 @@ public class MovieDatabase {
         // Not sure if this is required, but good to have I guess?
         // tconst, primaryTitle, startYear, runtimeMinutes, genres
         String[] headers = movieStrings.get(0);
-        if (headers.length <  5) {
+        if (headers.length < 5) {
             System.out.println("There's something wrong with the CSV file.");
             throw (new IOException());
         }
@@ -43,7 +43,7 @@ public class MovieDatabase {
     public static ArrayList<Movie> find(String userInputMovieName) {
         ArrayList<Movie> relevantMovies = new ArrayList<Movie>();
         Integer movieCount = 0;
-        for (Map.Entry<String, Movie> entry: movieDatabase.entrySet()) {
+        for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
             if (entry.getKey().contains(userInputMovieName)) {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
