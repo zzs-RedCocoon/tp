@@ -7,7 +7,7 @@ public class MovieDatabase {
 
     // Movie will be sorted, found by its String name.
     private static TreeMap<String, Movie> movieDatabase;
-    private static Integer maxRelevantMovies = 5;
+    private static final int MAX_RELEVANT_MOVIES = 5;
 
     public MovieDatabase(ArrayList<String[]> movieStrings) throws IOException {
         System.out.print("Loading movie database...");
@@ -47,7 +47,7 @@ public class MovieDatabase {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
             }
-            if (movieCount.equals(maxRelevantMovies)) {
+            if (movieCount.equals(MAX_RELEVANT_MOVIES)) {
                 break;
             }
         }
