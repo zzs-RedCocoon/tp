@@ -90,11 +90,12 @@ public class Movie implements Comparable<Movie> {
     public String[] getGenres() {
         return genres;
     }
-
-    @Override
+    
     public String toString() {
-        return String.format(
-                "%s (%d)", this.title, this.year
-        );
+        return "Title: " + title + "\n" +
+                "Year: " + year + "\n" +
+                "Run time: " + runTimeMinutes + "\n" +
+                "Genres: " + genres;
     }
+    
 }

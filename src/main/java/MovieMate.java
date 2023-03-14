@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 /**
  * Movie Mate class is the main class that starts running the program.
@@ -22,33 +21,50 @@ public class MovieMate {
             String[] commandTypeAndParams = Parser.parseCommand(userInput);
             String commandType = commandTypeAndParams[0];
             String commandArg = commandTypeAndParams[1];
+            Movie movie;
+            String[] movieInfo;
 
             switch (commandType) {
             case "watched":
                 // add to watched list
-                String[] movieInfo = ReadCSVFile.find(filePath, commandArg);
-                Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                        Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
-                watchedList.add(movie);
-                System.out.println("added: " + movie);
-                System.out.println(watchedList);
+                watchedList.add(commandArg, filePath);
                 break;
             case "towatch":
                 // add to to-watch list
+                toWatchList.add(commandArg, filePath);
                 break;
             case "help":
                 Ui.help();
+                Ui.printLine();
                 break;
             case "list":
                 // list the watched list
+                Integer watchId = 1;
+                for (Movie watched: watchedList.movieList) {
+                    System.out.print(watchId);
+                    System.out.print(". ");
+                    System.out.println(watched.getTitle());
+                    watchId += 1;
+                }
+                Ui.printLine();
                 break;
             case "watchlist":
                 // list the to-watch list
+                Integer toWatchId = 1;
+                for (Movie towatch: toWatchList.movieList) {
+                    System.out.print(toWatchId);
+                    System.out.print(". ");
+                    System.out.println(towatch.getTitle());
+                    toWatchId += 1;
+                }
+                Ui.printLine();
+                break;
+            case "seedetail":
+                // find relevant movie info
                 break;
             case "exit":
                 // fallthrough
             case "bye":
-                System.out.println("Exiting");
                 exit();
                 break;
             default:
@@ -61,6 +77,7 @@ public class MovieMate {
 
     private static void exit() {
         Ui.showExitMessage();
+        Ui.printLine();
         storage.writeToFile(watchedListPath, watchedList.getFileWriteFormat());
         System.exit(0);
     }
