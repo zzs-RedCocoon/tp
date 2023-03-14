@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Scanner;
 
 /**
  * MovieList class containing the list of movies.
@@ -42,13 +42,26 @@ public class MovieList {
     /**
      * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
-     * @param filePath where the CSV File is located.
      */
-    public void add(String inputTitle, String filePath) {
-        String[] movieInfo = ReadCSVFile.find(filePath, inputTitle);
-        Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
+    public void add(String inputTitle) {
+        ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
+        if (relevantMovies.size() == 0) {
+            System.out.println( "No relevant movie found, please try enter the movie name again!");
+            return;
+        }
+        Integer id = 1;
+        for (Movie relevantMovie: relevantMovies) {
+            System.out.println(id + ". " + relevantMovie.toString());
+            id += 1;
+        }
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with adding the movie you chose, thanks!");
+        Scanner scan = new Scanner(System.in);;
+        String s = "";
+        s = scan.nextLine();
+        final Movie movie = relevantMovies.get(Integer.parseInt(s)-1);
         this.movieList.add(movie);
+        Ui.showAddMovieMessage(movie.toString());
     }
 
     /**

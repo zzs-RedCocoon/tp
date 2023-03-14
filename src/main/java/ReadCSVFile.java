@@ -9,7 +9,7 @@ public class ReadCSVFile {
     // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes
     private static final String CSV_DELIM = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
     // We only want this many movies.
-    private static int MAX_LINES_READ = 10000;
+    private static final int MAX_LINES_READ = 10000;
 
     public static String[] find(String filePath, String movieName) {
         String csvFile = filePath;

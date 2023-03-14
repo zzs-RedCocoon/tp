@@ -40,11 +40,11 @@ public class MovieMate {
             switch (commandType) {
             case "watched":
                 // add to watched list
-                watchedList.add(commandArg, filePath);
+                watchedList.add(commandArg);
                 break;
             case "towatch":
                 // add to to-watch list
-                toWatchList.add(commandArg, filePath);
+                toWatchList.add(commandArg);
                 break;
             case "help":
                 Ui.help();

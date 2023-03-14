@@ -40,10 +40,9 @@ public class Ui {
     /**
      * Shows successfully added movie to the watched/ to-watch list
      * @param movie The String containing movie title, year, runtime, and genre
-     * @param command The type of list user added the movie into
      */
-    public static void showAddMovieMessage(String movie, String command) {
-        System.out.println("You have successfully added the movie into your" + command + " list!");
+    public static void showAddMovieMessage(String movie) {
+        System.out.println("You have successfully added the movie into your list!");
         System.out.println("Here is the movie detail");
         System.out.println(movie);
         System.out.println("Feel free to continue with other features");
