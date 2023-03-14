@@ -40,6 +40,17 @@ public class MovieList {
     }
 
     /**
+     * Prints all the movies inside.
+     */
+    public void list() {
+        int i = 1;
+        for (Movie movie : movieList) {
+            System.out.printf("%d. %s\n", i, movie.toString());
+            i++;
+        }
+    }
+
+    /**
      * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
      */
