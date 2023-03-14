@@ -28,6 +28,15 @@ public class Movie implements Comparable<Movie> {
         this.genres = genres;
     }
 
+    public Movie(String[] movieString) {
+        this.titleID = movieString[0];
+        this.title = movieString[1];
+        this.year = Integer.parseInt(movieString[2]);
+        this.runTimeMinutes = (int)Double.parseDouble(movieString[3]);
+        this.genres = movieString[4].split(",");
+
+    }
+
     /**
      * Overloaded constructor.
      * @param movie A movie.
