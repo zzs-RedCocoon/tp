@@ -58,13 +58,13 @@ public final class Storage {
             }
             System.out.println("New save file created in " + file.getAbsolutePath());
         } else {
-            System.out.println("Loaded your saved tasks.");
+            System.out.println("Loaded your saved movies.");
         }
     }
 
     /**
      * Loads and parses each line of data in the save file.
-     * @return ArrayList ({@link java.util.ArrayList}) of String (Task in parseable string format).
+     * @return ArrayList ({@link java.util.ArrayList}) of String (Movie in parseable string format).
      */
     public ArrayList<String[]> load(String path) {
         if (path.isEmpty()) {
@@ -89,61 +89,6 @@ public final class Storage {
     private String[] splitSaveFileLine(String line) {
         return line.split("\\|");
         // return line.split("\\s+" + "\\" + FILE_DELIMITER + "\\s+");
-    }
-
-    /**
-     * Read individual lines of the save file.
-     * @param line each line of the file.
-     * @return String representation of Task.
-     */
-    private String readFileLine(String line) {
-        String output = "";
-
-        // Delimiter and any amount of whitespace on left/right.
-        // Backslashes are also to escape regex \\.
-        String[] linesSplit = line.split("\\s+" + "\\" + FILE_DELIMITER + "\\s+");
-
-        // Currently assumes the file has not been tampered with.
-        // Very simplistic checks.
-        switch (linesSplit[0]) {
-        case "T":
-            // Has to contain T, isDone, and Description
-            if (linesSplit.length == 3) {
-                output = formatTaskAsString(linesSplit);
-            }
-            // FALLTHROUGH
-        case "D":
-            // Has to contain D, isdone, description, by
-            if (linesSplit.length == 4) {
-                output = formatTaskAsString(linesSplit);
-            }
-            // FALLTHROUGH
-        case "E":
-            // Has to contain E, isdone, description, from, to
-            if (linesSplit.length == 5) {
-                output = formatTaskAsString(linesSplit);
-            }
-            // FALLTHROUGH
-        default:
-            System.out.println("I think there's an error with the file.");
-        }
-        return output;
-    }
-
-    /**
-     * Method to format Save File Task to TaskList parseable format.
-     * Simply just concatenate the strings together.
-     * @param linesSplit String[] of Task properties.
-     * @return One whole String
-     */
-    private String formatTaskAsString(String[] linesSplit) {
-        String output = "";
-        for (String s : linesSplit) {
-            output += s;
-            output += " ";
-        }
-        // Just to remove the last trailing whitespace (or any other whitespace in input).
-        return output.trim();
     }
 
     /**
