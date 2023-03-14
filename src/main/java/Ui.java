@@ -4,10 +4,20 @@ import java.util.Scanner;
  * Text UI of the application.
  */
 public class Ui {
+    /**
+     * Show exit message to the user
+     */
     public static void showExitMessage() {
         System.out.println("Thanks for using Movie Mate!");
         System.out.println("Hope to see you again soon :))");
     }
+    public static void printLine() {
+        System.out.println("-------------------------------------------------------------------------");
+    }
+
+    /**
+     * Show welcome message to the user
+     */
     public static void showWelcomeMessage() {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
@@ -15,6 +25,11 @@ public class Ui {
         System.out.println("Hello " + in.nextLine() + ", welcome to movie mate");
         System.out.println("Please enter the command to proceed with MovieMate :))");
     }
+
+    /**
+     * Show help message to the user
+     * TODO change tbc into user guide
+     */
     public static void help() {
         System.out.println("First time using Movie Mate?");
         System.out.println("Here is the link to the user guide: ");
@@ -22,9 +37,17 @@ public class Ui {
         System.out.println("Hope it helps, and have a nice day!");
     }
 
-    public static void showMovieList(MovieList movieList){
-        for(Movie m: movieList.movieList ){
-            System.out.println(m.toString());
-        }
+
+    /**
+     * Shows successfully added movie to the watched/ to-watch list
+     * @param movie The String containing movie title, year, runtime, and genre
+     * @param command The type of list user added the movie into
+     */
+    public static void showAddMovieMessage(String movie, String command) {
+        System.out.println("You have successfully added the movie into your" + command + " list!");
+        System.out.println("Here is the movie detail");
+        System.out.println(movie);
+        System.out.println("Feel free to continue with other features");
+
     }
 }

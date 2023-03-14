@@ -1,13 +1,27 @@
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * Movie Mate class is the main class that starts running the program.
  *
  */
 public class MovieMate {
+    private static Storage storage = new Storage();
     private static String filePath = "data/movies.csv";
-    private static WatchedList watchedList = new WatchedList();
+    private static String newMoviesDB = "data/movies_trimmed.csv";
+    private static String watchedListPath = "data/moviemate_data.txt";
+    private static WatchedList watchedList = new WatchedList(storage.load(watchedListPath));
     private static ToWatchList toWatchList = new ToWatchList();
+    private static MovieDatabase movieDatabase;
+
+    static {
+        try {
+            movieDatabase = new MovieDatabase(ReadCSVFile.readEntireCSV(newMoviesDB));
+        } catch (IOException e) {
+            System.out.println("Critical error with database file.");
+            System.exit(1);
+        }
+    }
+
     public static void main(String[] args) {
         Ui.showWelcomeMessage();
 
@@ -20,40 +34,55 @@ public class MovieMate {
             String[] commandTypeAndParams = Parser.parseCommand(userInput);
             String commandType = commandTypeAndParams[0];
             String commandArg = commandTypeAndParams[1];
+            Movie movie;
+            String[] movieInfo;
 
             switch (commandType) {
             case "watched":
                 // add to watched list
-                String[] movieInfo = ReadCSVFile.find(filePath, commandArg);
 
-                Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
-                        Parser.parseRunTimeMinutes(movieInfo[5]), Arrays.copyOfRange(movieInfo, 6, movieInfo.length));
-                watchedList.add(movie);
+                watchedList.add(commandArg, filePath);
                 break;
             case "towatch":
                 // add to to-watch list
-                String[] towachMovieInfo = ReadCSVFile.find(filePath, commandArg);
+                toWatchList.add(commandArg, filePath);
 
-                Movie towatchMovie = new Movie(towachMovieInfo[0], towachMovieInfo[2],
-                        Integer.parseInt(towachMovieInfo[4]), Parser.parseRunTimeMinutes(towachMovieInfo[5]),
-                        Arrays.copyOfRange(towachMovieInfo, 6, towachMovieInfo.length));
-                toWatchList.add(towatchMovie);
                 break;
             case "help":
                 Ui.help();
+                Ui.printLine();
                 break;
             case "list":
                 // list the watched list
-                Ui.showMovieList(watchedList);
+
+                Integer watchId = 1;
+                for (Movie watched: watchedList.movieList) {
+                    System.out.print(watchId);
+                    System.out.print(". ");
+                    System.out.println(watched.getTitle());
+                    watchId += 1;
+                }
+                Ui.printLine();
                 break;
             case "watchlist":
                 // list the to-watch list
-                Ui.showMovieList(toWatchList);
+                Integer toWatchId = 1;
+                for (Movie towatch: toWatchList.movieList) {
+                    System.out.print(toWatchId);
+                    System.out.print(". ");
+                    System.out.println(towatch.getTitle());
+                    toWatchId += 1;
+                }
+                Ui.printLine();
+
                 break;
+            case "seedetail":
+                // find relevant movie info
+                break;
+            case "exit":
+                // fallthrough
             case "bye":
-                // TODO: Extract this process and print message, save data, upon exit.
-                Ui.showExitMessage();
-                System.exit(0);
+                exit();
                 break;
             default:
                 Ui.help();
@@ -62,6 +91,14 @@ public class MovieMate {
         }
 
     }
+
+    private static void exit() {
+        Ui.showExitMessage();
+        Ui.printLine();
+        storage.writeToFile(watchedListPath, watchedList.getFileWriteFormat());
+        System.exit(0);
+    }
+
     /**
      * Scan in the user input and trim extra white space.
      * If there is no input, continue to scan the next line for input.
