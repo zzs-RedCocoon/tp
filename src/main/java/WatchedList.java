@@ -1,9 +1,15 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class WatchedList extends MovieList{
+
     public WatchedList() {
         super();
     }
+    
+    public WatchedList(ArrayList<String[]> loaded) {
+        super(loaded);
+    }
+
     public void add(String userInputName, String filePath) {
         String[] movieInfo = ReadCSVFile.find(filePath, userInputName);
         Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
@@ -11,5 +17,5 @@ public class WatchedList extends MovieList{
         this.movieList.add(movie);
         Ui.showAddMovieMessage(movie.toString(), "watched");
         Ui.printLine();
-    }
+
 }

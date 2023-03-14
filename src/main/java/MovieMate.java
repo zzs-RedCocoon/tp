@@ -4,8 +4,10 @@ import java.util.Scanner;
  *
  */
 public class MovieMate {
+    private static Storage storage = new Storage();
     private static String filePath = "data/movies.csv";
-    private static WatchedList watchedList = new WatchedList();
+    private static String watchedListPath = "data/moviemate_data.txt";
+    private static WatchedList watchedList = new WatchedList(storage.load(watchedListPath));
     private static ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
         Ui.showWelcomeMessage();
@@ -60,11 +62,10 @@ public class MovieMate {
             case "seedetail":
                 // find relevant movie info
                 break;
+            case "exit":
+                // fallthrough
             case "bye":
-                // TODO: Extract this process and print message, save data, upon exit.
-                Ui.showExitMessage();
-                Ui.printLine();
-                System.exit(0);
+                exit();
                 break;
             default:
                 Ui.help();
@@ -73,6 +74,14 @@ public class MovieMate {
         }
 
     }
+
+    private static void exit() {
+        Ui.showExitMessage();
+        Ui.printLine();
+        storage.writeToFile(watchedListPath, watchedList.getFileWriteFormat());
+        System.exit(0);
+    }
+
     /**
      * Scan in the user input and trim extra white space.
      * If there is no input, continue to scan the next line for input.
