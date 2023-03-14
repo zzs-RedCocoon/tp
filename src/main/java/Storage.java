@@ -1,8 +1,3 @@
-/**
- * Class that handles data storage and loading.
- * Discerning eyes will realise this is, more or less, taken from Zhan Hong's iP.
- */
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -10,6 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class that handles data storage and loading.
+ * Discerning eyes will realise this is, more or less, taken from Zhan Hong's iP.
+ */
 public final class Storage {
 
     private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
@@ -107,26 +106,26 @@ public final class Storage {
         // Currently assumes the file has not been tampered with.
         // Very simplistic checks.
         switch (linesSplit[0]) {
-            case "T":
-                // Has to contain T, isDone, and Description
-                if (linesSplit.length == 3) {
-                    output = formatTaskAsString(linesSplit);
-                }
-                // FALLTHROUGH
-            case "D":
-                // Has to contain D, isdone, description, by
-                if (linesSplit.length == 4) {
-                    output = formatTaskAsString(linesSplit);
-                }
-                // FALLTHROUGH
-            case "E":
-                // Has to contain E, isdone, description, from, to
-                if (linesSplit.length == 5) {
-                    output = formatTaskAsString(linesSplit);
-                }
-                // FALLTHROUGH
-            default:
-                System.out.println("I think there's an error with the file.");
+        case "T":
+            // Has to contain T, isDone, and Description
+            if (linesSplit.length == 3) {
+                output = formatTaskAsString(linesSplit);
+            }
+            // FALLTHROUGH
+        case "D":
+            // Has to contain D, isdone, description, by
+            if (linesSplit.length == 4) {
+                output = formatTaskAsString(linesSplit);
+            }
+            // FALLTHROUGH
+        case "E":
+            // Has to contain E, isdone, description, from, to
+            if (linesSplit.length == 5) {
+                output = formatTaskAsString(linesSplit);
+            }
+            // FALLTHROUGH
+        default:
+            System.out.println("I think there's an error with the file.");
         }
         return output;
     }
