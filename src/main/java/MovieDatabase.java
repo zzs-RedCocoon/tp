@@ -37,8 +37,7 @@ public class MovieDatabase {
      * Find the movies that contain the movie name entered by the user and return them
      *
      * @param userInputMovieName The movie name entered by the user
-     * @return return an array list of movies with at most five movies
-     * whose names containing the user input movie name
+     * @return return an array list of movies with at most five movies, whose names containing the user input movie name
      */
     public static ArrayList<Movie> find(String userInputMovieName) {
         ArrayList<Movie> relevantMovies = new ArrayList<Movie>();
