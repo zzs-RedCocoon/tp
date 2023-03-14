@@ -63,4 +63,12 @@ public class Ui {
         printLine();
         System.out.println("These are the movies in your list, hope it helps!");
     }
+
+    /**
+     * Show successfully deleted movie from list to the user
+     */
+    public static void showDeleteMessage() {
+        System.out.println("The movie has been deleted for you!");
+        printLine();
+    }
 }
