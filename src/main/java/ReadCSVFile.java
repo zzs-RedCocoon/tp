@@ -3,7 +3,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ReadCSVFile {
+/**
+ * Class that contains only static methods to parse CSV.
+ * To be used by Storage through delegation.
+ */
+public final class ReadCSVFile {
     // Split but ignore those in strings e.g. "Genre, Genre, Genre".
     // Follow CSV convention.
     // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes
@@ -12,7 +16,7 @@ public class ReadCSVFile {
     // We only want this many movies (Note the file itself has about 130,000).
     private static final int MAX_LINES_READ = 150000;
 
-    public static ArrayList<String[]> readEntireCSV(String filePath) {
+    public static final ArrayList<String[]> readEntireCSV(String filePath) {
         String line = "";
 
         ArrayList<String[]> output = new ArrayList<String[]>();
