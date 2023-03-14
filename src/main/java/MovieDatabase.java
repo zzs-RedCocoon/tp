@@ -10,7 +10,7 @@ public class MovieDatabase {
     private TreeMap<String, Movie> movieDatabase;
 
     public MovieDatabase(ArrayList<String[]> movieStrings) throws IOException {
-        System.out.println("Loading movie database...");
+        System.out.print("Loading movie database...");
         TreeMap<String, Movie> movies = new TreeMap<String, Movie>();
 
         // Get the headers first.
@@ -30,6 +30,6 @@ public class MovieDatabase {
             movies.put(movie.toString(), movie);
         }
         this.movieDatabase = movies;
-
+        System.out.println(" Okay, movie database loaded.");
     }
 }

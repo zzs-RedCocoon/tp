@@ -74,7 +74,7 @@ public class MovieList {
         int year = Integer.parseInt(movieStrings[2]);
         int runTime = Integer.parseInt(movieStrings[3]);
         String genreStrings = movieStrings[4];
-        String[] genres = parseGenres(movieStrings[5]);
+        String[] genres = parseGenres(genreStrings);
 
         Movie movie = new Movie(id, title, year, runTime, genres);
         if (movieStrings.length == 5) {
