@@ -34,8 +34,6 @@ public class MovieMate {
             String[] commandTypeAndParams = Parser.parseCommand(userInput);
             String commandType = commandTypeAndParams[0];
             String commandArg = commandTypeAndParams[1];
-            Movie movie;
-            String[] movieInfo;
 
             switch (commandType) {
             case "watched":
