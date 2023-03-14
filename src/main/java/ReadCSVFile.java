@@ -12,6 +12,8 @@ public final class ReadCSVFile {
     // Follow CSV convention.
     // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes
     private static final String CSV_DELIM = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+    // For above, to target (and remove) the opening and closing quotes.
+    private static final String REGEX_REMOVE_QUOTES = "^\\\"+|\\\"+$";
 
     // We only want this many movies (Note the file itself has about 130,000).
     private static final int MAX_LINES_READ = 150000;
@@ -26,6 +28,11 @@ public final class ReadCSVFile {
             Integer numLinesRead = 0;
             while (numLinesRead < MAX_LINES_READ && (line = br.readLine()) != null) {
                 String[] row = line.split(CSV_DELIM, -1);
+
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = trimQuotes(row[i]);
+                }
+
                 output.add(row);
             }
 
@@ -34,6 +41,21 @@ public final class ReadCSVFile {
             e.printStackTrace();
         }
         return output;
+    }
+
+    /**
+     * Remove start and end quotes.
+     */
+    private static String trimQuotes(String input) {
+        if (input.contains("\"")) {
+            String[] split = input.split(REGEX_REMOVE_QUOTES);
+            for (String s : split) {
+                if (!s.isEmpty()) {
+                    return s;
+                }
+            }
+        }
+        return input;
     }
 }
 
