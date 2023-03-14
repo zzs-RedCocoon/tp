@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -39,6 +40,18 @@ public class MovieList {
     }
 
     /**
+     * Adds a movie from the list of movies.
+     * @param inputTitle title of movie as input by user.
+     * @param filePath where the CSV File is located.
+     */
+    public void add(String inputTitle, String filePath) {
+        String[] movieInfo = ReadCSVFile.find(filePath, inputTitle);
+        Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
+                Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
+        this.movieList.add(movie);
+    }
+
+    /**
      * Remove a specific movie from the contained list.
      * @param movie a movie.
      */
@@ -61,7 +74,7 @@ public class MovieList {
         int year = Integer.parseInt(movieStrings[2]);
         int runTime = Integer.parseInt(movieStrings[3]);
         String genreStrings = movieStrings[4];
-        String[] genres = parseGenres(movieStrings[5]);
+        String[] genres = parseGenres(genreStrings);
 
         Movie movie = new Movie(id, title, year, runTime, genres);
         if (movieStrings.length == 5) {

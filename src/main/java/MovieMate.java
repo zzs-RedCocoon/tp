@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * Movie Mate class is the main class that starts running the program.
@@ -6,9 +7,21 @@ import java.util.Scanner;
 public class MovieMate {
     private static Storage storage = new Storage();
     private static String filePath = "data/movies.csv";
+    private static String newMoviesDB = "data/movies_trimmed.csv";
     private static String watchedListPath = "data/moviemate_data.txt";
     private static WatchedList watchedList = new WatchedList(storage.load(watchedListPath));
     private static ToWatchList toWatchList = new ToWatchList();
+    private static MovieDatabase movieDatabase;
+
+    static {
+        try {
+            movieDatabase = new MovieDatabase(ReadCSVFile.readEntireCSV(newMoviesDB));
+        } catch (IOException e) {
+            System.out.println("Critical error with database file.");
+            System.exit(1);
+        }
+    }
+
     public static void main(String[] args) {
         Ui.showWelcomeMessage();
 

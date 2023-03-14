@@ -28,6 +28,15 @@ public class Movie implements Comparable<Movie> {
         this.genres = genres;
     }
 
+    public Movie(String[] movieString) {
+        this.titleID = movieString[0];
+        this.title = movieString[1];
+        this.year = Integer.parseInt(movieString[2]);
+        this.runTimeMinutes = (int)Double.parseDouble(movieString[3]);
+        this.genres = movieString[4].split(",");
+
+    }
+
     /**
      * Overloaded constructor.
      * @param movie A movie.
@@ -39,6 +48,7 @@ public class Movie implements Comparable<Movie> {
     /**
      * Default comparator.
      * Sorting rules: Alphabetical title, then year.
+     * TODO: need to compareTo titleID in case there is a same movie same year?
      * @param o the object to be compared.
      * @return
      */
@@ -90,12 +100,17 @@ public class Movie implements Comparable<Movie> {
     public String[] getGenres() {
         return genres;
     }
-    
+
+    @Override
     public String toString() {
+        return String.format("%s (%d)", this.title, this.year);
+        /*
         return "Title: " + title + "\n" +
                 "Year: " + year + "\n" +
                 "Run time: " + runTimeMinutes + "\n" +
                 "Genres: " + genres;
+
+         */
     }
     
 }
