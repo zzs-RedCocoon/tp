@@ -52,25 +52,11 @@ public class MovieMate {
                 break;
             case "list":
                 // list the watched list
-                Integer watchId = 1;
-                for (Movie watched: watchedList.movieList) {
-                    System.out.print(watchId);
-                    System.out.print(". ");
-                    System.out.println(watched.getTitle());
-                    watchId += 1;
-                }
-                Ui.printLine();
+                Ui.showListMessage(watchedList);
                 break;
             case "watchlist":
                 // list the to-watch list
-                Integer toWatchId = 1;
-                for (Movie towatch: toWatchList.movieList) {
-                    System.out.print(toWatchId);
-                    System.out.print(". ");
-                    System.out.println(towatch.getTitle());
-                    toWatchId += 1;
-                }
-                Ui.printLine();
+                Ui.showListMessage(toWatchList);
                 break;
             case "seedetail":
                 // find relevant movie info

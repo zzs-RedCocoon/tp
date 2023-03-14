@@ -47,4 +47,20 @@ public class Ui {
         System.out.println(movie);
         System.out.println("Feel free to continue with other features");
     }
+
+    /**
+     * Show the movie list, watched or to-watch, to the user.
+     * @param movieList The movie list to show
+     */
+    public static void showListMessage(MovieList movieList) {
+        Integer watchId = 1;
+        for (Movie watched: movieList.movieList) {
+            System.out.print(watchId);
+            System.out.print(". ");
+            System.out.println(watched.getTitle());
+            watchId += 1;
+        }
+        printLine();
+        System.out.println("These are the movies in your list, hope it helps!");
+    }
 }
