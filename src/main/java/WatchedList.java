@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class WatchedList extends MovieList{
+public class WatchedList extends MovieList {
 
     public WatchedList() {
         super();
@@ -17,5 +17,6 @@ public class WatchedList extends MovieList{
         this.movieList.add(movie);
         Ui.showAddMovieMessage(movie.toString(), "watched");
         Ui.printLine();
+    }
 
 }
