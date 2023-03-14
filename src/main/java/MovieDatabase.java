@@ -43,7 +43,7 @@ public class MovieDatabase {
         ArrayList<Movie> relevantMovies = new ArrayList<Movie>();
         Integer movieCount = 0;
         for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
-            if (entry.getKey().contains(userInputMovieName)) {
+            if (entry.getKey().toLowerCase().contains(userInputMovieName.toLowerCase())) {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
             }
