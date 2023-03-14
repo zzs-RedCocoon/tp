@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * A list of movies the user plans to watch.
  */
