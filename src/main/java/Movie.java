@@ -49,6 +49,27 @@ public class Movie implements Comparable<Movie> {
                 : (this.getTitle().compareTo(o.getTitle()));
     }
 
+    public String getWriteFormat() {
+        String splitGenres = this.splitGenres();
+        // TODO: See if i can extract the delimiter somehow...
+        // ID|Title|Year|RunTime|Genres
+        return String.format("%s|%s|%d|%d|%s",
+                this.titleID,
+                this.title,
+                this.year,
+                this.runTimeMinutes,
+                splitGenres);
+    }
+
+    public String splitGenres() {
+        String output = "";
+        for (String genre : this.genres) {
+            output += genre + ",";
+        }
+        // Remove last comma
+        return output.substring(0, output.length() - 1);
+    }
+
     /* Getters all here below */
     public String getTitleID() {
         return titleID;
@@ -68,5 +89,12 @@ public class Movie implements Comparable<Movie> {
 
     public String[] getGenres() {
         return genres;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s (%d)", this.title, this.year
+        );
     }
 }
