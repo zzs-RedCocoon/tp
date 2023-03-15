@@ -40,13 +40,11 @@ public class MovieMate {
             switch (commandType) {
             case "watched":
                 // add to watched list
-
                 watchedList.add(commandArg, filePath);
                 break;
             case "towatch":
                 // add to to-watch list
                 toWatchList.add(commandArg, filePath);
-
                 break;
             case "help":
                 Ui.help();
@@ -54,7 +52,6 @@ public class MovieMate {
                 break;
             case "list":
                 // list the watched list
-
                 Integer watchId = 1;
                 for (Movie watched: watchedList.movieList) {
                     System.out.print(watchId);

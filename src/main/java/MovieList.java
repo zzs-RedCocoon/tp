@@ -44,7 +44,7 @@ public class MovieList {
      * @param inputTitle title of movie as input by user.
      * @param filePath where the CSV File is located.
      */
-    public void add(String inputTitle, String filePath) {
+    public void  add(String inputTitle, String filePath) {
         String[] movieInfo = ReadCSVFile.find(filePath, inputTitle);
         Movie movie = new Movie(movieInfo[0], movieInfo[2], Integer.parseInt(movieInfo[4]),
                 Integer.parseInt(movieInfo[5]), Arrays.copyOfRange(movieInfo, 5, movieInfo.length));
