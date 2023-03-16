@@ -62,9 +62,11 @@ Examples:\
 \>> list
 1. Avengers: Endgame
 2. La La Land
+\
 '''
 
 '''
+\
 \>> remove watched 1\
 \>> list
 1. La La Land
@@ -76,9 +78,11 @@ Examples:\
 \>> watchlist
 1. Avengers: Endgame
 2. La La Land
+\
 '''
 
 '''
+\
 \>> remove towatch 1\
 \>> list
 1. La La Land
