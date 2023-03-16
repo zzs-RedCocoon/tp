@@ -1,10 +1,14 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.*;
+
 /**
  * Movie Mate class is the main class that starts running the program.
  *
  */
 public class MovieMate {
+    private static Logger logger = Logger.getLogger("MovieMate");
+
     private static Storage storage = new Storage();
     private static String filePath = "data/movies.csv";
     private static String watchedListPath = "data/moviemate_watchlist.txt";
@@ -17,6 +21,7 @@ public class MovieMate {
         try {
             movieDatabase = new MovieDatabase(storage.loadDatabase());
         } catch (IOException e) {
+            logger.log(Level.WARNING, "processing error");
             System.out.println("Critical error: You might be missing a database file.");
             System.exit(1);
         }
