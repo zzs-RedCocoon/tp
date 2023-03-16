@@ -89,9 +89,9 @@ Examples:\
 
 ### seedetail
 See the details of the movie as provided by the database. This does not include user-specific properties.\
-Format: seedetail \<Movie Index\>\
+Format: seedetail \<Movie Name\>\
 Examples:\
-\>> seedetail 1\
+\>> seedetail Avengers: Endgame\
 \<length\>\
 \<release date\>\
 \<genre\>\
