@@ -60,24 +60,24 @@ Removes a movie from the list of watched movies.\
 Format: remove watched \<Movie Index\>\
 Examples:\
 \>> list\
-\1. Avengers: Endgame\
-\2. La La Land\
+1\. Avengers: Endgame\
+2\. La La Land\
  \
 \>> remove watched 1\
 \>> list\
-\1. La La Land
+1\. La La Land
 
 ### remove towatch
 Removes a movie from the to-watch list.\
 Format: remove towatch \<Movie Index\>\
 Examples:\
 \>> watchlist\
-\1. Avengers: Endgame\
-\2. La La Land
+1\. Avengers: Endgame\
+2\. La La Land
  \
 \>> remove towatch 1\
 \>> list\
-\1. La La Land
+1\. La La Land
 
 ### seedetail
 See the details of the movie as provided by the database. This does not include user-specific properties.\
