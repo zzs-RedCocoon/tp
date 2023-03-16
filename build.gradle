@@ -43,7 +43,5 @@ checkstyle {
 
 run{
     standardInput = System.in
-}
-run {
     enableAssertions = true
 }
