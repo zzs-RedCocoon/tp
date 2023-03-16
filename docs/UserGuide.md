@@ -43,44 +43,44 @@ La La Land
 Lists all the movies you have watched.\
 Format: list\
 Example:\
-\>> list\
-1. \<Movie Name 1\>\
+\>> list
+1. \<Movie Name 1\>
 2. \<Movie Name 2\>
 
 ### watchlist
 Lists the movies you are planning to watch.\
 Format: watchlist\
 Example:\
-\>> watchlist\
-1. \<Movie Name 1\>\
+\>> watchlist
+1. \<Movie Name 1\>
 2. \<Movie Name 2\>
 
 ### remove watched
 Removes a movie from the list of watched movies.\
 Format: remove watched \<Movie Index\>\
 Examples:\
-\>> list\
-1. Avengers: Endgame\
-2. La La Land\
+\>> list
+1. Avengers: Endgame
+2. La La Land
 '''
 
 '''
 \>> remove watched 1\
-\>> list\
+\>> list
 1. La La Land
 
 ### remove towatch
 Removes a movie from the to-watch list.\
 Format: remove towatch \<Movie Index\>\
 Examples:\
-\>> watchlist\
-1. Avengers: Endgame\
+\>> watchlist
+1. Avengers: Endgame
 2. La La Land
 '''
 
 '''
 \>> remove towatch 1\
-\>> list\
+\>> list
 1. La La Land
 
 ### seedetail
