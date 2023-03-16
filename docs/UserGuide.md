@@ -27,7 +27,7 @@ La La Land
 
 ### towatch
 Adds an unwatched movie to your to-watch list.\
-Format: towatch <movie name>\
+Format: towatch \<Movie Name\>\
 Examples:\
 \>> watchlist\
 Titanic\
@@ -44,65 +44,65 @@ Lists all the movies you have watched.\
 Format: list\
 Example:\
 \>> list\
-1. <Movie Name 1>\
-2. <Movie Name 2>
+\1. \<Movie Name 1\>\
+\2. \<Movie Name 2\>
 
 ### watchlist
 Lists the movies you are planning to watch.\
 Format: watchlist\
 Example:\
 \>> watchlist\
-1. <Movie Name 1>\
-2. <Movie Name 2>
+\1. \<Movie Name 1\>\
+\2. \<Movie Name 2\>
 
 ### remove watched
 Removes a movie from the list of watched movies.\
-Format: remove watched <Movie Index>\
+Format: remove watched \<Movie Index\>\
 Examples:\
 \>> list\
-1. Avengers: Endgame\
-2. La La Land\
+\1. Avengers: Endgame\
+\2. La La Land\
  \
 \>> remove watched 1\
 \>> list\
-1. La La Land
+\1. La La Land
 
 ### remove towatch
 Removes a movie from the to-watch list.\
-Format: remove towatch <Movie Index>\
+Format: remove towatch \<Movie Index\>\
 Examples:\
 \>> watchlist\
-1. Avengers: Endgame\
-2. La La Land
+\1. Avengers: Endgame\
+\2. La La Land
  \
 \>> remove towatch 1\
 \>> list\
-1. La La Land
+\1. La La Land
 
 ### seedetail
 See the details of the movie as provided by the database. This does not include user-specific properties.\
-Format: seedetail <Movie Index>\
+Format: seedetail \<Movie Index\>\
 Examples:\
 \>> seedetail 1\
-<length>\
-<release date>\
-<genre>\
-<description of movie>
+\<length\>\
+\<release date\>\
+\<genre\>\
+\<description of movie\>
 
 ### filter
 Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.\
-Format: filter <Genre>\
+Format: filter \<Genre\>\
 Examples:\
 \>> filter comedy\
-<Comedy Movie 1>\
+<Comedy Movie 1>
 <Comedy Movie 2>
 
 ### addreview
 Adds a review for a watched movie. The review will be done when the user types in /done.\
 Format:\
-\>> addreview <Movie Index> [enter]\
-\>> <your review>\
-\>> <your review>\
+\>> addreview \<Movie Index\> [enter]\
+\>> \<your review\>\
+\>> \<your review\>\
 \>> /done\
 Examples:\
 \>> addreview 1\
@@ -115,7 +115,7 @@ Review added!
 
 ### deletereview
 Delete a review for a watched movie.\
-Format: deletereview <Movie Index>\
+Format: deletereview \<Movie Index\>\
 Examples:\
 \>> deletereview 1\
 deleted Avengers: EndGame
@@ -125,9 +125,7 @@ Allows you to see your review of the watched movie.\
 Format: viewreview <Movie Index>\
 Examples:\
 \>> viewreview 1\
-Such a thrilling movie to watch!\
-Exit MovieMate: bye\
-The exit function will allow you to leave the program.
+Such a thrilling movie to watch!
 
 ### bye
 Closes MovieMate.\
