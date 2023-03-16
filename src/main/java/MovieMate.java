@@ -28,7 +28,7 @@ public class MovieMate {
     }
 
     public static void main(String[] args) {
-        assert false: "dummy assertion set to fail";
+        assert true: "dummy assertion set to true";
         Ui.showWelcomeMessage();
 
         // Initialise Scanner
