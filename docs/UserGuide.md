@@ -13,7 +13,7 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 
 ### watched
 Adds a movie to your watched list.\
-Format: watched <Movie Name>\
+Format: watched \<Movie Name\>\
 Examples:\
 \>> list\
 Titanic\
