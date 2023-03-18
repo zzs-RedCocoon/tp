@@ -1,42 +1,144 @@
-# User Guide
+# MovieMate User Guide
+MovieMate is a command-line app for managing your own list of movies that you’ve watched or planning to watch. It allows you to store your ratings and reviews for different movies and give you a quick glance of your movie list. You can also keep track of all the movies you plan to watch separately. Moreover, it allows you to filter specific types of movies to help you search for the movie you want effectively.
 
-## Introduction
+## Features
+### help
+Will print all the commands that the user can use.\
+Format: help\
+\>> help\
+First time using MovieMate? Below is the quick guide for you to get to know about how to use the app ...\
+Add A Movie to the watched List: watched\
+Adds a movie to the list of watched movies.\
+If the item currently exists in the watchlist, it will be moved to the watched list.
 
-{Give a product intro}
+### watched
+Adds a movie to your watched list.\
+Format: watched \<Movie Name\>\
+Examples:\
+\>> list\
+Titanic\
+\>> watched Avengers: Endgame\
+\>> watched La La Land\
+ \
+\>> list\
+Titanic\
+Avengers: Endgame\
+La La Land
 
-## Quick Start
+### towatch
+Adds an unwatched movie to your to-watch list.\
+Format: towatch \<Movie Name\>\
+Examples:\
+\>> watchlist\
+Titanic\
+\>> towatch Avengers: Endgame\
+\>> towatch La La Land\
+ \
+\>> watchlist\
+Titanic\
+Avengers Endgame\
+La La Land
 
-{Give steps to get started quickly}
+#### list
+Lists all the movies you have watched.\
+Format: list\
+Example:\
+\>> list
+1. \<Movie Name 1\>
+2. \<Movie Name 2\>
 
-1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [here](http://link.to/duke).
+### watchlist
+Lists the movies you are planning to watch.\
+Format: watchlist\
+Example:\
+\>> watchlist
+1. \<Movie Name 1\>
+2. \<Movie Name 2\>
 
-## Features 
+### remove watched
+Removes a movie from the list of watched movies.\
+Format: remove watched \<Movie Index\>\
+Examples:\
+\>> list
+1. Avengers: Endgame
+2. La La Land
+\
+'''
 
-{Give detailed description of each feature}
+'''
+\
+\>> remove watched 1\
+\>> list
+1. La La Land
 
-### Adding a todo: `todo`
-Adds a new item to the list of todo items.
+### remove towatch
+Removes a movie from the to-watch list.\
+Format: remove towatch \<Movie Index\>\
+Examples:\
+\>> watchlist
+1. Avengers: Endgame
+2. La La Land
+\
+'''
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+'''
+\
+\>> remove towatch 1\
+\>> list
+1. La La Land
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+### seedetail
+See the details of the movie as provided by the database. This does not include user-specific properties.\
+Format: seedetail \<Movie Name\>\
+Examples:\
+\>> seedetail Avengers: Endgame\
+\<length\>\
+\<release date\>\
+\<genre\>\
+\<description of movie\>
 
-Example of usage: 
+### filter
+Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.\
+Format: filter \<Genre\>\
+Examples:\
+\>> filter comedy\
+<Comedy Movie 1>
+<Comedy Movie 2>
 
-`todo n/Write the rest of the User Guide d/next week`
+### addreview
+Adds a review for a watched movie. The review will be done when the user types in /done.\
+Format:\
+\>> addreview \<Movie Index\> [enter]\
+\>> \<your review\>\
+\>> \<your review\>\
+\>> /done\
+Examples:\
+\>> addreview 1\
+\>> Such a thrilling movie to watch!\
+\>> ...\
+\>> ...\
+\>> and that is the end of my review.\
+\>> /done\
+Review added!
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+### deletereview
+Delete a review for a watched movie.\
+Format: deletereview \<Movie Index\>\
+Examples:\
+\>> deletereview 1\
+deleted Avengers: EndGame
 
-## FAQ
+### viewreview
+Allows you to see your review of the watched movie.\
+Format: viewreview <Movie Index>\
+Examples:\
+\>> viewreview 1\
+Such a thrilling movie to watch!
 
-**Q**: How do I transfer my data to another computer? 
+### bye
+Closes MovieMate.\
+Format: bye\
+Examples:\
+\>> bye\
+Hope you enjoy your experience with MovieMate and we will see you next time!
 
-**A**: {your answer here}
-
-## Command Summary
-
-{Give a 'cheat sheet' of commands here}
-
-* Add todo `todo n/TODO_NAME d/DEADLINE`
