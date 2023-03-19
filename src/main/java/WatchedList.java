@@ -11,14 +11,12 @@ public class WatchedList extends MovieList {
     }
 
     public void setReview(int index) {
-        // Offset one-indexing.
-        int i = index - 1;
-        Movie currentMovie = this.movieList.get(i);
+        Movie currentMovie = this.getMovie(index);
         MovieEntry reviewedMovie = new MovieEntry(currentMovie);
 
         // Do review here.
         reviewedMovie.setReview();
 
-        this.movieList.set(i, reviewedMovie);
+        this.movieList.set(index, reviewedMovie);
     }
 }

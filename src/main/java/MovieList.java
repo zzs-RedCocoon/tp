@@ -140,6 +140,25 @@ public class MovieList {
         return output;
     }
 
+    /**
+     * To be used by user-facing operations to automatically account for indexing problems.
+     *
+     * @param index
+     * @return
+     */
+    public Movie getMovie(int index) {
+        int i = index - 1;
+        try {
+            return this.movieList.get(i);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("I don't think you got the right movie number.");
+            e.getMessage();
+        }
+
+        // Do you want to return null or throw new exception?
+        return null;
+    }
+
     @Override
     public String toString() {
         return this.movieList.toString();
