@@ -12,11 +12,10 @@ import java.util.Scanner;
  */
 public final class Storage {
 
-    private static final String dbPath = "/movies_db.csv";
-    private static final String DATABASE_PATH = "data/movies_trimmed.csv";
+    private static final String DB_PATH = "/movies_db.csv";
     private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
     private static final String FILE_DELIMITER = "|";
-    private String filePath; // To store custom file path and for methods to reference.
+    private final String filePath; // To store custom file path and for methods to reference.
 
     /**
      * Constructor with custom FilePath defined
@@ -52,16 +51,16 @@ public final class Storage {
             }
         }
 
-        // Check if file exists.
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                System.out.println("An error occurred in creating a new save file.");
+        // Create file if it doesn't exist.
+        try {
+            // Returns true if created, false if already exists.
+            if (file.createNewFile()) {
+                System.out.println("New save file created in " + file.getAbsolutePath());
+            } else {
+                System.out.println("Loaded your saved movies.");
             }
-            System.out.println("New save file created in " + file.getAbsolutePath());
-        } else {
-            System.out.println("Loaded your saved movies.");
+        } catch (IOException e) {
+            System.out.println("An error occurred in creating a new save file.");
         }
     }
 
@@ -90,15 +89,13 @@ public final class Storage {
     }
 
     private String[] splitSaveFileLine(String line) {
-        return line.split("\\|");
-        // return line.split("\\s+" + "\\" + FILE_DELIMITER + "\\s+");
+        return line.split("\\"+ FILE_DELIMITER);
     }
 
     /**
      * Writes input text to file.
      * This will overwrite existing contents (Intended, for updating)
      * @param textToAdd Everything to be written into the file.
-     * @throws IOException Unable to write successfully.
      */
     public void writeToFile(String path, String textToAdd) {
         if (path.isEmpty()) {
@@ -117,7 +114,7 @@ public final class Storage {
     }
 
     public ArrayList<String[]> loadDatabase() {
-        InputStream is = getClass().getResourceAsStream(dbPath);
+        InputStream is = getClass().getResourceAsStream(DB_PATH);
 
         return ReadCSVFile.readEntireCSV(is);
     }
