@@ -65,6 +65,9 @@ public class MovieList {
         } catch (NumberFormatException e) { // cannot parse string to int
             System.out.println("Movie id should be number.");
             return;
+        } catch(IndexOutOfBoundsException e){
+            System.out.println("Movie id is out of range");
+            return;
         }
 
         this.movieList.add(movie);
