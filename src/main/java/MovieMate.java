@@ -11,6 +11,8 @@ public class MovieMate {
     private static Logger logger = Logger.getLogger("MovieMate");
 
     private static Storage storage = new Storage();
+
+
     private static String filePath = "data/movies.csv";
     private static String watchedListPath = "data/moviemate_watchlist.txt";
     private static String toWatchListPath = "data/moviemate_towatch.txt";
@@ -29,7 +31,9 @@ public class MovieMate {
     }
 
     public static void main(String[] args) {
-        assert true: "dummy assertion set to true";
+
+        //assert true: "dummy assertion set to true";
+
         Ui.showWelcomeMessage();
 
         // Initialise Scanner

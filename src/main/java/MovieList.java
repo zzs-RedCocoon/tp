@@ -57,10 +57,22 @@ public class MovieList {
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
         Scanner scan = new Scanner(System.in);;
-        String s = "";
-        s = scan.nextLine();
-        final Movie movie = relevantMovies.get(Integer.parseInt(s)-1);
-        this.movieList.add(movie);
+        String s = scan.nextLine();
+
+        Movie movie;
+        try {
+            movie = relevantMovies.get(Integer.parseInt(s) - 1);
+        } catch (NumberFormatException e) { // cannot parse string to int
+            System.out.println("Movie id should be number.");
+            return;
+        } catch(IndexOutOfBoundsException e){ //id out of range
+            System.out.println("Movie id is out of range.");
+            return;
+        }
+
+        if(!movieList.contains(movie)){
+            this.movieList.add(movie);
+        }
         Ui.showAddMovieMessage(movie.toString());
     }
 
