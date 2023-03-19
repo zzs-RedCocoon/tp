@@ -34,6 +34,22 @@ public class Review implements Comparable<Review> {
     }
 
     /**
+     * Set review for both text and stars.
+     */
+    public void setReview() {
+        Scanner scan = new Scanner(System.in);
+
+        // Set Review Text First
+        this.setReviewText(scan);
+        System.out.println("Text review added.");
+
+        this.setReviewStars(scan);
+        System.out.println("Star review added.");
+
+        scan.close();
+    }
+
+    /**
      * Sets the star review from 0 to 5 (Inclusive).
      * Feedback to user (No change) if stars are not valid.
      * @param stars star rating of 0 to 5 inclusive.
@@ -47,6 +63,28 @@ public class Review implements Comparable<Review> {
         this.reviewStars = stars;
     }
 
+    public void setReviewStars(Scanner scan) {
+        // Sorry for arrow nesting it.
+        while (true) {
+            System.out.print("Please rate the movie [0 to 5]: ");
+            if (scan.hasNextInt()) {
+                int stars = scan.nextInt();
+
+                // Bad path
+                if (stars > 5 || stars < 0) {
+                    System.out.println("Hey! Reviews only from 0 to 5!");
+                    // Throw MovieMate exception?
+                    continue;
+                }
+                this.reviewStars = stars;
+                return;
+            } else {
+                System.out.println("Please input a number [0 to 5]!");
+            }
+        }
+
+    }
+
     public int getReviewStars() {
         return this.reviewStars;
     }
@@ -54,8 +92,8 @@ public class Review implements Comparable<Review> {
     /**
      * Sets the review text, which actually requires scanner.
      */
-    public void setReviewText() {
-        Scanner scan = new Scanner(System.in);
+    public void setReviewText(Scanner scan) {
+
         String review = "";
         System.out.println("Write your review. Use as many lines as you need. "
                 + "To end, simply input a blank line.");
@@ -63,14 +101,16 @@ public class Review implements Comparable<Review> {
 
         // Stop when empty.
         while (true) {
-            // Line separator is included in nextLine.
-            if (scan.nextLine().equals("")) {
+            System.out.print("> ");
+            String line = scan.nextLine();
+
+            // has next as long as it's not whitespace only.
+            if (line.trim().isEmpty()) {
                 break;
             }
-            review += scan.nextLine();
+            review += line;
         }
         this.reviewText = review;
-        System.out.println("Text review added");
     }
 
     public String getReviewText() {

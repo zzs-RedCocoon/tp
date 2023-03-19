@@ -28,10 +28,9 @@ public class MovieEntry extends Movie {
 
     /**
      * Add (or overwrite) a review for the particular movie listing.
-     * @param review A string for your review.
      */
     public void setReview() {
-        this.review.setReviewText();
+        this.review.setReview();
     }
 
     public void deleteReview(String review) {
