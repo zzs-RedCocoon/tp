@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -87,6 +88,19 @@ public class MovieList {
         }
     }
 
+    public void filter(String genre){
+        System.out.println("In " + getClass().getName() + ":");
+        int i = 1;
+        for(Movie movie : movieList){
+            if(Arrays.asList(movie.getGenres()).contains(genre)) {
+                System.out.printf("%d. %s\n", i, movie.toString());
+                i++;
+            }
+        }
+        if(i == 1){
+            System.out.println("There are no movies of this genre in this list");
+        }
+    }
     /**
      * Remove a specific movie from the contained list.
      * @param movie a movie.
