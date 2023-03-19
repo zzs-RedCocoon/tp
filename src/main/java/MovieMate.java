@@ -8,12 +8,9 @@ import java.util.logging.Logger;
  *
  */
 public class MovieMate {
-    private static Logger logger = Logger.getLogger("MovieMate");
-
-    private static Storage storage = new Storage();
-
-
-    private static String filePath = "data/movies.csv";
+    private static final Logger logger = Logger.getLogger("MovieMate");
+    
+    private static final Storage storage = new Storage();
     private static String watchedListPath = "data/moviemate_watchlist.txt";
     private static String toWatchListPath = "data/moviemate_towatch.txt";
     private static WatchedList watchedList = new WatchedList(storage.load(watchedListPath));
