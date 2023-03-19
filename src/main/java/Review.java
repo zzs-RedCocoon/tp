@@ -50,9 +50,9 @@ public class Review {
 
     /**
      * Sets the review text, which actually requires scanner.
-     * @param scan the scanner object being used for user input.
      */
-    public void setReviewText(Scanner scan) {
+    public void setReviewText() {
+        Scanner scan = new Scanner(System.in);
         String review = "";
         System.out.println("Write your review. Use as many lines as you need."
                 + "To end, simply input a blank line.");
