@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +24,7 @@ public final class ReadCSVFile {
 
         ArrayList<String[]> output = new ArrayList<String[]>();
         // Open file to read
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
             int numLinesRead = 0;
             while (numLinesRead < MAX_LINES_READ && (line = br.readLine()) != null) {
