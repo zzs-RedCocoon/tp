@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +8,7 @@ import java.util.Scanner;
  */
 public final class Storage {
 
+    private static final String dbPath = "/movies_db.csv";
     private static final String DATABASE_PATH = "data/movies_trimmed.csv";
     private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
     private static final String FILE_DELIMITER = "|";
@@ -115,7 +113,9 @@ public final class Storage {
     }
 
     public ArrayList<String[]> loadDatabase() {
-        return ReadCSVFile.readEntireCSV(DATABASE_PATH);
+        InputStream is = getClass().getResourceAsStream(dbPath);
+
+        return ReadCSVFile.readEntireCSV(is);
     }
 
 }
