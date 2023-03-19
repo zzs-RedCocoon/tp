@@ -69,6 +69,9 @@ public class MovieMate {
             case "seedetail":
                 // find relevant movie info
                 break;
+            case "review":
+                watchedList.setReview(commandArg);
+                break;
             case "filter":
                 watchedList.filter(commandArg);
                 toWatchList.filter(commandArg);

@@ -5,44 +5,40 @@ import java.util.Date;
  */
 public class MovieEntry extends Movie {
     private Date dateWatched;
-    private String review;
+    private Review review;
 
     public MovieEntry(String titleID, String title, int year, int runTimeMinutes, String[] genres) {
         super(titleID, title, year, runTimeMinutes, genres);
-        this.review = "";
+        this.review = new Review();
     }
 
     /**
      * Overloaded constructor...
      * @param movie
      */
-    public MovieEntry(Movie movie, String review) {
+    public MovieEntry(Movie movie, Review review) {
         super(movie);
         this.review = review;
     }
 
+    public MovieEntry(Movie movie) {
+        super(movie);
+        this.review = new Review();
+    }
+
     /**
      * Add (or overwrite) a review for the particular movie listing.
-     * @param review A string for your review.
      */
-    public void setReview(String review) {
-        this.review = review;
+    public void setReview() {
+        this.review.setReview();
     }
 
     public void deleteReview(String review) {
-        this.review = "";
+        this.review.deleteReviewText();
     }
 
     public String getReview() {
-        return this.review;
-    }
-
-    /**
-     * Checks if there is an existing review.
-     * @return True if the review is not null and empty.
-     */
-    public boolean hasReview() {
-        return (this.review != null && this.review != "");
+        return this.review.toString();
     }
 
     @Override
@@ -50,6 +46,5 @@ public class MovieEntry extends Movie {
         return super.getWriteFormat()
                 + String.format("|%s", this.review);
     }
-
 
 }
