@@ -9,7 +9,9 @@ import java.util.logging.Logger;
  *
  */
 public class MovieMate {
+    private static Logger logger = Logger.getLogger("MovieMate");
 
+    private static Storage storage = new Storage();
 
 
     private static String filePath = "data/movies.csv";
@@ -31,7 +33,7 @@ public class MovieMate {
 
     public static void main(String[] args) {
 
-        assert true: "dummy assertion set to true";
+        //assert true: "dummy assertion set to true";
 
         Ui.showWelcomeMessage();
 
