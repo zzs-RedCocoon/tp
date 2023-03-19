@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -18,14 +19,14 @@ public final class ReadCSVFile {
     // We only want this many movies (Note the file itself has about 130,000).
     private static final int MAX_LINES_READ = 150000;
 
-    public static final ArrayList<String[]> readEntireCSV(String filePath) {
+    public static final ArrayList<String[]> readEntireCSV(InputStream is) {
         String line = "";
 
         ArrayList<String[]> output = new ArrayList<String[]>();
         // Open file to read
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
-            Integer numLinesRead = 0;
+            int numLinesRead = 0;
             while (numLinesRead < MAX_LINES_READ && (line = br.readLine()) != null) {
                 String[] row = line.split(CSV_DELIM, -1);
 

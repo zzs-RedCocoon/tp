@@ -101,9 +101,16 @@ public class Movie implements Comparable<Movie> {
         return genres;
     }
 
+    public String getGenresString() {
+        String genres = "";
+        for(String genre : getGenres()){
+            genres += genre + ",";
+        }
+        return " [" + genres.substring(0, genres.length() - 1) + "]";
+    }
     @Override
     public String toString() {
-        return String.format("%s (%d)", this.title, this.year);
+        return String.format("(%s (%d) %s", this.title, this.year, this.getGenresString());
         /*
         return "Title: " + title + "\n" +
                 "Year: " + year + "\n" +
