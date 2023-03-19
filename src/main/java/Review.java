@@ -132,10 +132,11 @@ public class Review implements Comparable<Review> {
                 this.reviewText, this.reviewStars);
     }
 
-    @Override
+
     /**
      * Simply sort based on star value.
      */
+    @Override
     public int compareTo(Review r2) {
         return (this.reviewStars - r2.getReviewStars());
     }
