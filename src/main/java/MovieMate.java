@@ -72,6 +72,10 @@ public class MovieMate {
             case "seedetail":
                 // find relevant movie info
                 break;
+            case "review":
+                watchedList.setReview(1);
+                Ui.printLine();
+                break;
             case "exit":
                 // fallthrough
             case "bye":

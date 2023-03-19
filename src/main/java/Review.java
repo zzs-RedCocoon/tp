@@ -4,7 +4,7 @@ import java.util.Scanner;
  * A review encompasses a string (Text review).
  * and a star review (0 to 5 scale).
  */
-public class Review {
+public class Review implements Comparable<Review> {
     private String reviewText;
     private int reviewStars;
 
@@ -47,6 +47,9 @@ public class Review {
         this.reviewStars = stars;
     }
 
+    public int getReviewStars() {
+        return this.reviewStars;
+    }
 
     /**
      * Sets the review text, which actually requires scanner.
@@ -54,14 +57,24 @@ public class Review {
     public void setReviewText() {
         Scanner scan = new Scanner(System.in);
         String review = "";
-        System.out.println("Write your review. Use as many lines as you need."
+        System.out.println("Write your review. Use as many lines as you need. "
                 + "To end, simply input a blank line.");
-        String line = scan.nextLine();
-        while (!line.trim().isEmpty()) {
+        // String line = scan.nextLine();
+
+        // Stop when empty.
+        while (true) {
             // Line separator is included in nextLine.
+            if (scan.nextLine().equals("")) {
+                break;
+            }
             review += scan.nextLine();
         }
         this.reviewText = review;
+        System.out.println("Text review added");
+    }
+
+    public String getReviewText() {
+        return this.reviewText;
     }
 
     /**
@@ -77,5 +90,13 @@ public class Review {
                 + "%s"
                 + "(%d/5 stars)",
                 this.reviewText, this.reviewStars);
+    }
+
+    @Override
+    /**
+     * Simply sort based on star value.
+     */
+    public int compareTo(Review r2) {
+        return (this.reviewStars - r2.getReviewStars());
     }
 }
