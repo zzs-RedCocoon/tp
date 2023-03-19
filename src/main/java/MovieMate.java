@@ -5,10 +5,12 @@ import java.util.Scanner;
  *
  */
 public class MovieMate {
+
     private static String filePath = "data/movies.csv";
     private static WatchedList watchedList = new WatchedList();
     private static ToWatchList toWatchList = new ToWatchList();
     public static void main(String[] args) {
+        assert false : "dummy assertion set to fail";
         Ui.showWelcomeMessage();
 
         // Initialise Scanner
