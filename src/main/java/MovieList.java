@@ -88,7 +88,7 @@ public class MovieList {
         }
     }
 
-    public void filter(String genre){
+    public void filter(String genre) {
         System.out.println("In " + getClass().getName() + ":");
         int i = 1;
         for(Movie movie : movieList){
