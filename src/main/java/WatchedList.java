@@ -9,4 +9,14 @@ public class WatchedList extends MovieList {
     public WatchedList(ArrayList<String[]> loaded) {
         super(loaded);
     }
+
+    public void setReview(int index) {
+        Movie currentMovie = this.getMovie(index);
+        MovieEntry reviewedMovie = new MovieEntry(currentMovie);
+
+        // Do review here.
+        reviewedMovie.setReview();
+
+        this.movieList.set(index, reviewedMovie);
+    }
 }

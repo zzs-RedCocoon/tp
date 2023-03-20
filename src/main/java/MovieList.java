@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -87,6 +88,19 @@ public class MovieList {
         }
     }
 
+    public void filter(String genre) {
+        System.out.println("In " + getClass().getName() + ":");
+        int i = 1;
+        for(Movie movie : movieList){
+            if(Arrays.asList(movie.getGenres()).contains(genre)) {
+                System.out.printf("%d. %s\n", i, movie.toString());
+                i++;
+            }
+        }
+        if(i == 1){
+            System.out.println("There are no movies of this genre in this list");
+        }
+    }
     /**
      * Remove a specific movie from the contained list.
      * @param movie a movie.
@@ -113,6 +127,8 @@ public class MovieList {
         String[] genres = parseGenres(genreStrings);
 
         Movie movie = new Movie(id, title, year, runTime, genres);
+        // Commenting this out first because Review is no longer a String.
+        /*
         if (movieStrings.length == 5) {
             // Make a normal Movie
             return movie;
@@ -121,6 +137,8 @@ public class MovieList {
             String review = movieStrings[6];
             return new MovieEntry(movie, review);
         }
+        */
+        return movie;
     }
 
     private String[] parseGenres(String genreStrings) {
@@ -134,6 +152,25 @@ public class MovieList {
             output += movie.getWriteFormat() + '\n';
         }
         return output;
+    }
+
+    /**
+     * To be used by user-facing operations to automatically account for indexing problems.
+     *
+     * @param index
+     * @return
+     */
+    public Movie getMovie(int index) {
+        int i = index - 1;
+        try {
+            return this.movieList.get(i);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("I don't think you got the right movie number.");
+            e.getMessage();
+        }
+
+        // Do you want to return null or throw new exception?
+        return null;
     }
 
     @Override
