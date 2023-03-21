@@ -1,0 +1,13 @@
+
+
+@startuml
+interface Comparable
+Comparable <|.. Review
+Review : String reviewText
+Review : int reviewStars
+Review : + setReview()
+
+Review .> Scanner : > Takes input from
+
+
+@enduml
