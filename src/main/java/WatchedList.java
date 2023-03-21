@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NavigableMap;
 
 public class WatchedList extends MovieList {
 
@@ -33,19 +34,40 @@ public class WatchedList extends MovieList {
         this.movieList.set(index - 1, reviewedMovie);
     }
 
-    public void deleteReview(int index) {
+    public void deleteReview(String indexString) {
+        int index = Parser.parseIndex(indexString, 1, movieList.size());
+        if(index < 0){
+            System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
+            return;
+        }
+
         Movie currentMovie = this.getMovie(index);
-        MovieEntry reviewedMovie = new MovieEntry(currentMovie);
 
-        reviewedMovie.deleteReview();
+        if(currentMovie instanceof MovieEntry) {
+            Movie deletedMovie = new Movie(currentMovie);
+            this.movieList.set(index - 1, deletedMovie);
+            System.out.println(String.format("Successfully deleted the review of movie %d.",index));
+        }else{
+            System.out.println("The movie has no review. No need to delete!");
+        }
 
-        this.movieList.set(index, reviewedMovie);
+
     }
 
-    public String viewReview(int index) {
-        Movie currentMovie = this.getMovie(index);
-        MovieEntry reviewedMovie = new MovieEntry(currentMovie);
+    public void viewReview(String indexString) {
+        int index = Parser.parseIndex(indexString, 1, movieList.size());
+        if(index < 0){
+            System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
+            return;
+        }
 
-        return reviewedMovie.getReview();
+        Movie currentMovie = this.getMovie(index);
+
+        if(currentMovie instanceof  MovieEntry){
+            MovieEntry reviewedMovie = (MovieEntry) currentMovie;
+            System.out.println(reviewedMovie.getReview());
+        } else {
+            System.out.println("The movie has no review. You can add a review using 'addreview [index]'.");
+        }
     }
 }
