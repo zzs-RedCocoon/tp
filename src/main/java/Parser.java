@@ -16,7 +16,7 @@ public class Parser {
         //cannot parse string to index
         try{
             index = Integer.parseInt(indexString);
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return -1;
         }
 

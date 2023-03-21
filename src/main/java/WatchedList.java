@@ -19,7 +19,7 @@ public class WatchedList extends MovieList {
 
         //get valid movie index
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0){
+        if(index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
@@ -35,7 +35,7 @@ public class WatchedList extends MovieList {
 
     public void deleteReview(String indexString) {
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0){
+        if(index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
@@ -55,14 +55,14 @@ public class WatchedList extends MovieList {
 
     public void viewReview(String indexString) {
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0){
+        if(index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
 
         Movie currentMovie = this.getMovie(index);
 
-        if(currentMovie instanceof  MovieEntry){
+        if(currentMovie instanceof  MovieEntry) {
             MovieEntry reviewedMovie = (MovieEntry) currentMovie;
             System.out.println(reviewedMovie.getReview());
         } else {
