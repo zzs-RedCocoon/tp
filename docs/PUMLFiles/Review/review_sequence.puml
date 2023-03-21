@@ -1,0 +1,30 @@
+@startuml
+
+'review1, class diagram'
+actor User
+
+User -> Review
+Review -> Scanner : setReview()
+Scanner --> Scanner : new Scanner(input)
+
+loop input not empty
+    Scanner -> User
+    User --> Scanner : Input
+end
+
+Scanner --> Review : return input
+Review -> Review : set reviewText
+
+Review -> Scanner : get numerical input
+
+loop input not between 0 to 5
+    Scanner -> User
+    User --> Scanner : input
+end
+
+Scanner --> Review : return input
+
+Review -> Review : set reviewStars
+
+Review --> User : feedback
+@enduml
