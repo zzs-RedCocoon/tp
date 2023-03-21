@@ -91,7 +91,7 @@ public class MovieMate {
                 watchedList.deleteReview(Integer.parseInt(commandArg));
                 break;
             case "viewreview":
-                watchedList.viewReview(Integer.parseInt(commandArg));
+                System.out.println(watchedList.viewReview(Integer.parseInt(commandArg)));
                 break;
             case "filter":
                 watchedList.filter(commandArg);
