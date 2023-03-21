@@ -61,6 +61,8 @@ public class MovieMate {
                     int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
                     toWatchList.remove(removeToWatchIndex);
                     break;
+                default:
+                    break;
                 }
             case "towatch":
                 // add to to-watch list
