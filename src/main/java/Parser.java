@@ -14,14 +14,14 @@ public class Parser {
         int index = 0;
 
         //cannot parse string to index
-        try{
+        try {
             index = Integer.parseInt(indexString);
         } catch (NumberFormatException e) {
             return -1;
         }
 
         //index out of range
-        if(index < l || index > r){
+        if (index < l || index > r) {
             return -1;
         }
         return index;

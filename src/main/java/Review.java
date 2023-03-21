@@ -67,7 +67,7 @@ public class Review implements Comparable<Review> {
             String starsString = scan.nextLine();
 
             int stars = Parser.parseIndex(starsString, 0, 5);
-            if(stars < 0) {
+            if (stars < 0) {
                 System.out.println("Invalid input! Please rate again.");
                 continue;
             }

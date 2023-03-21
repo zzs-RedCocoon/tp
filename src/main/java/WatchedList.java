@@ -12,14 +12,14 @@ public class WatchedList extends MovieList {
 
     public void setReview(String indexString) {
         //no movie, cannot add any review
-        if(movieList.size() == 0){
+        if (movieList.size() == 0) {
             System.out.println("Sorry, there's no movie in watchedlist. Please add some movies first.");
             return;
         }
 
         //get valid movie index
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0) {
+        if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
@@ -35,18 +35,18 @@ public class WatchedList extends MovieList {
 
     public void deleteReview(String indexString) {
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0) {
+        if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
 
         Movie currentMovie = this.getMovie(index);
 
-        if(currentMovie instanceof MovieEntry) {
+        if (currentMovie instanceof MovieEntry) {
             Movie deletedMovie = new Movie(currentMovie);
             this.movieList.set(index - 1, deletedMovie);
-            System.out.println(String.format("Successfully deleted the review of movie %d.",index));
-        }else{
+            System.out.println(String.format("Successfully deleted the review of movie %d.", index));
+        } else {
             System.out.println("The movie has no review. No need to delete!");
         }
 
@@ -55,14 +55,14 @@ public class WatchedList extends MovieList {
 
     public void viewReview(String indexString) {
         int index = Parser.parseIndex(indexString, 1, movieList.size());
-        if(index < 0) {
+        if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
         }
 
         Movie currentMovie = this.getMovie(index);
 
-        if(currentMovie instanceof  MovieEntry) {
+        if (currentMovie instanceof MovieEntry) {
             MovieEntry reviewedMovie = (MovieEntry) currentMovie;
             System.out.println(reviewedMovie.getReview());
         } else {
