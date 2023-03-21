@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.NavigableMap;
 
 public class WatchedList extends MovieList {
 
