@@ -1,0 +1,18 @@
+@startuml
+
+'movieList, class diagram'
+
+
+MovieList <|-- ToWatchList
+MovieList <|-- WatchedList
+MovieList : + movieList()
+MovieList : + add()
+MovieList : + remove()
+MovieList : + filter()
+WatchedList : + watchList()
+ToWatchList : + toWatchList()
+
+newpage
+
+
+@enduml

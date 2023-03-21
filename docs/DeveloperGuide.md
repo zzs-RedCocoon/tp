@@ -6,9 +6,6 @@
 
 ## Design & implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
-
 ## Product scope
 ### Target user profile
 
@@ -67,4 +64,36 @@ Then, `reviewText` is updated with the text input.
 This value is updated into `reviewStars`.
 
 **Step 4.** Finally, `Scanner` is closed and `Review` is done setting.
+
+# Movie List Feature
+**API:** [Movie.java](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/MovieList.java)
+
+Here's a partial class diagram of the `MovieList` component:
+
+![](/PUMLFiles/MovieList/movielist1.png)
+
+The `MovieList` component has two inherited classes `ToWatchList` and `WatchedList`. It contains a public method `movieList` for creating an empty movie list,
+which also has a overloaded constructor for creating a movie list with an existing list.
+In addition, `MovieList` contains a public method `add`, which will search for relevant movies in the database
+and help user to add a new movie to the movie list. It also contains a public method `filter`, 
+which will filter the movies with certain genre and display it to the user. The public method `remove`, will remove a movie from the list, 
+and this will be implemented soon. Other methods such as `getMovie()` and `toString()` are also included in `MovieList`. 
+
+
+How the `MovieList.add(String inputTitle)` component works:
+
+![](/PUMLFiles/MovieList/movielist2.png)
+
+**Step 1.** `add(String inputTitle)` is called, which continues to call `find()` in `MovieDatabase` to search for the relevant movies.
+It will then display at most five movies that matches the `inputTitle`.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `createMovie` is called to create a new `Movie` object according to the index and add the movie to the movie list.
+
+**Step 4.** The `add(String inputTitle)` will show feedback message to the user.
+
+**Step 5.** The `add(String inputTitle)` has finished everything and returned.
+
 

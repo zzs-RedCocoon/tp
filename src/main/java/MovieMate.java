@@ -5,11 +5,10 @@ import java.util.logging.Logger;
 
 /**
  * Movie Mate class is the main class that starts running the program.
- *
  */
 public class MovieMate {
     private static final Logger logger = Logger.getLogger("MovieMate");
-    
+
     private static final Storage storage = new Storage();
     private static String watchedListPath = "data/moviemate_watchlist.txt";
     private static String toWatchListPath = "data/moviemate_towatch.txt";
@@ -36,7 +35,7 @@ public class MovieMate {
         // Initialise Scanner
         Scanner scan = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             // Get user input and parse it.
             String userInput = inputCommand(scan);
             String[] commandTypeAndParams = Parser.parseCommand(userInput);
@@ -50,19 +49,22 @@ public class MovieMate {
                 break;
             case "remove":
                 switch (commandArg) {
-                    case "watched":
-                        //remove from watched list
-                        Ui.showListMessage(watchedList);
-                        int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
-                        watchedList.remove(removeWatchedIndex);
-                        break;
-                    case "towatch":
-                        //remove from towatch list
-                        Ui.showListMessage(toWatchList);
-                        int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
-                        toWatchList.remove(removeToWatchIndex);
-                        break;
+                case "watched":
+                    //remove from watched list
+                    Ui.showListMessage(watchedList);
+                    int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
+                    watchedList.remove(removeWatchedIndex);
+                    break;
+                case "towatch":
+                    //remove from towatch list
+                    Ui.showListMessage(toWatchList);
+                    int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
+                    toWatchList.remove(removeToWatchIndex);
+                    break;
+                default:
+                    break;
                 }
+                // fallthrough
             case "towatch":
                 // add to to-watch list
                 toWatchList.add(commandArg);
@@ -79,7 +81,7 @@ public class MovieMate {
             case "watchlist":
                 // list the to-watch list
                 toWatchList.list();
-                Ui.printLine();   
+                Ui.printLine();
                 break;
             case "seedetail":
                 // find relevant movie info
@@ -122,6 +124,7 @@ public class MovieMate {
     /**
      * Scan in the user input and trim extra white space.
      * If there is no input, continue to scan the next line for input.
+     *
      * @return The string that the user entered
      */
     private static String inputCommand(Scanner scan) {
