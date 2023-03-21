@@ -58,7 +58,7 @@ How the `Review` component works:
 **Step 1.** `setReview()` is called, which creates a [`Scanner`](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html)
 to read user input.
 
-TODO: Insert sequence diagram here.
+![](/PUMLFiles/Review/review2.png)
 
 **Step 2.** User input is read (multiple lines) until a blank line is found.
 Then, `reviewText` is updated with the text input.
