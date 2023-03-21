@@ -33,7 +33,7 @@ public class MovieEntry extends Movie {
         this.review.setReview();
     }
 
-    public void deleteReview(String review) {
+    public void deleteReview() {
         this.review.deleteReviewText();
     }
 

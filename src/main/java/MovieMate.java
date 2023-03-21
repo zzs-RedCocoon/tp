@@ -48,6 +48,21 @@ public class MovieMate {
                 // add to watched list
                 watchedList.add(commandArg);
                 break;
+            case "remove":
+                switch (commandArg) {
+                    case "watched":
+                        //remove from watched list
+                        Ui.showListMessage(watchedList);
+                        int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
+                        watchedList.remove(removeWatchedIndex);
+                        break;
+                    case "towatch":
+                        //remove from towatch list
+                        Ui.showListMessage(toWatchList);
+                        int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
+                        toWatchList.remove(removeToWatchIndex);
+                        break;
+                }
             case "towatch":
                 // add to to-watch list
                 toWatchList.add(commandArg);
@@ -69,8 +84,14 @@ public class MovieMate {
             case "seedetail":
                 // find relevant movie info
                 break;
-            case "review":
-                watchedList.setReview(commandArg);
+            case "addreview":
+                watchedList.setReview(Integer.parseInt(commandArg));
+                break;
+            case "deletereview":
+                watchedList.deleteReview(Integer.parseInt(commandArg));
+                break;
+            case "viewreview":
+                watchedList.viewReview(Integer.parseInt(commandArg));
                 break;
             case "filter":
                 watchedList.filter(commandArg);
