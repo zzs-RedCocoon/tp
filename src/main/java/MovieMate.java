@@ -64,6 +64,7 @@ public class MovieMate {
                 default:
                     break;
                 }
+                // fallthrough
             case "towatch":
                 // add to to-watch list
                 toWatchList.add(commandArg);
