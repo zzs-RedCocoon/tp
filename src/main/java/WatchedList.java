@@ -19,4 +19,20 @@ public class WatchedList extends MovieList {
 
         this.movieList.set(index, reviewedMovie);
     }
+
+    public void deleteReview(int index) {
+        Movie currentMovie = this.getMovie(index);
+        MovieEntry reviewedMovie = new MovieEntry(currentMovie);
+
+        reviewedMovie.deleteReview();
+
+        this.movieList.set(index, reviewedMovie);
+    }
+
+    public String viewReview(int index) {
+        Movie currentMovie = this.getMovie(index);
+        MovieEntry reviewedMovie = new MovieEntry(currentMovie);
+
+        return reviewedMovie.getReview();
+    }
 }
