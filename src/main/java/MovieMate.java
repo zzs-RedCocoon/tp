@@ -85,7 +85,7 @@ public class MovieMate {
                 // find relevant movie info
                 break;
             case "addreview":
-                watchedList.setReview(Integer.parseInt(commandArg));
+                watchedList.setReview(commandArg);
                 break;
             case "deletereview":
                 watchedList.deleteReview(Integer.parseInt(commandArg));
