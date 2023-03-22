@@ -55,8 +55,9 @@ public class Review implements Comparable<Review> {
         if (stars > 5 || stars < 0) {
             System.out.println("Hey! Reviews only from 0 to 5!");
             // Throw MovieMate exception?
+        } else {
+            this.reviewStars = stars;
         }
-        this.reviewStars = stars;
     }
 
     public void setReviewStars() {
