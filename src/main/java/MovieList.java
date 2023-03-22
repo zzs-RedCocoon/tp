@@ -66,12 +66,12 @@ public class MovieList {
         } catch (NumberFormatException e) { // cannot parse string to int
             System.out.println("Movie id should be number.");
             return;
-        } catch(IndexOutOfBoundsException e){ //id out of range
+        } catch (IndexOutOfBoundsException e) { //id out of range
             System.out.println("Movie id is out of range.");
             return;
         }
 
-        if(!movieList.contains(movie)){
+        if (!movieList.contains(movie)) {
             this.movieList.add(movie);
         }
         Ui.showAddMovieMessage(movie.toString());
@@ -91,13 +91,13 @@ public class MovieList {
     public void filter(String genre) {
         System.out.println("In " + getClass().getName() + ":");
         int i = 1;
-        for(Movie movie : movieList){
-            if(Arrays.asList(movie.getGenres()).contains(genre)) {
+        for (Movie movie : movieList) {
+            if (Arrays.asList(movie.getGenres()).contains(genre)) {
                 System.out.printf("%d. %s\n", i, movie.toString());
                 i++;
             }
         }
-        if(i == 1){
+        if (i == 1) {
             System.out.println("There are no movies of this genre in this list");
         }
     }

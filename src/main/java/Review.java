@@ -37,16 +37,12 @@ public class Review implements Comparable<Review> {
      * Set review for both text and stars.
      */
     public void setReview() {
-        Scanner scan = new Scanner(System.in);
-
         // Set Review Text First
-        this.setReviewText(scan);
+        this.setReviewText();
         System.out.println("Text review added.");
 
-        this.setReviewStars(scan);
+        this.setReviewStars();
         System.out.println("Star review added.");
-
-        scan.close();
     }
 
     /**
@@ -63,24 +59,21 @@ public class Review implements Comparable<Review> {
         this.reviewStars = stars;
     }
 
-    public void setReviewStars(Scanner scan) {
-        // Sorry for arrow nesting it.
+    public void setReviewStars() {
+        Scanner scan = new Scanner(System.in);
+
         while (true) {
             System.out.print("Please rate the movie [0 to 5]: ");
-            if (scan.hasNextInt()) {
-                int stars = scan.nextInt();
+            String starsString = scan.nextLine();
 
-                // Bad path
-                if (stars > 5 || stars < 0) {
-                    System.out.println("Hey! Reviews only from 0 to 5!");
-                    // Throw MovieMate exception?
-                    continue;
-                }
-                this.reviewStars = stars;
-                return;
-            } else {
-                System.out.println("Please input a number [0 to 5]!");
+            int stars = Parser.parseIndex(starsString, 0, 5);
+            if (stars < 0) {
+                System.out.println("Invalid input! Please rate again.");
+                continue;
             }
+
+            this.reviewStars = stars;
+            return;
         }
 
     }
@@ -92,8 +85,8 @@ public class Review implements Comparable<Review> {
     /**
      * Sets the review text, which actually requires scanner.
      */
-    public void setReviewText(Scanner scan) {
-
+    public void setReviewText() {
+        Scanner scan = new Scanner(System.in);
         String review = "";
         System.out.println("Write your review. Use as many lines as you need. "
                 + "To end, simply input a blank line.");
