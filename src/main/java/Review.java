@@ -54,9 +54,9 @@ public class Review implements Comparable<Review> {
         // Bad path
         if (stars > 5 || stars < 0) {
             System.out.println("Hey! Reviews only from 0 to 5!");
-            // Throw MovieMate exception?
         } else {
             this.reviewStars = stars;
+            assert this.reviewStars == stars;
         }
     }
 
