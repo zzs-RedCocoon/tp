@@ -13,47 +13,61 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 
 ### watched
 Adds a movie to your watched list.\
-Format: watched \<Movie Name\>\
+Format:\ 
+watched \<Movie Name\>\
+\<Movie Index\>\
 Examples:\
-\>> list\
-Titanic\
-\>> watched Avengers: Endgame\
-\>> watched La La Land\
- \
-\>> list\
-Titanic\
-Avengers: Endgame\
+\>> watched La La
+1. La La Land
+2. La La Lol
+
+Please enter the id of the movie you are looking for\
+The program will then proceed with adding the movie you chose, thanks!\
+\>> 1\
+You have successfully added the movie into your list!\
+Here is the movie detail\
 La La Land
+Feel free to continue with other features\
+
+\>> list
+1. La La Land
 
 ### towatch
 Adds an unwatched movie to your to-watch list.\
-Format: towatch \<Movie Name\>\
+Format:\
+towatch \<Movie Name\>\
+\<Movie Index\>\
 Examples:\
-\>> watchlist\
-Titanic\
-\>> towatch Avengers: Endgame\
-\>> towatch La La Land\
- \
-\>> watchlist\
-Titanic\
-Avengers Endgame\
+\>> towatch La La
+1. La La Land
+2. La La Lol
+
+Please enter the id of the movie you are looking for\
+The program will then proceed with adding the movie you chose, thanks!\
+\>> 1\
+You have successfully added the movie into your list!\
+Here is the movie detail\
 La La Land
+Feel free to continue with other features\
+
+\>> watchlist
+1. La La Land
 
 #### list
 Lists all the movies you have watched.\
 Format: list\
 Example:\
 \>> list
-1. \<Movie Name 1\>
-2. \<Movie Name 2\>
+1. \<Movie 1\>
+2. \<Movie 2\>
 
 ### watchlist
 Lists the movies you are planning to watch.\
 Format: watchlist\
 Example:\
 \>> watchlist
-1. \<Movie Name 1\>
-2. \<Movie Name 2\>
+1. \<Movie 1\>
+2. \<Movie 2\>
 
 ### remove watched
 Removes a movie from the list of watched movies.\
@@ -62,12 +76,9 @@ Examples:\
 \>> list
 1. Avengers: Endgame
 2. La La Land
-\
-'''
 
-'''
-\
 \>> remove watched 1\
+Ok! Movie removed from your list.\
 \>> list
 1. La La Land
 
@@ -78,13 +89,10 @@ Examples:\
 \>> watchlist
 1. Avengers: Endgame
 2. La La Land
-\
-'''
 
-'''
-\
 \>> remove towatch 1\
-\>> list
+Ok! Movie removed from your list.\
+\>> watchlist
 1. La La Land
 
 ### seedetail
@@ -102,38 +110,47 @@ Filters out and displays all movies in the watched and unwatched lists that fall
 Format: filter \<Genre\>\
 Examples:\
 \>> filter comedy\
-<Comedy Movie 1>
-<Comedy Movie 2>
+In WatchedList:\
+1. <Comedy Movie 1>
+
+In ToWatchList:\
+1. <Comedy Movie 2>
 
 ### addreview
-Adds a review for a watched movie. The review will be done when the user types in /done.\
+Adds a review for a watched movie. The text review will be done when the user enters a blank line.\
+When prompted for a numerical rating, please give a number from 0 to 5.\
 Format:\
 \>> addreview \<Movie Index\> [enter]\
-\>> \<your review\>\
-\>> \<your review\>\
-\>> /done\
+\>> \<text review\>\
+\>> \<text review\>\
+\>> [enter]\
+...\
+\>> \<numerical review\>\
 Examples:\
 \>> addreview 1\
 \>> Such a thrilling movie to watch!\
 \>> ...\
 \>> ...\
 \>> and that is the end of my review.\
-\>> /done\
-Review added!
+\>> [enter]\
+Text review added.\
+Please rate the movie [0 to 5]:
+\>> 5
+Star review added.
 
 ### deletereview
 Delete a review for a watched movie.\
 Format: deletereview \<Movie Index\>\
 Examples:\
 \>> deletereview 1\
-deleted Avengers: EndGame
+Successfully deleted the review of movie 1.
 
 ### viewreview
 Allows you to see your review of the watched movie.\
-Format: viewreview <Movie Index>\
+Format: viewreview \<Movie Index\>\
 Examples:\
 \>> viewreview 1\
-Such a thrilling movie to watch!
+Review: Such a thrilling movie to watch!(5/5 stars)
 
 ### bye
 Closes MovieMate.\
