@@ -13,7 +13,7 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 
 ### watched
 Adds a movie to your watched list.\
-Format:\ 
+Format:\
 watched \<Movie Name\>\
 \<Movie Index\>\
 Examples:\
@@ -22,12 +22,13 @@ Examples:\
 2. La La Lol
 
 Please enter the id of the movie you are looking for\
-The program will then proceed with adding the movie you chose, thanks!\
+The program will then proceed with adding the movie you chose, thanks!
+
 \>> 1\
 You have successfully added the movie into your list!\
 Here is the movie detail\
-La La Land
-Feel free to continue with other features\
+La La Land\
+Feel free to continue with other features
 
 \>> list
 1. La La Land
@@ -43,12 +44,13 @@ Examples:\
 2. La La Lol
 
 Please enter the id of the movie you are looking for\
-The program will then proceed with adding the movie you chose, thanks!\
+The program will then proceed with adding the movie you chose, thanks!
+
 \>> 1\
 You have successfully added the movie into your list!\
 Here is the movie detail\
-La La Land
-Feel free to continue with other features\
+La La Land\
+Feel free to continue with other features
 
 \>> watchlist
 1. La La Land
@@ -110,10 +112,10 @@ Filters out and displays all movies in the watched and unwatched lists that fall
 Format: filter \<Genre\>\
 Examples:\
 \>> filter comedy\
-In WatchedList:\
+In WatchedList:
 1. <Comedy Movie 1>
 
-In ToWatchList:\
+In ToWatchList:
 1. <Comedy Movie 2>
 
 ### addreview
@@ -134,8 +136,8 @@ Examples:\
 \>> and that is the end of my review.\
 \>> [enter]\
 Text review added.\
-Please rate the movie [0 to 5]:
-\>> 5
+Please rate the movie [0 to 5]:\
+\>> 5\
 Star review added.
 
 ### deletereview
