@@ -54,12 +54,14 @@ public class MovieMate {
                     Ui.showListMessage(watchedList);
                     int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
                     watchedList.remove(removeWatchedIndex);
+                    Ui.showDeleteMessage();
                     break;
                 case "towatch":
                     //remove from towatch list
                     Ui.showListMessage(toWatchList);
                     int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
                     toWatchList.remove(removeToWatchIndex);
+                    Ui.showDeleteMessage();
                     break;
                 default:
                     break;
@@ -84,7 +86,27 @@ public class MovieMate {
                 Ui.printLine();
                 break;
             case "seedetail":
-                // find relevant movie info
+                switch (commandArg) {
+                case "watched":
+                    // list watched list for the user to choose
+                    Ui.showListMessage(watchedList);
+                    System.out.println("Please enter the movie index that you would like to see the detail of it!");
+                    int seeDetailWatchedIndex = Integer.parseInt(inputCommand(scan));
+                    System.out.println(watchedList.getMovieDetail(seeDetailWatchedIndex));
+                    Ui.showDetailMessage();
+                    break;
+                case "towatch":
+                    // list to-watch list for the user to choose
+                    Ui.showListMessage(toWatchList);
+                    System.out.println("Please enter the movie index that you would like to see the detail of it!");
+                    int seeDetailToWatchIndex = Integer.parseInt(inputCommand(scan));
+                    System.out.println(toWatchList.getMovieDetail(seeDetailToWatchIndex));
+                    Ui.showDetailMessage();
+                    break;
+                default:
+                    break;
+                }
+                // fallthrough
                 break;
             case "addreview":
                 watchedList.setReview(commandArg);
@@ -106,6 +128,7 @@ public class MovieMate {
                 exit();
                 break;
             default:
+                assert false: "Command is invalid";
                 Ui.help();
                 break;
             }
