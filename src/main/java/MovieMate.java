@@ -104,6 +104,8 @@ public class MovieMate {
                     Ui.showDetailMessage();
                     break;
                 default:
+                    System.out.println("Please follow the format: seedetail [watched/towatch]");
+                    assert false: "Command entered is not a correct format";
                     break;
                 }
                 // fallthrough
