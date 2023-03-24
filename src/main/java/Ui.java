@@ -71,4 +71,12 @@ public class Ui {
         System.out.println("The movie has been deleted for you!");
         printLine();
     }
+    /**
+     * Show feedback message to the user after showing the movie detail
+     */
+    public static void showDetailMessage() {
+        System.out.println("The movie details are showed above!");
+        System.out.println("Please feel free to continue with other features :))");
+        printLine();
+    }
 }

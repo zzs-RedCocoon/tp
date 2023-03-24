@@ -177,4 +177,22 @@ public class MovieList {
     public String toString() {
         return this.movieList.toString();
     }
+
+    public String getMovieDetail(int index) {
+        int i = index - 1;
+        try {
+            Movie movie = this.movieList.get(i);
+            String detail = "Title: " + movie.getTitle() + "\n" +
+                    "Year: " + movie.getYear() + "\n" +
+                    "Genres: " + movie.getGenresString() + "\n" +
+                    "Runtime Minutes: " + movie.getRunTimeMinutes();
+            return detail;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("I don't think you got the right movie number.");
+            e.getMessage();
+        }
+
+        // Do you want to return null or throw new exception?
+        return null;
+    }
 }
