@@ -182,10 +182,11 @@ public class MovieList {
         int i = index - 1;
         try {
             Movie movie = this.movieList.get(i);
-            return "Title: " + movie.getTitle() + "\n" +
+            String detail = "Title: " + movie.getTitle() + "\n" +
                     "Year: " + movie.getYear() + "\n" +
                     "Genres: " + movie.getGenresString() + "\n" +
                     "Runtime Minutes: " + movie.getRunTimeMinutes();
+            return detail;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("I don't think you got the right movie number.");
             e.getMessage();
