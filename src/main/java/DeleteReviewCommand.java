@@ -1,7 +1,7 @@
-public class DeleteReview extends Command{
+public class DeleteReviewCommand extends Command{
     private String indexString;
 
-    public DeleteReview(String indexString) {
+    public DeleteReviewCommand(String indexString) {
         this.indexString = indexString;
     }
 

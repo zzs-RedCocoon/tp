@@ -75,7 +75,7 @@ public class Parser {
             case "addreview":
                 return new AddReviewCommand(commandArg);
             case "deletereview":
-                return new DeleteReview(commandArg);
+                return new DeleteReviewCommand(commandArg);
             case "viewreview":
                 return new ViewReviewCommand(commandArg);
             case "filter":
