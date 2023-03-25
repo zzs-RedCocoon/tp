@@ -4,6 +4,23 @@ import java.util.Scanner;
  * Text UI of the application.
  */
 public class Ui {
+
+    /**
+     * Scan in the user input and trim extra white space.
+     * If there is no input, continue to scan the next line for input.
+     *
+     * @return The string that the user entered
+     */
+    public static String inputCommand() {
+        Scanner scan = new Scanner(System.in);
+        String s = "";
+        s = scan.nextLine();
+        while (s.trim().isEmpty() || s.trim().charAt(0) == '#') {
+            s = scan.nextLine();
+        }
+        return s;
+    }
+
     /**
      * Show exit message to the user
      */
