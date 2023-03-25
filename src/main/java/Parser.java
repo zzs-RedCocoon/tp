@@ -35,10 +35,8 @@ public class Parser {
 //                // fallthrough
             case "towatch":
                 return new AddToWatchListCommand(commandArg);
-//            case "help":
-//                Ui.help();
-//                Ui.printLine();
-//                break;
+            case "help":
+                return new HelpCommand();
             case "list":
                 return new ListCommand();
             case "watchlist":
@@ -93,8 +91,7 @@ public class Parser {
             case "bye":
                 return new ExitCommand();
             default:
-                //Ui.help();
-                return new ExitCommand(); // UnknownCommand()
+                return new HelpCommand(); // or return UnknownCommand()
         }
     }
 
