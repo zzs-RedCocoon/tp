@@ -23,37 +23,8 @@ public class Parser {
                 return new ListCommand();
             case "watchlist":
                 return new WatchListCommand();
-//            case "seedetail":
-//                switch (commandArg) {
-//                    case "watched":
-//                        // list watched list for the user to choose
-//                        Ui.showListMessage(watchedList);
-//                        System.out.println("Please enter the movie index that you would like to see the detail of it!");
-//                        int seeDetailWatchedIndex = Integer.parseInt(inputCommand(scan));
-//                        System.out.println(watchedList.getMovieDetail(seeDetailWatchedIndex));
-//                        Ui.showDetailMessage();
-//                        break;
-//                    case "towatch":
-//                        // list to-watch list for the user to choose
-//                        Ui.showListMessage(toWatchList);
-//                        System.out.println("Please enter the movie index that you would like to see the detail of it!");
-//                        int seeDetailToWatchIndex = Integer.parseInt(inputCommand(scan));
-//                        System.out.println(toWatchList.getMovieDetail(seeDetailToWatchIndex));
-//                        Ui.showDetailMessage();
-//                        break;
-//                    case "movie":
-//                        System.out.println("Please enter the movie name that you would like to see the detail of it!");
-//                        String movieName = inputCommand(scan);
-//                        MovieList.findMovieDetail(movieName);
-//                        Ui.showDetailMessage();
-//                        break;
-//                    default:
-//                        System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
-//                        assert false: "Command entered is not a correct format";
-//                        break;
-//                }
-//                // fallthrough
-//                break;
+            case "seedetail":
+                return new SeeDetailCommand(commandArg);
             case "addreview":
                 return new AddReviewCommand(commandArg);
             case "deletereview":
