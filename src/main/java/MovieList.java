@@ -33,12 +33,13 @@ public class MovieList {
     }
 
     /**
-     * Add a movie to the contained list.
-     * @param movie a movie.
+     * Used for see detail by movie name.
+     * The function will search in the database for the most relevant movies and then prompt
+     * the user to enter the index of the movie. 
+     *
+     * @param inputTitle Movie name entered by the user
+     * @return return a movie object that the user is looking for
      */
-    public void add(Movie movie) {
-        this.movieList.add(movie);
-    }
     public static Movie findMovie(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
@@ -68,7 +69,13 @@ public class MovieList {
             return null;
         }
     }
-
+    /**
+     * Add a movie to the contained list.
+     * @param movie a movie.
+     */
+    public void add(Movie movie) {
+        this.movieList.add(movie);
+    }
     /**
      * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
