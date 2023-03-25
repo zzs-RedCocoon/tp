@@ -81,13 +81,9 @@ public class Parser {
 //            case "viewreview":
 //                watchedList.viewReview(commandArg);
 //                break;
-//            case "filter":
-//                watchedList.filter(commandArg);
-//                toWatchList.filter(commandArg);
-//                Ui.printLine();
-//                break;
-            case "exit":
-                // fallthrough
+            case "filter":
+                return new FilterCommand(commandArg);
+            case "exit": // fallthrough
             case "bye":
                 return new ExitCommand();
             default:
