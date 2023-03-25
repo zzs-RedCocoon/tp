@@ -106,8 +106,7 @@ public class MovieMate {
                 case "movie":
                     System.out.println("Please enter the movie name that you would like to see the detail of it!");
                     String movieName = inputCommand(scan);
-                    Movie movie = MovieList.findMovie(movieName);
-                    System.out.println(movie.getMovieDetail(movie));
+                    MovieList.findMovieDetail(movieName);
                     Ui.showDetailMessage();
                     break;
                 default:

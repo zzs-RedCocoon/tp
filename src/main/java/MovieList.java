@@ -40,14 +40,14 @@ public class MovieList {
      * @param inputTitle Movie name entered by the user
      * @return return a movie object that the user is looking for
      */
-    public static Movie findMovie(String inputTitle) {
+    public static void findMovieDetail(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println( "No relevant movie found, please try enter the movie name again!");
             Ui.printLine();
-            return null;
+            return;
         }
-        Integer id = 1;
+        int id = 1;
         for (Movie relevantMovie: relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
@@ -60,13 +60,14 @@ public class MovieList {
         Movie movie;
         try {
             movie = relevantMovies.get(Integer.parseInt(s) - 1);
-            return movie;
+            System.out.println(movie.getMovieDetail());
+            return;
         } catch (NumberFormatException e) { // cannot parse string to int
             System.out.println("Movie id should be number.");
-            return null;
+            return;
         } catch (IndexOutOfBoundsException e) { //id out of range
             System.out.println("Movie id is out of range.");
-            return null;
+            return;
         }
     }
     /**
@@ -87,7 +88,7 @@ public class MovieList {
             Ui.printLine();
             return;
         }
-        Integer id = 1;
+        int id = 1;
         for (Movie relevantMovie: relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;

@@ -119,11 +119,11 @@ public class Movie implements Comparable<Movie> {
 
          */
     }
-    public String getMovieDetail(Movie movie) {
-        String detail = "Title: " + movie.getTitle() + "\n" +
-                "Year: " + movie.getYear() + "\n" +
-                "Genres: " + movie.getGenresString() + "\n" +
-                "Runtime Minutes: " + movie.getRunTimeMinutes();
+    public String getMovieDetail() {
+        String detail = "Title: " + this.title + "\n" +
+                "Year: " + this.year + "\n" +
+                "Genres: " + this.getGenresString() + "\n" +
+                "Runtime Minutes: " + this.runTimeMinutes;
         return detail;
     }
 }
