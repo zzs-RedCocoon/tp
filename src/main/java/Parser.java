@@ -13,26 +13,8 @@ public class Parser {
         switch (commandType) {
             case "watched":
                 return new AddWatchedListCommand(commandArg);
-//            case "remove":
-//                switch (commandArg) {
-//                    case "watched":
-//                        //remove from watched list
-//                        Ui.showListMessage(watchedList);
-//                        int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
-//                        watchedList.remove(removeWatchedIndex);
-//                        Ui.showDeleteMessage();
-//                        break;
-//                    case "towatch":
-//                        //remove from towatch list
-//                        Ui.showListMessage(toWatchList);
-//                        int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
-//                        toWatchList.remove(removeToWatchIndex);
-//                        Ui.showDeleteMessage();
-//                        break;
-//                    default:
-//                        break;
-//                }
-//                // fallthrough
+            case "remove":
+                return new RemoveListCommand(commandArg);
             case "towatch":
                 return new AddToWatchListCommand(commandArg);
             case "help":
