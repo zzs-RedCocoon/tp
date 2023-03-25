@@ -103,8 +103,15 @@ public class MovieMate {
                     System.out.println(toWatchList.getMovieDetail(seeDetailToWatchIndex));
                     Ui.showDetailMessage();
                     break;
+                case "movie":
+                    System.out.println("Please enter the movie name that you would like to see the detail of it!");
+                    String movieName = inputCommand(scan);
+                    Movie movie = MovieList.findMovie(movieName);
+                    System.out.println(movie.getMovieDetail(movie));
+                    Ui.showDetailMessage();
+                    break;
                 default:
-                    System.out.println("Please follow the format: seedetail [watched/towatch]");
+                    System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
                     assert false: "Command entered is not a correct format";
                     break;
                 }

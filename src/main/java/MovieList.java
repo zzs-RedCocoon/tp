@@ -39,6 +39,35 @@ public class MovieList {
     public void add(Movie movie) {
         this.movieList.add(movie);
     }
+    public static Movie findMovie(String inputTitle) {
+        ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
+        if (relevantMovies.size() == 0) {
+            System.out.println( "No relevant movie found, please try enter the movie name again!");
+            Ui.printLine();
+            return null;
+        }
+        Integer id = 1;
+        for (Movie relevantMovie: relevantMovies) {
+            System.out.println(id + ". " + relevantMovie.toString());
+            id += 1;
+        }
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with showing the detail of the movie you chose, thanks!");
+        Ui.printLine();
+        Scanner scan = new Scanner(System.in);;
+        String s = scan.nextLine();
+        Movie movie;
+        try {
+            movie = relevantMovies.get(Integer.parseInt(s) - 1);
+            return movie;
+        } catch (NumberFormatException e) { // cannot parse string to int
+            System.out.println("Movie id should be number.");
+            return null;
+        } catch (IndexOutOfBoundsException e) { //id out of range
+            System.out.println("Movie id is out of range.");
+            return null;
+        }
+    }
 
     /**
      * Adds a movie from the list of movies.
@@ -48,6 +77,7 @@ public class MovieList {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println( "No relevant movie found, please try enter the movie name again!");
+            Ui.printLine();
             return;
         }
         Integer id = 1;
@@ -57,6 +87,7 @@ public class MovieList {
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
+        Ui.printLine();
         Scanner scan = new Scanner(System.in);;
         String s = scan.nextLine();
 
