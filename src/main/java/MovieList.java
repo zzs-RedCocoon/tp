@@ -35,10 +35,10 @@ public class MovieList {
     /**
      * Used for see detail by movie name.
      * The function will search in the database for the most relevant movies and then prompt
-     * the user to enter the index of the movie. 
+     * the user to enter the index of the movie.
+     * It will then show the movie detail to the user
      *
      * @param inputTitle Movie name entered by the user
-     * @return return a movie object that the user is looking for
      */
     public static void findMovieDetail(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
