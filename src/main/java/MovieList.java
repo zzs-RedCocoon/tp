@@ -33,13 +33,50 @@ public class MovieList {
     }
 
     /**
+     * Used for see detail by movie name.
+     * The function will search in the database for the most relevant movies and then prompt
+     * the user to enter the index of the movie.
+     * It will then show the movie detail to the user
+     *
+     * @param inputTitle Movie name entered by the user
+     */
+    public static void findMovieDetail(String inputTitle) {
+        ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
+        if (relevantMovies.size() == 0) {
+            System.out.println( "No relevant movie found, please try enter the movie name again!");
+            Ui.printLine();
+            return;
+        }
+        int id = 1;
+        for (Movie relevantMovie: relevantMovies) {
+            System.out.println(id + ". " + relevantMovie.toString());
+            id += 1;
+        }
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with showing the detail of the movie you chose, thanks!");
+        Ui.printLine();
+        Scanner scan = new Scanner(System.in);;
+        String s = scan.nextLine();
+        Movie movie;
+        try {
+            movie = relevantMovies.get(Integer.parseInt(s) - 1);
+            System.out.println(movie.getMovieDetail());
+            return;
+        } catch (NumberFormatException e) { // cannot parse string to int
+            System.out.println("Movie id should be number.");
+            return;
+        } catch (IndexOutOfBoundsException e) { //id out of range
+            System.out.println("Movie id is out of range.");
+            return;
+        }
+    }
+    /**
      * Add a movie to the contained list.
      * @param movie a movie.
      */
     public void add(Movie movie) {
         this.movieList.add(movie);
     }
-
     /**
      * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
@@ -48,15 +85,17 @@ public class MovieList {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println( "No relevant movie found, please try enter the movie name again!");
+            Ui.printLine();
             return;
         }
-        Integer id = 1;
+        int id = 1;
         for (Movie relevantMovie: relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
+        Ui.printLine();
         Scanner scan = new Scanner(System.in);;
         String s = scan.nextLine();
 
