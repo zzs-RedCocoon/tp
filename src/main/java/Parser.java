@@ -33,21 +33,16 @@ public class Parser {
 //                        break;
 //                }
 //                // fallthrough
-//            case "towatch":
-//                // add to to-watch list
-//                toWatchList.add(commandArg);
-//                break;
+            case "towatch":
+                return new AddToWatchListCommand(commandArg);
 //            case "help":
 //                Ui.help();
 //                Ui.printLine();
 //                break;
             case "list":
                 return new ListCommand();
-//            case "watchlist":
-//                // list the to-watch list
-//                toWatchList.list();
-//                Ui.printLine();
-//                break;
+            case "watchlist":
+                return new WatchListCommand();
 //            case "seedetail":
 //                switch (commandArg) {
 //                    case "watched":
