@@ -72,15 +72,13 @@ public class Parser {
 //                }
 //                // fallthrough
 //                break;
-//            case "addreview":
-//                watchedList.setReview(commandArg);
-//                break;
+            case "addreview":
+                return new AddReviewCommand(commandArg);
 //            case "deletereview":
 //                watchedList.deleteReview(commandArg);
 //                break;
-//            case "viewreview":
-//                watchedList.viewReview(commandArg);
-//                break;
+            case "viewreview":
+                return new ViewReviewCommand(commandArg);
             case "filter":
                 return new FilterCommand(commandArg);
             case "exit": // fallthrough
