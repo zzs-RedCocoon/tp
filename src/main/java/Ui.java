@@ -101,6 +101,5 @@ public class Ui {
     public static void showDetailMessage() {
         System.out.println("The movie details are showed above!");
         System.out.println("Please feel free to continue with other features :))");
-        printLine();
     }
 }

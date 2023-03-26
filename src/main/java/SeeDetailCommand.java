@@ -7,21 +7,12 @@ public class SeeDetailCommand extends Command {
         this.movieListType = movieListType;
     }
 
-    public void seeWatchedMovieDetail(WatchedList watchedList, Ui ui) {
+    public void seeMovieDetail(MovieList movieList, Ui ui) {
         // list watched list for the user to choose
-        Ui.showListMessage(watchedList);
+        Ui.showListMessage(movieList);
         System.out.println("Please enter the movie index that you would like to see the detail of it!");
         int seeDetailWatchedIndex = Integer.parseInt(ui.inputCommand());
-        System.out.println(watchedList.getMovieDetail(seeDetailWatchedIndex));
-        Ui.showDetailMessage();
-    }
-
-    public void seeToWatchMovieDetail(ToWatchList toWatchList, Ui ui) {
-        // list to-watch list for the user to choose
-        Ui.showListMessage(toWatchList);
-        System.out.println("Please enter the movie index that you would like to see the detail of it!");
-        int seeDetailToWatchIndex = Integer.parseInt(ui.inputCommand());
-        System.out.println(toWatchList.getMovieDetail(seeDetailToWatchIndex));
+        System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
         Ui.showDetailMessage();
     }
 
@@ -35,10 +26,10 @@ public class SeeDetailCommand extends Command {
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (movieListType) {
         case "watched":
-            seeWatchedMovieDetail(watchedList, ui);
+            seeMovieDetail(watchedList, ui);
             break;
         case "towatch":
-            seeToWatchMovieDetail(toWatchList, ui);
+            seeMovieDetail(toWatchList, ui);
             break;
         case "movie":
             seeMovieDetailByName(ui);
