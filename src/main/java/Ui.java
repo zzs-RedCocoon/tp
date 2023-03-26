@@ -14,7 +14,11 @@ public class Ui {
     public static String inputCommand() {
         Scanner scan = new Scanner(System.in);
         String s = "";
-        s = scan.nextLine();
+        try{
+            s = scan.nextLine();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         while (s.trim().isEmpty() || s.trim().charAt(0) == '#') {
             s = scan.nextLine();
         }
