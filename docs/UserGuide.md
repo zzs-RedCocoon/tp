@@ -9,6 +9,10 @@ Moreover, it allows you to filter specific types of movies to help you search fo
   - [Viewing help: help](#viewing-help--help)
   - [Add a movie you've watched: watched](#add-a-movie-youve-watched--watched)
   - [Add a movie you want to watch: towatch](#add-a-movie-you-want-to-watch--towatch)
+  - [List out movies you've watched: `list`](#list-out-movies-youve-watched-or-plan-to-watch--list--watchlist)
+  - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-watchedto-watch-list--remove)
+  - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
+  
 
 <hr>
 
@@ -81,58 +85,43 @@ Feel free to continue with other features
 ## Add a movie you want to watch: `towatch`
 Adds an unwatched movie to your to-watch list.\
 Format: `towatch <Movie Name>`
-> :exclamation: **Note:** Functionality is similar to `watched` (see [above](#add-a-movie-youve-watched--watched)).
+> :exclamation: **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
 
-## list
-Lists all the movies you have watched.\
-Format: list\
-Example:\
-\>> list
-1. \<Movie Name 1\>
-2. \<Movie Name 2\>
+## List out movies you've watched or plan to watch: `list`/`watchlist`
+Show a list of all the movies you have watched.\
+Format:\
+`list` for movies you have watched.\
+`watchlist` for movies you plan to watch.
 
-## watchlist
-Lists the movies you are planning to watch.\
-Format: watchlist\
-Example:\
-\>> watchlist
-1. \<Movie Name 1\>
-2. \<Movie Name 2\>
+Example:
+```
+>> list
+1. Movie Name 1
+2. Movie Name 2
+```
 
-### remove watched
-Removes a movie from the list of watched movies.\
-Format: remove watched \<Movie Index\>\
+## Remove a listing from either list: `remove`
+Removes a movie from either list of movies.\
+Format:\
+`remove watched <movie_index>` to remove a movie from your watchlist.\
+`remove towatch <movie_index>` to remove a movie from your to-watch list.
+
 Examples:\
-\>> list
+```
+>> list
 1. Avengers: Endgame
 2. La La Land
-\
-'''
 
-'''
-\
-\>> remove watched 1\
-\>> list
+>> remove watched 1
+
+>> list
 1. La La Land
+```
+> :exclamation: **Coming soon:** we will add better feedback for user after removal.
 
-### remove towatch
-Removes a movie from the to-watch list.\
-Format: remove towatch \<Movie Index\>\
-Examples:\
-\>> watchlist
-1. Avengers: Endgame
-2. La La Land
-\
-'''
-
-'''
-\
-\>> remove towatch 1\
-\>> list
-1. La La Land
-
-### seedetail
-See the details of the movie as provided by the database. This does not include user-specific properties.\
+## See a movie's details: `seedetail`
+See the details of the movie as provided by the database.
+This does not include user-specific properties, like reviews.\
 Format: seedetail \<Movie Name\>\
 Examples:\
 \>> seedetail Avengers: Endgame\
