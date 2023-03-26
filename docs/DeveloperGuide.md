@@ -96,4 +96,21 @@ This value indicates the movie index chosen by the user from the list.
 
 **Step 5.** The `add(String inputTitle)` has finished everything and returned.
 
+How the `MovieList.remove()` component works:
+
+![](/PUMLFiles/MovieList/movielist3.png)
+
+**Step 1.** `remove` command is entered, which continues to call `showListMessage()` in `Ui` to 
+show the user the movies in the list.
+It will then display all movies from `watched list` or `to-watch list`, allowing the user to easily pick the movie for deletion.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `remove()` is called to remove a  `Movie` object according to the index and delete the movie to the movie list.
+
+**Step 4.** The function will call `showDeleteMessage` from `Ui`, which will show feedback message to the user.
+
+**Step 5.** The `remove` command has finished everything and ended.
+
 

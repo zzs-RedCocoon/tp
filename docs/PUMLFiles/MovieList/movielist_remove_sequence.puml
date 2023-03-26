@@ -1,0 +1,20 @@
+@startuml
+
+'movielist2, sequence diagram'
+actor User
+
+User -> remove
+remove -> Ui : showListMessage(MovieList movieList)
+Ui --> remove: feedback
+remove -> Parser : parseInt(String inputNumber)
+Parser --> remove : return index
+
+remove -> MovieList: remove(int index)
+MovieList -> MovieList: remove(index)
+MovieList --> remove
+
+remove -> Ui : showDeleteMessage()
+Ui --> remove : feedback
+
+remove --> User
+@enduml

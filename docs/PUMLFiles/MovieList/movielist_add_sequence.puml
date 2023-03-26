@@ -1,6 +1,6 @@
 @startuml
 
-'movielist2, sequence diagram'
+'movielist3, sequence diagram'
 actor User
 
 User -> watched

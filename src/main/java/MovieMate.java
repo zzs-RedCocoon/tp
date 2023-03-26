@@ -64,6 +64,7 @@ public class MovieMate {
                     Ui.showDeleteMessage();
                     break;
                 default:
+                    //TODO add reminder message here
                     break;
                 }
                 // fallthrough
