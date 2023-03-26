@@ -14,9 +14,8 @@ public class Ui {
     public static String inputCommand() {
         Scanner scan = new Scanner(System.in);
         String s = "";
-        if (scan.hasNextLine()) {
-            s = scan.nextLine();
-        }
+        s = scan.nextLine();
+
         while (s.trim().isEmpty() || s.trim().charAt(0) == '#') {
             if (scan.hasNextLine()) {
                 s = scan.nextLine();
@@ -43,10 +42,8 @@ public class Ui {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
         Scanner in = new Scanner(System.in);
-        String name = "";
-        if (in.hasNextLine()) {
-            name = in.nextLine();
-        }
+        String name = in.nextLine();
+
         System.out.println("Hello " + name + ", welcome to movie mate");
         System.out.println("Please enter the command to proceed with MovieMate :))");
     }
