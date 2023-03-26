@@ -32,7 +32,7 @@ public class SeeDetailCommand extends Command {
         Ui.showDetailMessage();
     }
 
-    public void execute (WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
+    public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (movieListType) {
         case "watched":
             seeWatchedMovieDetail(watchedList, ui);

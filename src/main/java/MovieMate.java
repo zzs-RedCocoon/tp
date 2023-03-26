@@ -43,7 +43,6 @@ public class MovieMate {
 
     private static void exit() {
         ui.showExitMessage();
-        ui.printLine();
         storage.writeToFile(watchedListPath, watchedList.getFileWriteFormat());
         storage.writeToFile(toWatchListPath, toWatchList.getFileWriteFormat());
         System.exit(0);
@@ -56,6 +55,7 @@ public class MovieMate {
             String userInput = ui.inputCommand();
             command = parser.parseCommand(userInput);
             command.execute(watchedList, toWatchList, ui, storage);
+            Ui.printLine();
         } while (!ExitCommand.isExit(command));
         exit();
     }

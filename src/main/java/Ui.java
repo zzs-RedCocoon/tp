@@ -55,7 +55,7 @@ public class Ui {
      * Show help message to the user
      * TODO change tbc into user guide
      */
-    public static void help() {
+    public static void printHelp() {
         System.out.println("First time using Movie Mate?");
         System.out.println("Here is the link to the user guide: ");
         System.out.println("tbc");
@@ -94,7 +94,6 @@ public class Ui {
      */
     public static void showDeleteMessage() {
         System.out.println("The movie has been deleted for you!");
-        printLine();
     }
     /**
      * Show feedback message to the user after showing the movie detail
