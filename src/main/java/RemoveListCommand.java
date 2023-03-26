@@ -9,18 +9,18 @@ public class RemoveListCommand extends Command{
 
     public void removeWatchedList(WatchedList watchedList, Ui ui, Storage storage) {
         //remove from watched list
-        Ui.showListMessage(watchedList);
+        ui.showListMessage(watchedList);
         int removeWatchedIndex = Integer.parseInt(ui.inputCommand());
         watchedList.remove(removeWatchedIndex);
-        Ui.showDeleteMessage();
+        ui.showDeleteMessage();
     }
 
     public void removeToWatchList(ToWatchList toWatchList, Ui ui, Storage storage) {
         //remove from towatch list
-        Ui.showListMessage(toWatchList);
+        ui.showListMessage(toWatchList);
         int removeToWatchIndex = Integer.parseInt(ui.inputCommand());
         toWatchList.remove(removeToWatchIndex);
-        Ui.showDeleteMessage();
+        ui.showDeleteMessage();
     }
 
     @Override
