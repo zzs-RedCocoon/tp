@@ -12,6 +12,11 @@ Moreover, it allows you to filter specific types of movies to help you search fo
   - [List out movies you've watched: `list`](#list-out-movies-youve-watched-or-plan-to-watch--list--watchlist)
   - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-watchedto-watch-list--remove)
   - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
+  - [Filter movies from your list by genres: `filter`](#filter-movies-from-your-list-by-genres--filter)
+  - [Review a movie you've watched: `review`](#review-a-movie-youve-watched--review)
+    - [Delete a review: `deletereview`](#delete-a-review--deletereview-1)
+    - [View a review: `viewreview`](#view-a-review--viewreview)
+  - [Exit and save: `bye` or `exit`](#exit-and-save--bye-or-exit)
   
 
 <hr>
@@ -43,7 +48,8 @@ For example, you can start by typing the `help` command.
 > In the below examples, text following `>>` indicates user input.
 
 ## Viewing help: `help`
-Will print all the commands that the user can use.\
+Will print all the commands that the user can use.
+
 Format: `help`
 
 Example:
@@ -57,8 +63,9 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 ```
 
 ## Add a movie you've watched: `watched`
-Adds a movie to your watched list.\
-Format: `watched <Movie Name>`
+Adds a movie to your watched list.
+
+Format: `watched <movie name>`
 
 > :exclamation: **Tip**: you may provide an incomplete title.
 > You will then be prompted to pick among a few similar titles.
@@ -83,12 +90,14 @@ Feel free to continue with other features
 ```
 
 ## Add a movie you want to watch: `towatch`
-Adds an unwatched movie to your to-watch list.\
-Format: `towatch <Movie Name>`
+Adds an unwatched movie to your to-watch list.
+
+Format: `towatch <movie name>`
 > :exclamation: **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
 
 ## List out movies you've watched or plan to watch: `list`/`watchlist`
-Show a list of all the movies you have watched.\
+Show a list of all the movies you have watched.
+
 Format:\
 `list` for movies you have watched.\
 `watchlist` for movies you plan to watch.
@@ -101,12 +110,13 @@ Example:
 ```
 
 ## Remove a listing from either list: `remove`
-Removes a movie from either list of movies.\
+Removes a movie from either list of movies.
+
 Format:\
 `remove watched <movie_index>` to remove a movie from your watchlist.\
 `remove towatch <movie_index>` to remove a movie from your to-watch list.
 
-Examples:\
+Examples:
 ```
 >> list
 1. Avengers: Endgame
@@ -120,58 +130,67 @@ Examples:\
 > :exclamation: **Coming soon:** we will add better feedback for user after removal.
 
 ## See a movie's details: `seedetail`
-See the details of the movie as provided by the database.
-This does not include user-specific properties, like reviews.\
-Format: seedetail \<Movie Name\>\
-Examples:\
-\>> seedetail Avengers: Endgame\
-\<length\>\
-\<release date\>\
-\<genre\>\
-\<description of movie\>
+See the details of the movie as provided by the database.\
+This does not include user-specific properties, like reviews.
 
-### filter
-Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.\
-Format: filter \<Genre\>\
-Examples:\
-\>> filter comedy\
-<Comedy Movie 1>
-<Comedy Movie 2>
+Format: `seedetail <movie name>`
 
-### addreview
-Adds a review for a watched movie. The review will be done when the user types in /done.\
-Format:\
-\>> addreview \<Movie Index\> [enter]\
-\>> \<your review\>\
-\>> \<your review\>\
-\>> /done\
-Examples:\
-\>> addreview 1\
-\>> Such a thrilling movie to watch!\
-\>> ...\
-\>> ...\
-\>> and that is the end of my review.\
-\>> /done\
-Review added!
+Examples:
+```
+>> seedetail Avengers: Endgame
 
-### deletereview
-Delete a review for a watched movie.\
-Format: deletereview \<Movie Index\>\
-Examples:\
-\>> deletereview 1\
-deleted Avengers: EndGame
+Year: 2019
+Length: 182 minutes
+Genre(s): Action, Sci-fi
+```
+> :exclamation: **Coming soon:** we will add a way to search movie titles, just like watched.
 
-### viewreview
-Allows you to see your review of the watched movie.\
-Format: viewreview <Movie Index>\
-Examples:\
-\>> viewreview 1\
-Such a thrilling movie to watch!
+## Filter movies from your list by genres: `filter`
+Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.
 
-### bye
-Closes MovieMate.\
-Format: bye\
-Examples:\
-\>> bye\
-Hope you enjoy your experience with MovieMate and we will see you next time!
+Format: filter <genre>
+
+Examples:
+```
+>> filter comedy
+
+Watched
+1. Bee Movie
+
+To Watch
+1. Shrek
+2. Johnny English
+```
+
+> :exclamation: **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
+
+## Review a movie you've watched: `review`
+Adds a review for a watched movie. The user is first prompted for a text review, which ends once the user
+enters a blank line. The user is then asked for a numerical rating (out of 5).
+
+Format: `review <movie_index>`
+
+Examples:
+```
+>> review 1
+
+((TODO user feedback))
+```
+
+Reviews can also be deleted and viewed with the following commands:
+
+### Delete a review: `deletereview`
+Delete a review for a watched movie.
+Format: `deletereview <movie_index>`
+
+### View a review: `viewreview`
+Allows you to see your review of a movie.
+Format: `viewreview <movie_index>`
+
+## Exit and save: `bye` or `exit`
+Closes MovieMate and saves your data.
+> :exclamation: Make sure to use this command instead of closing the window.
+> This will save the data. Closing the window in other ways will not save the data.
+ 
+Format: `bye` or `exit`
 
