@@ -45,7 +45,7 @@ public class SeeDetailCommand extends Command {
             break;
         default:
             System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
-//                assert false : "Command entered is not a correct format";
+//            assert false : "Command entered is not a correct format";
             break;
         }
     }
