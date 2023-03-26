@@ -174,7 +174,8 @@ Examples:
 ```
 >> review 1
 
-((TODO user feedback))
+Write your review. Use as many lines as you need. To end, simply input a blank line.
+...
 ```
 
 Reviews can also be deleted and viewed with the following commands:
