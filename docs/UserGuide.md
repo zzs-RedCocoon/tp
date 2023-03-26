@@ -1,8 +1,38 @@
 # MovieMate User Guide
-MovieMate is a command-line app for managing your own list of movies that you’ve watched or planning to watch. It allows you to store your ratings and reviews for different movies and give you a quick glance of your movie list. You can also keep track of all the movies you plan to watch separately. Moreover, it allows you to filter specific types of movies to help you search for the movie you want effectively.
+MovieMate is a command-line app for managing your own list of movies that you’ve watched or planning to watch.
+It allows you to store your ratings and reviews for different movies and give you a quick glance of your movie list.
+You can also keep track of all the movies you plan to watch separately.
+Moreover, it allows you to filter specific types of movies to help you search for the movie you want effectively.
 
-## Features
-### help
+- [Quick Start](#quick-start)
+- [Features](#features)
+  - [Viewing help: help](#viewing-help--help)
+  - Watched
+
+<hr>
+
+# Quick Start 
+
+1. Ensure you have Java 11 or above installed in your Computer. 
+2. Download the latest `moviemate.jar` from [here](https://github.com/AY2223S2-CS2113-W12-4/tp/releases).
+3. Copy the file to the folder you want to use as the home folder for your MovieMate.
+4. Open a command terminal, `cd` into the folder you put the jar file in,
+and use the `java -jar moviemate.jar` command to run the application. 
+5. You should then be able to use MovieMate through the command terminal.
+6. Type the command in the command box and press Enter to execute it.
+For example, you can start by typing the `help` command.
+7. Refer to the [Features section](#features) below for details of each command.
+
+<hr>
+
+# Features
+> ❗ Note about usage:
+> Words in `<angle brackets>` are parameters to be supplied by the user.
+> 
+> e.g. to add a watched movie with `watched <movie name>`,
+> `<movie name>` is a parameter (spaces allowed), such as in `watched La La Land`.
+
+## Viewing help: `help`
 Will print all the commands that the user can use.\
 Format: help\
 \>> help\
