@@ -14,13 +14,13 @@ public class Ui {
     public static String inputCommand() {
         Scanner scan = new Scanner(System.in);
         String s = "";
-        try{
+        if (scan.hasNextLine()) {
             s = scan.nextLine();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
         while (s.trim().isEmpty() || s.trim().charAt(0) == '#') {
-            s = scan.nextLine();
+            if (scan.hasNextLine()) {
+                s = scan.nextLine();
+            }
         }
         return s;
     }
@@ -43,7 +43,11 @@ public class Ui {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
         Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine() + ", welcome to movie mate");
+        String name = "";
+        if (in.hasNextLine()) {
+            name = in.nextLine();
+        }
+        System.out.println("Hello " + name + ", welcome to movie mate");
         System.out.println("Please enter the command to proceed with MovieMate :))");
     }
 
