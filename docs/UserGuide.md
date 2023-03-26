@@ -7,7 +7,8 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 - [Quick Start](#quick-start)
 - [Features](#features)
   - [Viewing help: help](#viewing-help--help)
-  - Watched
+  - [Add a movie you've watched: watched](#add-a-movie-youve-watched--watched)
+  - [Add a movie you want to watch: towatch](#add-a-movie-you-want-to-watch--towatch)
 
 <hr>
 
@@ -26,50 +27,63 @@ For example, you can start by typing the `help` command.
 <hr>
 
 # Features
-> ❗ Note about usage:
-> Words in `<angle brackets>` are parameters to be supplied by the user.
+> :exclamation: **Note about usage:**
 > 
+> Words in `<angle brackets>` are parameters to be supplied by the user.\
 > e.g. to add a watched movie with `watched <movie name>`,
 > `<movie name>` is a parameter (spaces allowed), such as in `watched La La Land`.
+> 
+> Commands that do not take in parameters (such as `help`) will ignore any additional parameters.\
+> e.g. inputting `help 123` will be interpreted as `help`.
+> 
+> In the below examples, text following `>>` indicates user input.
 
 ## Viewing help: `help`
 Will print all the commands that the user can use.\
-Format: help\
-\>> help\
-First time using MovieMate? Below is the quick guide for you to get to know about how to use the app ...\
-Add A Movie to the watched List: watched\
-Adds a movie to the list of watched movies.\
+Format: `help`
+
+Example:
+```
+>> help
+First time using MovieMate? Below is the quick guide for you to get to know about how to use the app ...
+Add A Movie to the watched List: watched
+Adds a movie to the list of watched movies.
 If the item currently exists in the watchlist, it will be moved to the watched list.
+...
+```
 
-### watched
+## Add a movie you've watched: `watched`
 Adds a movie to your watched list.\
-Format: watched \<Movie Name\>\
-Examples:\
-\>> list\
-Titanic\
-\>> watched Avengers: Endgame\
-\>> watched La La Land\
- \
-\>> list\
-Titanic\
-Avengers: Endgame\
-La La Land
+Format: `watched <Movie Name>`
 
-### towatch
+> :exclamation: **Tip**: you may provide an incomplete title.
+> You will then be prompted to pick among a few similar titles.
+> 
+> If the movie exists in your to-watch list, this will move the list to your watched list.
+
+Examples:
+```
+>> watched La La
+
+    1. La La Land
+    2. La La Lol
+Please enter the id of the movie you are looking for
+The program will then proceed with adding the movie you chose, thanks!
+
+>> 1
+
+You have successfully added the movie into your list!
+Here is the movie detail
+    La La Land
+Feel free to continue with other features
+```
+
+## Add a movie you want to watch: `towatch`
 Adds an unwatched movie to your to-watch list.\
-Format: towatch \<Movie Name\>\
-Examples:\
-\>> watchlist\
-Titanic\
-\>> towatch Avengers: Endgame\
-\>> towatch La La Land\
- \
-\>> watchlist\
-Titanic\
-Avengers Endgame\
-La La Land
+Format: `towatch <Movie Name>`
+> :exclamation: **Note:** Functionality is similar to `watched` (see [above](#add-a-movie-youve-watched--watched)).
 
-#### list
+## list
 Lists all the movies you have watched.\
 Format: list\
 Example:\
@@ -77,7 +91,7 @@ Example:\
 1. \<Movie Name 1\>
 2. \<Movie Name 2\>
 
-### watchlist
+## watchlist
 Lists the movies you are planning to watch.\
 Format: watchlist\
 Example:\
