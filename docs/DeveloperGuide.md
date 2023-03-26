@@ -96,20 +96,4 @@ This value indicates the movie index chosen by the user from the list.
 
 **Step 5.** The `add(String inputTitle)` has finished everything and returned.
 
-How the `MovieList.filter(String genre)` component works:
-
-**Step 1.** `filter(String genre)` is called. `getClass()` and `getName()` are then called to get the relevant list's class and name.
-For example, if `filter` is done on the WatchedList, "In WatchedList:" is displayed.
-
-**Step 2.** An integer i is initialized with a value of 1.
-
-**Step 3.** Iterate through the MovieList. For each movie, `getGenres()` is called to obtain its array of genres, which is checked
-to see if it contains the input genre. If true, a description of the movie will be displayed on a new line and i is 
-incremented. If false, nothing will be displayed.
-
-**Step 5.** After the entire iteration is complete, if i == 1, it means no movies were found containing the input genre in their
-genre array. Feedback message displayed accordingly and `filter` returns.
-
-
-
 
