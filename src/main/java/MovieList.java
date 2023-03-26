@@ -154,12 +154,7 @@ public class MovieList {
      */
     public void remove(int index) {
         index = index - 1; // Offset 1-index
-        try {
-            this.movieList.remove(index);
-            System.out.println("Ok! Movie removed from your list.");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("That isn't a movie in your list. Nothing to remove!");
-        }
+        this.movieList.remove(index);
     }
 
     public Movie createMovie(String[] movieStrings) {
