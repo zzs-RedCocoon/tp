@@ -26,15 +26,15 @@ public class RemoveListCommand extends Command{
     @Override
     public void execute (WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (removeListType) {
-            case "watched":
-                removeWatchedList(watchedList, ui, storage);
-                break;
-            case "towatch":
-                removeToWatchList(toWatchList, ui, storage);
-                break;
-            default:
-                System.out.println("Please follow the format: remove [watched/towatch]");
-                break;
+        case "watched":
+            removeWatchedList(watchedList, ui, storage);
+            break;
+        case "towatch":
+            removeToWatchList(toWatchList, ui, storage);
+            break;
+        default:
+            System.out.println("Please follow the format: remove [watched/towatch]");
+            break;
         }
     }
 

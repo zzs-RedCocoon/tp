@@ -11,33 +11,33 @@ public class Parser {
         String commandArg = commandTypeAndParams[1];
 
         switch (commandType) {
-            case "watched":
-                return new AddWatchedListCommand(commandArg);
-            case "remove":
-                return new RemoveListCommand(commandArg);
-            case "towatch":
-                return new AddToWatchListCommand(commandArg);
-            case "help":
-                return new HelpCommand();
-            case "list":
-                return new ListCommand();
-            case "watchlist":
-                return new WatchListCommand();
-            case "seedetail":
-                return new SeeDetailCommand(commandArg);
-            case "addreview":
-                return new AddReviewCommand(commandArg);
-            case "deletereview":
-                return new DeleteReviewCommand(commandArg);
-            case "viewreview":
-                return new ViewReviewCommand(commandArg);
-            case "filter":
-                return new FilterCommand(commandArg);
-            case "exit": // fallthrough
-            case "bye":
-                return new ExitCommand();
-            default:
-                return new HelpCommand(); // or return UnknownCommand()
+        case "watched":
+            return new AddWatchedListCommand(commandArg);
+        case "remove":
+            return new RemoveListCommand(commandArg);
+        case "towatch":
+            return new AddToWatchListCommand(commandArg);
+        case "help":
+            return new HelpCommand();
+        case "list":
+            return new ListCommand();
+        case "watchlist":
+            return new WatchListCommand();
+        case "seedetail":
+            return new SeeDetailCommand(commandArg);
+        case "addreview":
+            return new AddReviewCommand(commandArg);
+        case "deletereview":
+            return new DeleteReviewCommand(commandArg);
+        case "viewreview":
+            return new ViewReviewCommand(commandArg);
+        case "filter":
+            return new FilterCommand(commandArg);
+        case "exit": // fallthrough
+        case "bye":
+            return new ExitCommand();
+        default:
+            return new HelpCommand(); // or return UnknownCommand()
         }
     }
 

@@ -34,19 +34,19 @@ public class SeeDetailCommand extends Command {
 
     public void execute (WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (movieListType) {
-            case "watched":
-                seeWatchedMovieDetail(watchedList, ui);
-                break;
-            case "towatch":
-                seeToWatchMovieDetail(toWatchList, ui);
-                break;
-            case "movie":
-                seeMovieDetailByName(ui);
-                break;
-            default:
-                System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
+        case "watched":
+            seeWatchedMovieDetail(watchedList, ui);
+            break;
+        case "towatch":
+            seeToWatchMovieDetail(toWatchList, ui);
+            break;
+        case "movie":
+            seeMovieDetailByName(ui);
+            break;
+        default:
+            System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
 //                assert false : "Command entered is not a correct format";
-                break;
+            break;
         }
     }
 }
