@@ -16,8 +16,11 @@ diff EXPECTED-UNIX.TXT ACTUAL.TXT
 if [ $? -eq 0 ]
 then
     echo "Test passed!"
+    sleep 10
     exit 0
 else
     echo "Test failed!"
+    sleep 10
     exit 1
 fi
+

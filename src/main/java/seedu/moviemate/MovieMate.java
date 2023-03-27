@@ -34,9 +34,10 @@ public class MovieMate {
             System.out.println("Critical error: You might be missing a database file.");
             System.exit(1);
         }
-        
-        watchedList = new WatchedList(storage.load(watchedListPath));
-        toWatchList = new ToWatchList(storage.load(toWatchListPath));
+        watchedList = new WatchedList();
+        toWatchList = new ToWatchList();
+        //watchedList = new WatchedList(storage.load(watchedListPath));
+        //toWatchList = new ToWatchList(storage.load(toWatchListPath));
     }
 
 
