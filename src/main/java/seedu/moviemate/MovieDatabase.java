@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;

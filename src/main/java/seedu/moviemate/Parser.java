@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 /**
  * Parses user input.
  */

@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 public class DeleteReviewCommand extends Command {
     private String indexString;
 

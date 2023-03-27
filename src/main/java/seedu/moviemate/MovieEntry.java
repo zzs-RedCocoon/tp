@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 import java.util.Date;
 
 /**

@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 public class AddReviewCommand extends Command {
     private String indexString;
 

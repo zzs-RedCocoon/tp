@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 import java.util.Scanner;
 
 /**
@@ -37,7 +39,7 @@ public class Review implements Comparable<Review> {
      * Set review for both text and stars.
      */
     public void setReview() {
-        // Set Review Text First
+        // Review Text First
         this.setReviewText();
         System.out.println("Text review added.");
 

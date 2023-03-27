@@ -1,3 +1,4 @@
+package seedu.moviemate;
 
 public class ListCommand extends Command {
 

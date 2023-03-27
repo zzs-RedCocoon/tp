@@ -1,3 +1,5 @@
+package seedu.moviemate;
+
 /**
  * Movie class containing the basic essentials of a movie.
  *

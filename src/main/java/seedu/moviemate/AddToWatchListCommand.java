@@ -1,15 +1,15 @@
+package seedu.moviemate;
 
-public class AddWatchedListCommand extends Command {
-
+public class AddToWatchListCommand extends Command {
     private String inputTitle;
 
-    public AddWatchedListCommand(String inputTitle) {
+    public AddToWatchListCommand(String inputTitle) {
         this.inputTitle = inputTitle;
     }
 
     @Override
     public  void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
-        // add to watched list
-        watchedList.add(inputTitle);
+        // add to to-watch list
+        toWatchList.add(inputTitle);
     }
 }

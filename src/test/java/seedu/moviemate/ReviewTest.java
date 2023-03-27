@@ -1,5 +1,7 @@
+package seedu.moviemate;
 
 import org.junit.jupiter.api.Test;
+//import seedu.moviemate.Review;
 
 public class ReviewTest {
 

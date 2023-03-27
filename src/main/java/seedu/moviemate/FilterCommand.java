@@ -1,3 +1,4 @@
+package seedu.moviemate;
 
 public class FilterCommand extends Command {
     private String genre;
