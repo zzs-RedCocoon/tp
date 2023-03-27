@@ -96,4 +96,52 @@ This value indicates the movie index chosen by the user from the list.
 
 **Step 5.** The `add(String inputTitle)` has finished everything and returned.
 
+How the `MovieList.remove()` component works:
 
+![](/PUMLFiles/MovieList/movielist3.png)
+
+**Step 1.** `remove` command is entered, which continues to call `showListMessage()` in `Ui` to 
+show the user the movies in the list.
+It will then display all movies from `watched list` or `to-watch list`, allowing the user to easily pick the movie for deletion.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `remove()` is called to remove a  `Movie` object according to the index and delete the movie to the movie list.
+
+**Step 4.** The function will call `showDeleteMessage` from `Ui`, which will show feedback message to the user.
+
+**Step 5.** The `remove` command has finished everything and ended.
+
+How the `MovieList seedetail` component works:
+
+![](/PUMLFiles/MovieList/movielist4.png)
+
+**Step 1.** `seedetail` command is entered, which continues to call `showListMessage()` in `Ui` to
+show the user the movies in the list.
+It will then display all movies from `watched list` or `to-watch list`, 
+allowing the user to easily pick the movie for viewing detail.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `getMovieDetail()` is called to get the detail of a  `Movie` object 
+according to the index and return the detail of the specified movie.
+
+**Step 4.** The function will call `showDetailMessage` from `Ui`, which will show feedback message to the user.
+
+**Step 5.** The `seedetail` command has finished everything and ended.
+
+How the `MovieList.filter(String genre)` component works:
+
+**Step 1.** `filter(String genre)` is called. `getClass()` and `getName()` are then called to get the relevant list's class and name.
+For example, if `filter` is done on the WatchedList, "In WatchedList:" is displayed.
+
+**Step 2.** An integer i is initialized with a value of 1.
+
+**Step 3.** Iterate through the MovieList. For each movie, `getGenres()` is called to obtain its array of genres, which is checked
+to see if it contains the input genre. If true, a description of the movie will be displayed on a new line and i is
+incremented. If false, nothing will be displayed.
+
+**Step 5.** After the entire iteration is complete, if i == 1, it means no movies were found containing the input genre in their
+genre array. Feedback message displayed accordingly and `filter` returns.

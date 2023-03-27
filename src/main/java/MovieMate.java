@@ -19,7 +19,7 @@ public class MovieMate {
     private static String toWatchListPath;
 
 
-    public MovieMate(String watchedListPath, String toWatchListPath){
+    public MovieMate(String watchedListPath, String toWatchListPath) {
         ui = new Ui();
         parser = new Parser();
         logger = Logger.getLogger("MovieMate");
@@ -32,12 +32,13 @@ public class MovieMate {
             System.out.println("Critical error: You might be missing a database file.");
             System.exit(1);
         }
-
+        
         watchedList = new WatchedList(storage.load(watchedListPath));
         toWatchList = new ToWatchList(storage.load(toWatchListPath));
     }
 
-    private void start(){
+
+    private void start() {
         ui.showWelcomeMessage();
     }
 
@@ -48,8 +49,8 @@ public class MovieMate {
         System.exit(0);
     }
 
-    public void run(){
-        start();
+    public void run() {
+        this.start();
         Command command;
         do {
             String userInput = ui.inputCommand();
