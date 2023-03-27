@@ -96,6 +96,42 @@ This value indicates the movie index chosen by the user from the list.
 
 **Step 5.** The `add(String inputTitle)` has finished everything and returned.
 
+How the `MovieList.remove()` component works:
+
+![](/PUMLFiles/MovieList/movielist3.png)
+
+**Step 1.** `remove` command is entered, which continues to call `showListMessage()` in `Ui` to 
+show the user the movies in the list.
+It will then display all movies from `watched list` or `to-watch list`, allowing the user to easily pick the movie for deletion.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `remove()` is called to remove a  `Movie` object according to the index and delete the movie to the movie list.
+
+**Step 4.** The function will call `showDeleteMessage` from `Ui`, which will show feedback message to the user.
+
+**Step 5.** The `remove` command has finished everything and ended.
+
+How the `MovieList seedetail` component works:
+
+![](/PUMLFiles/MovieList/movielist4.png)
+
+**Step 1.** `seedetail` command is entered, which continues to call `showListMessage()` in `Ui` to
+show the user the movies in the list.
+It will then display all movies from `watched list` or `to-watch list`, 
+allowing the user to easily pick the movie for viewing detail.
+
+**Step 2.** Next, user is prompted for a numerical input (with input validation).
+This value indicates the movie index chosen by the user from the list.
+
+**Step 3.** Next, `getMovieDetail()` is called to get the detail of a  `Movie` object 
+according to the index and return the detail of the specified movie.
+
+**Step 4.** The function will call `showDetailMessage` from `Ui`, which will show feedback message to the user.
+
+**Step 5.** The `seedetail` command has finished everything and ended.
+
 How the `MovieList.filter(String genre)` component works:
 
 **Step 1.** `filter(String genre)` is called. `getClass()` and `getName()` are then called to get the relevant list's class and name.
