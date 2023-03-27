@@ -7,13 +7,13 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 - [Quick Start](#quick-start)
 - [Features](#features)
   - [Viewing help: help](#viewing-help--help)
-  - [Add a movie you've watched: watched](#add-a-movie-youve-watched--watched)
+  - [Add a movie you have watched: watched](#add-a-movie-you-have-watched--watched)
   - [Add a movie you want to watch: towatch](#add-a-movie-you-want-to-watch--towatch)
-  - [List out movies you've watched: `list`](#list-out-movies-youve-watched-or-plan-to-watch--list--watchlist)
-  - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-watchedto-watch-list--remove)
+    - [List out movies you have watched: `list`](#list-out-movies-you-have-watched-or-plan-to-watch--list--watchlist)
+    - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-either-list--remove)
   - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
   - [Filter movies from your list by genres: `filter`](#filter-movies-from-your-list-by-genres--filter)
-  - [Review a movie you've watched: `review`](#review-a-movie-youve-watched--review)
+  - [Review a movie you have watched: `review`](#review-a-movie-you-have-watched--review)
     - [Delete a review: `deletereview`](#delete-a-review--deletereview)
     - [View a review: `viewreview`](#view-a-review--viewreview)
   - [Exit and save: `bye` or `exit`](#exit-and-save--bye-or-exit)
@@ -21,7 +21,7 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 
 <hr>
 
-# Quick Start 
+# Quick Start {#start}
 
 1. Ensure you have Java 11 or above installed in your Computer. 
 2. Download the latest `moviemate.jar` from [here](https://github.com/AY2223S2-CS2113-W12-4/tp/releases).
@@ -62,7 +62,7 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 ...
 ```
 
-## Add a movie you've watched: `watched`
+## Add a movie you have watched: `watched`
 Adds a movie to your watched list.
 
 Format: `watched <movie name>`
@@ -95,7 +95,7 @@ Adds an unwatched movie to your to-watch list.
 Format: `towatch <movie name>`
 > ❗ **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
 
-## List out movies you've watched or plan to watch: `list`/`watchlist`
+### List out movies you have watched or plan to watch: `list`/`watchlist`
 Show a list of all the movies you have watched.
 
 Format:\
@@ -109,7 +109,7 @@ Example:
 2. Movie Name 2
 ```
 
-## Remove a listing from either list: `remove`
+### Remove a listing from either list: `remove`
 Removes a movie from either list of movies.
 
 Format:\
@@ -164,7 +164,7 @@ To Watch
 
 > ❗ **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
 
-## Review a movie you've watched: `review`
+## Review a movie you have watched: `review`
 Adds a review for a watched movie. The user is first prompted for a text review, which ends once the user
 enters a blank line. The user is then asked for a numerical rating (out of 5).
 
