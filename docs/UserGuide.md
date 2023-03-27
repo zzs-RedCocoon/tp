@@ -7,21 +7,21 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 - [Quick Start](#quick-start)
 - [Features](#features)
   - [Viewing help: help](#viewing-help--help)
-  - [Add a movie you've watched: watched](#add-a-movie-youve-watched--watched)
+  - [Add a movie you have watched: watched](#add-a-movie-you-have-watched--watched)
   - [Add a movie you want to watch: towatch](#add-a-movie-you-want-to-watch--towatch)
-  - [List out movies you've watched: `list`](#list-out-movies-youve-watched-or-plan-to-watch--list--watchlist)
-  - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-watchedto-watch-list--remove)
+    - [List out movies you have watched: `list`](#list-out-movies-you-have-watched-or-plan-to-watch--list--watchlist)
+    - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-either-list--remove)
   - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
   - [Filter movies from your list by genres: `filter`](#filter-movies-from-your-list-by-genres--filter)
-  - [Review a movie you've watched: `review`](#review-a-movie-youve-watched--review)
-    - [Delete a review: `deletereview`](#delete-a-review--deletereview-1)
+  - [Review a movie you have watched: `review`](#review-a-movie-you-have-watched--review)
+    - [Delete a review: `deletereview`](#delete-a-review--deletereview)
     - [View a review: `viewreview`](#view-a-review--viewreview)
   - [Exit and save: `bye` or `exit`](#exit-and-save--bye-or-exit)
   
 
 <hr>
 
-# Quick Start 
+# Quick Start {#start}
 
 1. Ensure you have Java 11 or above installed in your Computer. 
 2. Download the latest `moviemate.jar` from [here](https://github.com/AY2223S2-CS2113-W12-4/tp/releases).
@@ -36,7 +36,7 @@ For example, you can start by typing the `help` command.
 <hr>
 
 # Features
-> :exclamation: **Note about usage:**
+> ❗ **Note about usage:**
 > 
 > Words in `<angle brackets>` are parameters to be supplied by the user.\
 > e.g. to add a watched movie with `watched <movie name>`,
@@ -62,12 +62,12 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 ...
 ```
 
-## Add a movie you've watched: `watched`
+## Add a movie you have watched: `watched`
 Adds a movie to your watched list.
 
 Format: `watched <movie name>`
 
-> :exclamation: **Tip**: you may provide an incomplete title.
+> ❗ **Tip**: you may provide an incomplete title.
 > You will then be prompted to pick among a few similar titles.
 > 
 > If the movie exists in your to-watch list, this will move the list to your watched list.
@@ -93,9 +93,9 @@ Feel free to continue with other features
 Adds an unwatched movie to your to-watch list.
 
 Format: `towatch <movie name>`
-> :exclamation: **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
+> ❗ **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
 
-## List out movies you've watched or plan to watch: `list`/`watchlist`
+### List out movies you have watched or plan to watch: `list`/`watchlist`
 Show a list of all the movies you have watched.
 
 Format:\
@@ -109,7 +109,7 @@ Example:
 2. Movie Name 2
 ```
 
-## Remove a listing from either list: `remove`
+### Remove a listing from either list: `remove`
 Removes a movie from either list of movies.
 
 Format:\
@@ -127,7 +127,7 @@ Examples:
 >> list
 1. La La Land
 ```
-> :exclamation: **Coming soon:** we will add better feedback for user after removal.
+> ❗ **Coming soon:** we will add better feedback for user after removal.
 
 ## See a movie's details: `seedetail`
 See the details of the movie as provided by the database.\
@@ -143,7 +143,7 @@ Year: 2019
 Length: 182 minutes
 Genre(s): Action, Sci-fi
 ```
-> :exclamation: **Coming soon:** we will add a way to search movie titles, just like watched.
+> ❗ **Coming soon:** we will add a way to search movie titles, just like watched.
 
 ## Filter movies from your list by genres: `filter`
 Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.
@@ -162,9 +162,9 @@ To Watch
 2. Johnny English
 ```
 
-> :exclamation: **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
+> ❗ **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
 
-## Review a movie you've watched: `review`
+## Review a movie you have watched: `review`
 Adds a review for a watched movie. The user is first prompted for a text review, which ends once the user
 enters a blank line. The user is then asked for a numerical rating (out of 5).
 
@@ -190,7 +190,7 @@ Format: `viewreview <movie_index>`
 
 ## Exit and save: `bye` or `exit`
 Closes MovieMate and saves your data.
-> :exclamation: Make sure to use this command instead of closing the window.
+> ❗ Make sure to use this command instead of closing the window.
 > This will save the data. Closing the window in other ways will not save the data.
  
 Format: `bye` or `exit`
