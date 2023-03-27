@@ -3,10 +3,42 @@
  */
 public class Parser {
 
-    public static String[] parseCommand(String userInputCommand) {
+    public static Command parseCommand(String userInputCommand) {
         final String[] split = userInputCommand.trim().split("\\s+", 2);
         final String[] commandTypeAndParams = split.length == 2 ? split : new String[]{split[0], ""};
-        return commandTypeAndParams;
+
+        String commandType = commandTypeAndParams[0];
+        String commandArg = commandTypeAndParams[1];
+
+        switch (commandType) {
+        case "watched":
+            return new AddWatchedListCommand(commandArg);
+        case "remove":
+            return new RemoveListCommand(commandArg);
+        case "towatch":
+            return new AddToWatchListCommand(commandArg);
+        case "help":
+            return new HelpCommand();
+        case "list":
+            return new ListCommand();
+        case "watchlist":
+            return new WatchListCommand();
+        case "seedetail":
+            return new SeeDetailCommand(commandArg);
+        case "addreview":
+            return new AddReviewCommand(commandArg);
+        case "deletereview":
+            return new DeleteReviewCommand(commandArg);
+        case "viewreview":
+            return new ViewReviewCommand(commandArg);
+        case "filter":
+            return new FilterCommand(commandArg);
+        case "exit": // fallthrough
+        case "bye":
+            return new ExitCommand();
+        default:
+            return new HelpCommand(); // or return UnknownCommand()
+        }
     }
 
 

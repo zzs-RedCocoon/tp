@@ -4,6 +4,26 @@ import java.util.Scanner;
  * Text UI of the application.
  */
 public class Ui {
+
+    /**
+     * Scan in the user input and trim extra white space.
+     * If there is no input, continue to scan the next line for input.
+     *
+     * @return The string that the user entered
+     */
+    public static String inputCommand() {
+        Scanner scan = new Scanner(System.in);
+        String s = "";
+        s = scan.nextLine();
+
+        while (s.trim().isEmpty() || s.trim().charAt(0) == '#') {
+            if (scan.hasNextLine()) {
+                s = scan.nextLine();
+            }
+        }
+        return s;
+    }
+
     /**
      * Show exit message to the user
      */
@@ -22,7 +42,9 @@ public class Ui {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
         Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine() + ", welcome to movie mate");
+        String name = in.nextLine();
+
+        System.out.println("Hello " + name + ", welcome to movie mate");
         System.out.println("Please enter the command to proceed with MovieMate :))");
     }
 
@@ -30,7 +52,7 @@ public class Ui {
      * Show help message to the user
      * TODO change tbc into user guide
      */
-    public static void help() {
+    public static void printHelp() {
         System.out.println("First time using Movie Mate?");
         System.out.println("Here is the link to the user guide: ");
         System.out.println("tbc");
@@ -69,7 +91,6 @@ public class Ui {
      */
     public static void showDeleteMessage() {
         System.out.println("The movie has been deleted for you!");
-        printLine();
     }
     /**
      * Show feedback message to the user after showing the movie detail
@@ -77,6 +98,5 @@ public class Ui {
     public static void showDetailMessage() {
         System.out.println("The movie details are showed above!");
         System.out.println("Please feel free to continue with other features :))");
-        printLine();
     }
 }

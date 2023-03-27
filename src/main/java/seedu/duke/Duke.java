@@ -1,5 +1,4 @@
 package seedu.duke;
-
 import java.util.Scanner;
 
 public class Duke {
@@ -19,3 +18,7 @@ public class Duke {
         System.out.println("Hello " + in.nextLine());
     }
 }
+
+
+
+
