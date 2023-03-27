@@ -51,20 +51,19 @@ public class MovieMate {
                 switch (commandArg) {
                 case "watched":
                     //remove from watched list
-                    Ui.showListMessage(watchedList);
                     int removeWatchedIndex = Integer.parseInt(inputCommand(scan));
                     watchedList.remove(removeWatchedIndex);
                     Ui.showDeleteMessage();
                     break;
                 case "towatch":
                     //remove from towatch list
-                    Ui.showListMessage(toWatchList);
                     int removeToWatchIndex = Integer.parseInt(inputCommand(scan));
                     toWatchList.remove(removeToWatchIndex);
                     Ui.showDeleteMessage();
                     break;
                 default:
-                    //TODO add reminder message here
+                    System.out.println("'remove watched' to remove from your watched list");
+                    System.out.println("'removed unwatched' to remove from your to-watch list");
                     break;
                 }
                 // fallthrough
@@ -119,12 +118,15 @@ public class MovieMate {
                 break;
             case "addreview":
                 watchedList.setReview(commandArg);
+                Ui.printLine();
                 break;
             case "deletereview":
                 watchedList.deleteReview(commandArg);
+                Ui.printLine();
                 break;
             case "viewreview":
                 watchedList.viewReview(commandArg);
+                Ui.printLine();
                 break;
             case "filter":
                 watchedList.filter(commandArg);
