@@ -27,7 +27,7 @@ public class Ui {
     /**
      * Show exit message to the user
      */
-    public static void showExitMessage() {
+    public void showExitMessage() {
         System.out.println("Thanks for using Movie Mate!");
         System.out.println("Hope to see you again soon :))");
     }
@@ -38,7 +38,7 @@ public class Ui {
     /**
      * Show welcome message to the user
      */
-    public static void showWelcomeMessage() {
+    public String showWelcomeMessage() {
         System.out.println("Hello from Movie Mate!");
         System.out.println("What is your name?");
         Scanner in = new Scanner(System.in);
@@ -46,6 +46,14 @@ public class Ui {
 
         System.out.println("Hello " + name + ", welcome to movie mate");
         System.out.println("Please enter the command to proceed with MovieMate :))");
+        return name;
+    }
+
+    public String showWelcomeMessage(String name) {
+        System.out.println("Hello from Movie Mate!");
+        System.out.printf("Welcome back, %s!\n", name);
+        System.out.println("Please enter the command to proceed with MovieMate :))");
+        return name;
     }
 
     /**
