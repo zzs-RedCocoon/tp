@@ -83,7 +83,7 @@ public final class Storage {
                 output.add(split);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found >_<: " + e.getMessage());
+            System.out.println("No saved file found: " + e.getMessage());
         }
         return output;
     }
