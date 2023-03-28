@@ -131,20 +131,44 @@ Examples:
 > ❗ **Coming soon:** we will add better feedback for user after removal.
 
 ## See a movie's details: `seedetail`
-See the details of the movie as provided by the database.\
+See the details of the movie as provided by the database, by index or movie name.\
 This does not include user-specific properties, like reviews.
 
-Format: `seedetail <movie name>`
+Format: `seedetail [watched/ towatch]`
 
 Examples:
 ```
->> seedetail Avengers: Endgame
-
-Year: 2019
-Length: 182 minutes
-Genre(s): Action, Sci-fi
+>> seedetail watched
+Below are the movies from your watched list
+1. La La LAnd
+2. Captain Americ
+Please enter the index of the movie you would like to see the detail of it:
+>> 1
+Title: La La Land
+Year: 2018
+Genre: Love
+...
 ```
-> ❗ **Coming soon:** we will add a way to search movie titles, just like watched.
+
+Format: `seedetail movie`
+
+Examples:
+```
+>> seedetail movie
+Please enter the name of the movie you would like to see the detail of it:
+>> La La Land
+Below are the relevant movies found from the movie name entered
+1. La La Land
+2. La La Land the miracle
+...
+Please enter the index of the movie that you would like to view the detail of it!
+>> 1
+Title: La La Land
+Year: 2018
+Genre: Love
+...
+```
+> ❗ **Coming soon:** we will improve the way to search movie by titles.
 
 ## Filter movies from your list by genres: `filter`
 Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.
