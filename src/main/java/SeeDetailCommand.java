@@ -26,9 +26,11 @@ public class SeeDetailCommand extends Command {
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (movieListType) {
         case "watched":
+            assert movieListType.equals("watched");
             seeMovieDetail(watchedList, ui);
             break;
         case "towatch":
+            assert movieListType.equals("towatch");
             seeMovieDetail(toWatchList, ui);
             break;
         case "movie":
