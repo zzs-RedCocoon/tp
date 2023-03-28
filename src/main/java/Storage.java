@@ -23,7 +23,7 @@ public final class Storage {
      */
     public Storage(String filePath) {
         this.filePath = filePath;
-        openFile();
+        openFile(this.filePath);
     }
 
     /**
@@ -38,8 +38,8 @@ public final class Storage {
      * Open the saved file.<br>
      * Checks if the directory and text file exist, and writes to the file.
      */
-    private void openFile() {
-        File file = new File(this.filePath);
+    private void openFile(String filePath) {
+        File file = new File(filePath);
 
         // Create the directories required (if not exist)
         if (!file.getParentFile().exists()) {
@@ -73,6 +73,9 @@ public final class Storage {
             // Fallback to default.
             path = this.filePath;
         }
+
+        openFile(path);
+
         File f = new File(path);
         Scanner s;
         ArrayList<String[]> output = new ArrayList<String[]>();
@@ -83,9 +86,24 @@ public final class Storage {
                 output.add(split);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found >_<: " + e.getMessage());
+            System.out.println("No saved file found: " + e.getMessage());
         }
         return output;
+    }
+
+    public String loadName() {
+        File f = new File(this.filePath);
+        Scanner s;
+        try {
+            s = new Scanner(f);
+            if (s.hasNext()) {
+                return s.nextLine();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Oops, something wrong with file.");
+        }
+
+        return "";
     }
 
     private String[] splitSaveFileLine(String line) {

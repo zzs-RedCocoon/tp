@@ -111,6 +111,7 @@ Example:
 
 ### Remove a listing from either list: `remove`
 Removes a movie from either list of movies.
+You will first choose which list to remove from, and then separately provide the movie number to delete.
 
 Format:\
 `remove watched <movie_index>` to remove a movie from your watchlist.\
@@ -118,11 +119,11 @@ Format:\
 
 Examples:
 ```
->> list
+>> remove watched
 1. Avengers: Endgame
 2. La La Land
 
->> remove watched 1
+>> 1
 
 >> list
 1. La La Land
