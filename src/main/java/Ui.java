@@ -55,7 +55,7 @@ public class Ui {
     public static void printHelp() {
         System.out.println("First time using Movie Mate?");
         System.out.println("Here is the link to the user guide: ");
-        System.out.println("tbc");
+        System.out.println("https://ay2223s2-cs2113-w12-4.github.io/tp/UserGuide.html");
         System.out.println("Hope it helps, and have a nice day!");
     }
 
@@ -83,7 +83,8 @@ public class Ui {
             watchId += 1;
         }
         printLine();
-        System.out.println("These are the movies in your list, hope it helps!");
+        System.out.println("These are the movies in your list"
+                + ", type the corresponding number to delete it.");
     }
 
     /**
