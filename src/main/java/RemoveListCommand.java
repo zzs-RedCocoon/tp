@@ -10,17 +10,23 @@ public class RemoveListCommand extends Command{
     public void removeWatchedList(WatchedList watchedList, Ui ui, Storage storage) {
         //remove from watched list
         ui.showListMessage(watchedList);
-        int removeWatchedIndex = Integer.parseInt(ui.inputCommand());
-        watchedList.remove(removeWatchedIndex);
-        ui.showDeleteMessage();
+        try {
+            int removeWatchedIndex = Integer.parseInt(ui.inputCommand());
+            watchedList.remove(removeWatchedIndex, ui);
+        } catch (NumberFormatException e) {
+            System.out.println("Movie id should be number");
+        }
     }
 
     public void removeToWatchList(ToWatchList toWatchList, Ui ui, Storage storage) {
         //remove from towatch list
         ui.showListMessage(toWatchList);
-        int removeToWatchIndex = Integer.parseInt(ui.inputCommand());
-        toWatchList.remove(removeToWatchIndex);
-        ui.showDeleteMessage();
+        try {
+            int removeToWatchIndex = Integer.parseInt(ui.inputCommand());
+            toWatchList.remove(removeToWatchIndex, ui);
+        } catch (NumberFormatException e) {
+            System.out.println("Movie id should be number");
+        }
     }
 
     @Override

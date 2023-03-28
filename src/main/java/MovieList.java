@@ -152,13 +152,13 @@ public class MovieList {
      * Remove a movie from the contained list.
      * @param index 1-indexed index of the movie in list.
      */
-    public void remove(int index) {
+    public void remove(int index, Ui ui) {
         index = index - 1; // Offset 1-index
         try {
             this.movieList.remove(index);
-            System.out.println("Ok! Movie removed from your list.");
+            ui.showDeleteMessage();
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("That isn't a movie in your list. Nothing to remove!");
+            System.out.println("Movie id out of range");
         }
     }
 
