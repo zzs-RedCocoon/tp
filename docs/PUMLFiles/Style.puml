@@ -6,4 +6,6 @@
 
 !define COLOR_MOVIE_LIST #de5b00
 
-!define COLOR_MOVIE #347d92
+!define COLOR_MOVIE #4fbede
+
+!define COLOR_BLOCK #ffeeff

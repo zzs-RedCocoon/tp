@@ -7,13 +7,18 @@ actor User
 participant Review COLOR_MOVIE
 User -> Review
 activate Review
+
 Review -> Scanner : setReview()
+activate Scanner
 Scanner --> Scanner : new Scanner(input)
 
-loop input not empty
+
+loop COLOR_BLOCK input not empty
+
     Scanner -> User
     User --> Scanner : Input
 end
+deactivate Scanner
 
 Scanner --> Review : return input
 Review -> Review : set reviewText
