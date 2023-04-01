@@ -13,18 +13,21 @@ public class WatchedList extends MovieList {
     public void setReview(String indexString) {
         //no movie, cannot add any review
         if (movieList.size() == 0) {
-            System.out.println("Sorry, there's no movie in watchedlist. Please add some movies first.");
+            System.out.println("Sorry, there's no movie in watched list. Please add some movies first.");
             return;
         }
 
         //get valid movie index
         int index = Parser.parseIndex(indexString, 1, movieList.size());
         if (index < 0) {
-            System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
+            System.out.println(String.format("Please enter the command again and input valid index from 1 to %d.", movieList.size()));
             return;
         }
 
         Movie currentMovie = this.getMovie(index);
+        System.out.println("This is the current movie that you want to write review for it");
+        System.out.println(currentMovie.getTitle());
+        System.out.println("Please proceed to write your review");
         MovieEntry reviewedMovie = new MovieEntry(currentMovie);
 
         // Do review here.
