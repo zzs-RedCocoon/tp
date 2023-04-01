@@ -18,7 +18,7 @@ public class WatchedList extends MovieList {
         }
 
         //get valid movie index
-        int index = Parser.parseIndex(indexString, 1, movieList.size());
+        int index = Parser.parseIndex(indexString, 1, movieList.size()+1);
         if (index < 0) {
             System.out.println(String.format("Please enter the command again and input valid index from 1 to %d.", movieList.size()));
             return;
@@ -37,7 +37,7 @@ public class WatchedList extends MovieList {
     }
 
     public void deleteReview(String indexString) {
-        int index = Parser.parseIndex(indexString, 1, movieList.size());
+        int index = Parser.parseIndex(indexString, 1, movieList.size()+1);
         if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
