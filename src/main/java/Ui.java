@@ -92,7 +92,7 @@ public class Ui {
         }
         printLine();
         System.out.println("These are the movies in your list"
-                + ", type the corresponding number to delete it.");
+                + ", please feel free to continue with other feature.");
     }
 
     /**

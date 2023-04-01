@@ -6,7 +6,6 @@ public class SeeDetailCommand extends Command {
     public SeeDetailCommand(String movieListType){
         this.movieListType = movieListType;
     }
-
     public void seeMovieDetail(MovieList movieList, Ui ui) {
         // list watched list for the user to choose
         ui.showListMessage(movieList);
@@ -15,6 +14,7 @@ public class SeeDetailCommand extends Command {
         System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
         ui.showDetailMessage();
     }
+
 
     public void seeMovieDetailByName(Ui ui) {
         System.out.println("Please enter the movie name that you would like to see the detail of it!");
