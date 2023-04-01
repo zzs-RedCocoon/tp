@@ -11,14 +11,14 @@ public class MovieMate {
     private static Logger logger;
     // TODO: Probably de-static everything that doesn't need to be static.
     private static Storage storage;
-    private String name;
-
     private static WatchedList watchedList;
     private static ToWatchList toWatchList;
     private static MovieDatabase movieDatabase;
 
     private static String watchedListPath;
     private static String toWatchListPath;
+    private String name;
+
 
 
     public MovieMate(String watchedListPath, String toWatchListPath) {

@@ -13,7 +13,8 @@ public class SeeDetailCommand extends Command {
         String inputIndex = ui.inputCommand();
         int seeDetailWatchedIndex = Parser.parseIndex(inputIndex, 1, movieList.movieList.size());
         if (seeDetailWatchedIndex < 0) {
-            System.out.println(String.format("Please try enter the seedetail command again and make sure the index is valid. \n" +
+            System.out.println(String.format(
+                    "Please try enter the seedetail command again and make sure the index is valid. \n" +
                             "The valid index range is 1 to %d", movieList.movieList.size()));
             return;
         }
