@@ -13,7 +13,8 @@ public class RemoveListCommand extends Command{
         String inputIndex = ui.inputCommand();
         int removeWatchedIndex = Parser.parseIndex(inputIndex, 1, watchedList.movieList.size());
         if (removeWatchedIndex < 0) {
-            System.out.println(String.format("Please try enter the remove command again and make sure the index is valid. \n" +
+            System.out.println(String.format(
+                    "Please try enter the remove command again and make sure the index is valid. \n" +
                     "The valid index range is 1 to %d", watchedList.movieList.size()));
             return;
         }
