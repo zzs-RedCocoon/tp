@@ -3,7 +3,7 @@
  */
 public class Parser {
 
-    public static Command parseCommand(String userInputCommand) {
+    public static Command parseCommand(String userInputCommand, Ui ui) {
         final String[] split = userInputCommand.trim().split("\\s+", 2);
         final String[] commandTypeAndParams = split.length == 2 ? split : new String[]{split[0], ""};
 
@@ -26,11 +26,11 @@ public class Parser {
         case "seedetail":
             return new SeeDetailCommand(commandArg);
         case "addreview":
-            return new AddReviewCommand(commandArg);
+            return new AddReviewCommand();
         case "deletereview":
-            return new DeleteReviewCommand(commandArg);
+            return new DeleteReviewCommand();
         case "viewreview":
-            return new ViewReviewCommand(commandArg);
+            return new ViewReviewCommand();
         case "filter":
             return new FilterCommand(commandArg);
         case "exit": // fallthrough
