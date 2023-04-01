@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import seedu.moviemate.parser.Parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,6 +16,6 @@ public class ParserTest {
     @Test
     void testParseIndex() {
         String s = "0";
-        assertEquals(0,Parser.parseIndex(s, 0,5));
+        assertEquals(0, Parser.parseIndex(s, 0,5));
     }
 }
