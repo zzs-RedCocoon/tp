@@ -19,7 +19,7 @@ public class RemoveListCommand extends Command{
                     "The valid index range is 1 to %d", watchedList.movieList.size()));
             return;
         }
-        watchedList.remove(removeWatchedIndex);
+        watchedList.remove(removeWatchedIndex, ui);
         ui.showDeleteMessage();
     }
 
@@ -35,7 +35,7 @@ public class RemoveListCommand extends Command{
                     "The valid index range is 1 to %d",  toWatchList.movieList.size()));
             return;
         }
-        toWatchList.remove(removeToWatchIndex);
+        toWatchList.remove(removeToWatchIndex, ui);
         ui.showDeleteMessage();
 
     }
