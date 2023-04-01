@@ -60,7 +60,9 @@ public class MovieList {
         Movie movie;
         try {
             movie = relevantMovies.get(Integer.parseInt(s) - 1);
-            System.out.println(movie.getMovieDetail());
+            if (movie.getMovieDetail() != null) {
+                System.out.println(movie.getMovieDetail());
+            }
             return;
         } catch (NumberFormatException e) { // cannot parse string to int
             System.out.println("Movie id should be number.\n" + "Please try enter the command again.");

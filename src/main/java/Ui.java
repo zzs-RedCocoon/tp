@@ -91,8 +91,7 @@ public class Ui {
             watchId += 1;
         }
         printLine();
-        System.out.println("These are the movies in your list"
-                + ", please feel free to continue with other feature.");
+        System.out.println("These are the movies in your list");
     }
 
     /**
