@@ -10,7 +10,13 @@ public class SeeDetailCommand extends Command {
         // list watched list for the user to choose
         ui.showListMessage(movieList);
         System.out.println("Please enter the movie index that you would like to see the detail of it!");
-        int seeDetailWatchedIndex = Integer.parseInt(ui.inputCommand());
+        String inputIndex = ui.inputCommand();
+        int seeDetailWatchedIndex = Parser.parseIndex(inputIndex, 0, movieList.movieList.size());
+        if (seeDetailWatchedIndex < 0) {
+            System.out.println(String.format("Please try enter the seedetail command again and make sure the index is valid. \n" +
+                            "The valid index range is 1 to %d", movieList.movieList.size()+1));
+            return;
+        }
         System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
         ui.showDetailMessage();
     }
