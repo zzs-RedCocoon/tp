@@ -10,15 +10,19 @@ public class WatchedList extends MovieList {
         super(loaded);
     }
 
-    public void setReview(String indexString) {
+    public void setReview(Ui ui, WatchedList watchedList) {
         //no movie, cannot add any review
         if (movieList.size() == 0) {
             System.out.println("Sorry, there's no movie in watched list. Please add some movies first.");
             return;
         }
 
+        ui.showListMessage(watchedList);
         //get valid movie index
-        int index = Parser.parseIndex(indexString, 1, movieList.size()+1);
+
+        String indexString = ui.inputCommand();
+        int index = Parser.parseIndex(indexString, 1, movieList.size());
+
         if (index < 0) {
             System.out.println(String.format(
                     "Please enter the command again and input valid index from 1 to %d.", movieList.size()));
@@ -37,8 +41,11 @@ public class WatchedList extends MovieList {
         this.movieList.set(index - 1, reviewedMovie);
     }
 
-    public void deleteReview(String indexString) {
-        int index = Parser.parseIndex(indexString, 1, movieList.size()+1);
+    public void deleteReview(Ui ui, WatchedList watchedList) {
+        ui.showListMessage(watchedList);
+        String indexString = ui.inputCommand();
+        int index = Parser.parseIndex(indexString, 1, movieList.size());
+
         if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));
             return;
@@ -57,7 +64,9 @@ public class WatchedList extends MovieList {
 
     }
 
-    public void viewReview(String indexString) {
+    public void viewReview(Ui ui, WatchedList watchedList) {
+        ui.showListMessage(watchedList);
+        String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());
         if (index < 0) {
             System.out.println(String.format("Please input valid index from 1 to %d.", movieList.size()));

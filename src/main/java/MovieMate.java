@@ -62,7 +62,7 @@ public class MovieMate {
         Command command;
         do {
             String userInput = ui.inputCommand();
-            command = parser.parseCommand(userInput);
+            command = parser.parseCommand(userInput, ui);
             command.execute(watchedList, toWatchList, ui, storage);
             ui.printLine();
         } while (!ExitCommand.isExit(command));
