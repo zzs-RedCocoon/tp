@@ -60,13 +60,15 @@ public class MovieList {
         Movie movie;
         try {
             movie = relevantMovies.get(Integer.parseInt(s) - 1);
-            System.out.println(movie.getMovieDetail());
+            if (movie.getMovieDetail() != null) {
+                System.out.println(movie.getMovieDetail());
+            }
             return;
         } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.");
+            System.out.println("Movie id should be number.\n" + "Please try enter the command again.");
             return;
         } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.");
+            System.out.println("Movie id is out of range.\n" + "Please try enter the command again.");
             return;
         }
     }
@@ -103,10 +105,12 @@ public class MovieList {
         try {
             movie = relevantMovies.get(Integer.parseInt(s) - 1);
         } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.");
+            System.out.println("Movie id should be number.\n" +
+                    "Please try enter the command again to add movie!");
             return;
         } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.");
+            System.out.println("Movie id is out of range.\n" +
+                    "Please try enter the command again to add movie!");
             return;
         }
 
@@ -131,7 +135,7 @@ public class MovieList {
         System.out.println("In " + getClass().getName() + ":");
         int i = 1;
         for (Movie movie : movieList) {
-            if (Arrays.asList(movie.getGenres()).contains(genre)) {
+            if (Arrays.asList(movie.getGenresFilter()).contains(genre.toLowerCase())) {
                 System.out.printf("%d. %s\n", i, movie.toString());
                 i++;
             }
@@ -209,7 +213,8 @@ public class MovieList {
         try {
             return this.movieList.get(i);
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("I don't think you got the right movie number.");
+            System.out.println("I don't think you got the right movie number.\n" +
+                    "Please try entered the command again");
             e.getMessage();
         }
 

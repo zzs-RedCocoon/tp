@@ -101,6 +101,14 @@ public class Movie implements Comparable<Movie> {
         return genres;
     }
 
+    public String[] getGenresFilter() {
+        String[] genresLower = new String[genres.length];
+        for (int i = 0; i < genresLower.length; i += 1) {
+            genresLower[i] = genres[i].toLowerCase();
+        }
+        return genresLower;
+    }
+
     public String getGenresString() {
         String genres = "";
         for(String genre : getGenres()){

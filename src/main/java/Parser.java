@@ -54,6 +54,7 @@ public class Parser {
 
         //index out of range
         if (index < l || index > r) {
+            System.out.println("The index entered is not valid, please try again!");
             return -1;
         }
         return index;
