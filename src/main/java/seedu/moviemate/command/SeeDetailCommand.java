@@ -15,7 +15,11 @@ public class SeeDetailCommand extends Command {
         this.movieListType = movieListType;
     }
     public void seeMovieDetail(MovieList movieList, Ui ui) {
-        // list watched list for the user to choose
+        // list watched/towatch list for the user to choose
+        if (movieList.empty()) {
+            System.out.println("There are no movies in your list. Nothing to show!");
+            return;
+        }
         ui.showListMessage(movieList);
         System.out.println("Please enter the movie index that you would like to see the detail of it!");
         String inputIndex = ui.inputCommand();
@@ -28,16 +32,12 @@ public class SeeDetailCommand extends Command {
         }
         System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
         ui.showDetailMessage();
-        ui.printLine();
     }
 
     public void seeMovieDetailByName(Ui ui) {
-        System.out.println("Please enter the movie name that you would like to see the detail of it!");
+        System.out.println("Please enter the movie name that you would like to see the detail of!");
         String movieName = ui.inputCommand();
         MovieList.findMovieDetail(movieName);
-        ui.printLine();
-        ui.showDetailMessage();
-        ui.printLine();
     }
     //@@author chao2048
 
