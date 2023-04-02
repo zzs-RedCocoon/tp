@@ -17,8 +17,8 @@ public class WatchedList extends MovieList {
 
     public void setReview(Ui ui, WatchedList watchedList) {
         //no movie, cannot add any review
-        if (movieList.size() == 0) {
-            System.out.println("Sorry, there's no movie in watched list. Please add some movies first.");
+        if (watchedList.empty()) {
+            System.out.println("There are no movies in your watched list. Please add some movies first.");
             return;
         }
 
@@ -47,6 +47,11 @@ public class WatchedList extends MovieList {
     }
 
     public void deleteReview(Ui ui, WatchedList watchedList) {
+        //no movie, cannot delete any review
+        if (watchedList.empty()) {
+            System.out.println("There are no movies in your watched list. PLease add some movies first.");
+            return;
+        }
         ui.showListMessage(watchedList);
         String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());
@@ -70,6 +75,11 @@ public class WatchedList extends MovieList {
     }
 
     public void viewReview(Ui ui, WatchedList watchedList) {
+        //no movie, cannot view review
+        if (watchedList.empty()) {
+            System.out.println("There are no movies in your watched list. Please add some movies first.");
+            return;
+        }
         ui.showListMessage(watchedList);
         String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());

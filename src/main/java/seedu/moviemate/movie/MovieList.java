@@ -37,6 +37,13 @@ public class MovieList {
         }
     }
 
+    public boolean empty() {
+        if (this.movieList.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Used for see detail by movie name.
      * The function will search in the database for the most relevant movies and then prompt
@@ -48,8 +55,7 @@ public class MovieList {
     public static void findMovieDetail(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println( "No relevant movie found, please try enter the movie name again!");
-            Ui.printLine();
+            System.out.println( "No relevant movie found, please try entering the movie name again!");
             return;
         }
         int id = 1;
@@ -58,7 +64,7 @@ public class MovieList {
             id += 1;
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
-                "The program will then proceed with showing the detail of the movie you chose, thanks!");
+                "The program will then show the detail of the movie you chose, thanks!");
         Ui.printLine();
         Scanner scan = new Scanner(System.in);;
         String s = scan.nextLine();
@@ -68,12 +74,14 @@ public class MovieList {
             if (movie.getMovieDetail() != null) {
                 System.out.println(movie.getMovieDetail());
             }
+            Ui.printLine();
+            Ui.showDetailMessage();
             return;
         } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.\n" + "Please try enter the command again.");
+            System.out.println("Movie id should be number.\n" + "Please try entering the command again.");
             return;
         } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.\n" + "Please try enter the command again.");
+            System.out.println("Movie id is out of range.\n" + "Please try entering the command again.");
             return;
         }
     }
