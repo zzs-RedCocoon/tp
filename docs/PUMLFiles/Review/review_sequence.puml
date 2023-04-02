@@ -1,9 +1,9 @@
 @startuml
-!include ../Style.puml
+!include ../style.puml
 
 'review1, class diagram'
 actor User
-
+participant Sequence
 participant Review COLOR_MOVIE
 User -> Review
 activate Review

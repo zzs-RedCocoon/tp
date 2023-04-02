@@ -1,5 +1,5 @@
 @startuml
-
+!include ../style.puml
 'review1, class diagram'
 
 interface Comparable
@@ -8,8 +8,5 @@ Review : String reviewText
 Review : int reviewStars
 Review : + setReview()
 Review .> Scanner : > Takes input from
-
-newpage
-
 
 @enduml
