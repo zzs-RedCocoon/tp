@@ -1,4 +1,4 @@
-# Developer Guide
+# Developer Guide: Movie Mate
 
 ## Acknowledgements
 
@@ -8,8 +8,7 @@
 
 ## Product scope
 ### Target user profile
-
-{Describe the target user profile}
+Movie Lovers, people who love to watch movies and need an app to keep track of the movies they have watched and want to watch in the future.
 
 ### Value proposition
 
@@ -17,10 +16,18 @@
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+| Version | As a ... | I want to ...                               | So that I can ...                                                      |
+|---------|----------|---------------------------------------------|------------------------------------------------------------------------|
+| v1.0    |new user| see usage instructions                      | refer to them when I forget how to use the application                 |
+| v1.0    |user| add a watched/ to-watch movie by short name | add a watched/to-watch movie without having to type out the whole name |
+| v1.0    |user| add a watched/ to-watch movie               | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| delete a watched/ to-watch movie            | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| store my movie lists on my laptop           | easily find the information of my movie list                           |
+| v2.0    |user| add a review to my watched movie            | keep track of my opinion about the movie                               |
+| v2.0    |user| delete a review to my watched movie         | keep track of my opinion about the movie                               |
+| v2.0    |user| see detail of a movie                       | know whether I have watched the movie or I would like to watch it      |
+| v2.0    |user| get some random movie of certain genre      | get some inspiration of which movie to watch                           |
+
 
 ## Non-Functional Requirements
 
