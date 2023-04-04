@@ -155,18 +155,25 @@ Format: `seedetail movie`
 Examples:
 ```
 >> seedetail movie
-Please enter the name of the movie you would like to see the detail of it:
->> La La Land
-Below are the relevant movies found from the movie name entered
-1. La La Land
-2. La La Land the miracle
-...
-Please enter the index of the movie that you would like to view the detail of it!
+Please enter the name of the movie you would like to see the detail of it!
+>> cat
+1. #cats_the_mewvie (2020)  [Documentary]
+2. 1948: Creation & Catastrophe (2017)  [Documentary]
+3. 2007: The Deadliest Year For Cats And Dogs In American History (2018)  [Documentary]
+4. 22nd Catch (2016)  [Romance]
+5. 3 Cats and a Man (2012)  [Drama]
+Please enter the id of the movie you're looking for
+The program will then proceed with showing the detail of the movie you chose, thanks!
+-------------------------------------------------------------------------
 >> 1
-Title: La La Land
-Year: 2018
-Genre: Love
-...
+Title: #cats_the_mewvie
+Year: 2020
+Genres:  [Documentary]
+Runtime Minutes: 90
+-------------------------------------------------------------------------
+The movie details are showed above!
+Please feel free to continue with other features :))
+-------------------------------------------------------------------------
 ```
 > ❗ **Coming soon:** we will improve the way to search movie by titles.
 
