@@ -21,14 +21,12 @@ Given below are my contributions to the project.
     * Highlights: This enhancement affects existing commands and commands to be added in the future. The implementation too was challenging as it required changes to existing commands.
 
 
-* **Code contributed**: [RepoSense link]()
+* **Code contributed**: [https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=chao2048&breakdown=true]()
 
 * **Project management**:
     * Managed releases `v1.0` - `v2.1` (3 releases) on GitHub
 
 * **Enhancements to existing features**:
-    * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-    * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
 
 * **Documentation**:
     * User Guide:
