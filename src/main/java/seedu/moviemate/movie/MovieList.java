@@ -37,18 +37,10 @@ public class MovieList {
         }
     }
 
-    /**
-     * @return true is relevant list is empty
-     */
     public boolean empty() {
         return this.movieList.isEmpty();
     }
 
-    /**
-     *
-     * @param movie
-     * @return true if movie can be found in the related list
-     */
     public boolean contains(Movie movie) {
         return this.movieList.contains(movie);
     }
@@ -102,10 +94,8 @@ public class MovieList {
         this.movieList.add(movie);
     }
     /**
-     * Adds a movie to watched list from the list of movies.
+     * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
-     * @param watchedList the list of watched movies.
-     * @param toWatchList the list of movies user plans to watch
      */
     public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
@@ -152,12 +142,6 @@ public class MovieList {
 
     }
 
-    /**
-     * Adds a movie to to-watch list from the list of movies.
-     * @param inputTitle title of movie as input by user.
-     * @param watchedList the list of watched movies.
-     * @param toWatchList the list of movies user plans to watch
-     */
     public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
