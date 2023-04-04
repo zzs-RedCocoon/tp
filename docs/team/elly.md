@@ -30,10 +30,10 @@ Given below are my contributions to the project.
 
 * **Documentation**:
     * User Guide:
-        * Added documentation for the features `seedetail` and `random` [\#72]()
+        * Added documentation for the features `seedetail` and `random` feature.
     * Developer Guide:
         * Added implementation details of the `seedetail` and `random` feature.
 
 * **Community**:
-    * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-    * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
+    * PRs reviewed (with non-trivial review comments): [\#45](), [\#58]()
+    * Reported bugs and suggestions for other teams in the class during PE Dry Run.
