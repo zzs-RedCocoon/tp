@@ -75,7 +75,8 @@ public class MovieDatabase {
         Random rand = new Random();
         int intInterval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
         for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
-            if (index % intInterval == 0 && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
+            if (index % intInterval == 0
+                    && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
             }
