@@ -213,6 +213,26 @@ Format: `deletereview <movie_index>`
 Allows you to see your review of a movie.
 Format: `viewreview <movie_index>`
 
+## Generate random movies from the genre entered by you: `random`
+Provide some random movies that fall in the genre entered
+Format: random <genre>
+
+Examples:
+```
+>> random comedy
+
+Below are the random movies that fall in the genre entered :))
+1. #Modus (2016)  [Comedy]
+2. #Sequence (2013)  [Comedy,Drama,Family]
+3. #TubeClash02 (2016)  [Animation,Comedy,Drama]
+4. $50K and a Call Girl: A Love Story (2014)  [Action,Adventure,Comedy]
+5. 'This Is Not an American Movie' (2011)  [Action,Comedy,Crime]
+Feel free to add it to your movie list!
+```
+
+> ❗ **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
+
+
 ## Exit and save: `bye` or `exit`
 Closes MovieMate and saves your data.
 > ❗ Make sure to use this command instead of closing the window.
