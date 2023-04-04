@@ -73,12 +73,13 @@ public class MovieDatabase {
         Integer movieCount = 0;
         int index = 0;
         Random rand = new Random();
-        int int_interval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
+        int intInterval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
         for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
-            if (index % int_interval == 0 && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
+            if (index % intInterval == 0 && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
             }
+            index += 1;
             if (movieCount.equals(MAX_RELEVANT_MOVIES)) {
                 break;
             }
