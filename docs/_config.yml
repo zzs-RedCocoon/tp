@@ -5,6 +5,8 @@ plugins:
 
 title: "MovieMate"
 
+markdown: kramdown
+
 header_pages:
 - UserGuide.md
 - DeveloperGuide.md
