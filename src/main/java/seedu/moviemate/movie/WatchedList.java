@@ -94,7 +94,8 @@ public class WatchedList extends MovieList {
             MovieEntry reviewedMovie = (MovieEntry) currentMovie;
             System.out.println(reviewedMovie.getReview());
         } else {
-            System.out.println("The movie has no review. You can add a review using 'addreview [index]'.");
+            System.out.println("The movie has no review. You can add a review using 'addreview'.");
         }
     }
+
 }

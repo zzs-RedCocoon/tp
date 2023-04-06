@@ -38,10 +38,11 @@ public class MovieList {
     }
 
     public boolean empty() {
-        if (this.movieList.isEmpty()) {
-            return true;
-        }
-        return false;
+        return this.movieList.isEmpty();
+    }
+
+    public boolean contains(Movie movie) {
+        return this.movieList.contains(movie);
     }
 
     /**
@@ -96,10 +97,10 @@ public class MovieList {
      * Adds a movie from the list of movies.
      * @param inputTitle title of movie as input by user.
      */
-    public void add(String inputTitle) {
+    public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println( "No relevant movie found, please try enter the movie name again!");
+            System.out.println("No relevant movie found, please try entering the movie name again!");
             Ui.printLine();
             return;
         }
@@ -119,18 +120,84 @@ public class MovieList {
             movie = relevantMovies.get(Integer.parseInt(s) - 1);
         } catch (NumberFormatException e) { // cannot parse string to int
             System.out.println("Movie id should be number.\n" +
-                    "Please try enter the command again to add movie!");
+                    "Please try entering the command again to add movie!");
             return;
         } catch (IndexOutOfBoundsException e) { //id out of range
             System.out.println("Movie id is out of range.\n" +
-                    "Please try enter the command again to add movie!");
+                    "Please try entering the command again to add movie!");
             return;
         }
 
-        if (!movieList.contains(movie)) {
-            this.movieList.add(movie);
+        //if movie being added to watched list is in to-watch list, it is deleted in to-watch list
+        if (toWatchList.contains(movie)) {
+            toWatchList.remove(movie);
         }
-        Ui.showAddMovieMessage(movie.toString());
+        if (!watchedList.contains(movie)) {
+            watchedList.add(movie);
+            Ui.showAddMovieMessage(movie.toString());
+        }
+        else {
+            System.out.println("That movie is already in your list.");
+        }
+
+    }
+
+    public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
+        ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
+        if (relevantMovies.size() == 0) {
+            System.out.println("No relevant movie found, please try entering the movie name again!");
+            Ui.printLine();
+            return;
+        }
+        int id = 1;
+        for (Movie relevantMovie: relevantMovies) {
+            System.out.println(id + ". " + relevantMovie.toString());
+            id += 1;
+        }
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with adding the movie you chose, thanks!");
+        Ui.printLine();
+        Scanner scan = new Scanner(System.in);;
+        String s = scan.nextLine();
+
+        Movie movie;
+        try {
+            movie = relevantMovies.get(Integer.parseInt(s) - 1);
+        } catch (NumberFormatException e) { // cannot parse string to int
+            System.out.println("Movie id should be number.\n" +
+                    "Please try entering the command again to add movie!");
+            return;
+        } catch (IndexOutOfBoundsException e) { //id out of range
+            System.out.println("Movie id is out of range.\n" +
+                    "Please try entering the command again to add movie!");
+            return;
+        }
+
+        //if movie being added to to-watch list is in watched list, user is prompted if they want
+        //to remove it from watched list
+        if (watchedList.contains(movie)) {
+            System.out.println("You have already watched this movie!\n" +
+                    "Should we delete it from your watched list? [Y/N]");
+            while (true) {
+                s = scan.nextLine();
+                if (s.equalsIgnoreCase("N")) {
+                    return;
+                }
+                if (s.equalsIgnoreCase("Y")) {
+                    break;
+                } else {
+                    System.out.println("Invalid format. Please enter either 'Y' or 'N'.");
+                }
+            }
+        }
+        if (!toWatchList.contains(movie)) {
+            toWatchList.add(movie);
+            Ui.showAddMovieMessage(movie.toString());
+        }
+        else {
+            System.out.println("That movie is already in your list.");
+        }
+
     }
 
     /**
@@ -169,11 +236,11 @@ public class MovieList {
      * Remove a movie from the contained list.
      * @param index 1-indexed index of the movie in list.
      */
-    public void remove(int index, Ui ui) {
+    public void remove(int index) {
         index = index - 1; // Offset 1-index
         try {
             this.movieList.remove(index);
-            ui.showDeleteMessage();
+            Ui.showDeleteMessage();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Movie id out of range");
         }
@@ -227,7 +294,7 @@ public class MovieList {
             return this.movieList.get(i);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("I don't think you got the right movie number.\n" +
-                    "Please try entered the command again");
+                    "Please try entering the command again");
             e.getMessage();
         }
 

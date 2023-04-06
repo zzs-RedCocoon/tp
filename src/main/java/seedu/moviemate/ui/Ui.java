@@ -97,7 +97,12 @@ public class Ui {
             watchId += 1;
         }
         printLine();
-        System.out.println("These are the movies in your list");
+        if (watchId == 1) {
+            System.out.println("Currently, your list is empty.");
+        }
+        else {
+            System.out.println("These are the movies in your list");
+        }
     }
 
     /**

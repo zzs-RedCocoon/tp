@@ -16,6 +16,6 @@ public class AddWatchedListCommand extends Command {
     @Override
     public  void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         // add to watched list
-        watchedList.add(inputTitle);
+        watchedList.addwatched(inputTitle, watchedList, toWatchList);
     }
 }

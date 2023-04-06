@@ -14,15 +14,15 @@ public class RemoveListCommand extends Command{
         this.removeListType = removeListType;
     }
 
-    public void removeWatchedList(WatchedList watchedList, Ui ui, Storage storage) {
+    public void removeWatchedList(WatchedList watchedList) {
         //remove from watched list
         if (watchedList.empty()) {
             System.out.println("Your watched list is empty. Nothing to remove!");
             return;
         }
-        ui.showListMessage(watchedList);
+        Ui.showListMessage(watchedList);
 
-        String inputIndex = ui.inputCommand();
+        String inputIndex = Ui.inputCommand();
         int removeWatchedIndex = Parser.parseIndex(inputIndex, 1, watchedList.movieList.size());
         if (removeWatchedIndex < 0) {
             System.out.println(String.format(
@@ -30,18 +30,18 @@ public class RemoveListCommand extends Command{
                     "The valid index range is 1 to %d", watchedList.movieList.size()));
             return;
         }
-        watchedList.remove(removeWatchedIndex, ui);
+        watchedList.remove(removeWatchedIndex);
     }
 
-    public void removeToWatchList(ToWatchList toWatchList, Ui ui, Storage storage) {
+    public void removeToWatchList(ToWatchList toWatchList) {
         //remove from towatch list
         if (toWatchList.empty()) {
             System.out.println("Your to-watch list is empty. Nothing to remove!");
             return;
         }
-        ui.showListMessage(toWatchList);
+        Ui.showListMessage(toWatchList);
 
-        String inputIndex = ui.inputCommand();
+        String inputIndex = Ui.inputCommand();
         int removeToWatchIndex = Parser.parseIndex(inputIndex, 1, toWatchList.movieList.size());
         if (removeToWatchIndex < 0) {
             System.out.println(String.format(
@@ -49,17 +49,17 @@ public class RemoveListCommand extends Command{
                     "The valid index range is 1 to %d",  toWatchList.movieList.size()));
             return;
         }
-        toWatchList.remove(removeToWatchIndex, ui);
+        toWatchList.remove(removeToWatchIndex);
     }
 
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (removeListType) {
         case "watched":
-            removeWatchedList(watchedList, ui, storage);
+            removeWatchedList(watchedList);
             break;
         case "towatch":
-            removeToWatchList(toWatchList, ui, storage);
+            removeToWatchList(toWatchList);
             break;
         default:
             System.out.println("Please follow the format: remove [watched/towatch]");

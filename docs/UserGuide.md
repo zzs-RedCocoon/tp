@@ -6,9 +6,9 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 
 - [Quick Start](#quick-start)
 - [Features](#features)
-  - [Viewing help: help](#viewing-help--help)
-  - [Add a movie you have watched: watched](#add-a-movie-you-have-watched--watched)
-  - [Add a movie you want to watch: towatch](#add-a-movie-you-want-to-watch--towatch)
+  - [Viewing help: `help`](#viewing-help--help)
+  - [Add a movie you have watched: `watched`](#add-a-movie-you-have-watched--watched)
+  - [Add a movie you want to watch: `towatch`](#add-a-movie-you-want-to-watch--towatch)
     - [List out movies you have watched: `list`](#list-out-movies-you-have-watched-or-plan-to-watch--list--watchlist)
     - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-either-list--remove)
   - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
@@ -114,8 +114,8 @@ Removes a movie from either list of movies.
 You will first choose which list to remove from, and then separately provide the movie number to delete.
 
 Format:\
-`remove watched <movie_index>` to remove a movie from your watchlist.\
-`remove towatch <movie_index>` to remove a movie from your to-watch list.
+`remove watched [enter] <movie_index>` to remove a movie from your watchlist.\
+`remove towatch [enter] <movie_index>` to remove a movie from your to-watch list.
 
 Examples:
 ```
@@ -134,15 +134,17 @@ Examples:
 See the details of the movie as provided by the database, by index or movie name.\
 This does not include user-specific properties, like reviews.
 
-Format: `seedetail [watched/ towatch]`
+Format:\
+`seedetail watched [enter] <movie_index>` to see the detail of a movie in your watched list.\
+`seedetail towatch [enter] <movie_index>` to see the detail of a movie in your to-watch list.
 
 Examples:
 ```
 >> seedetail watched
 Below are the movies from your watched list
-1. La La LAnd
-2. Captain Americ
-Please enter the index of the movie you would like to see the detail of it:
+1. La La Land
+2. Captain America
+Please enter the index of the movie you would like to see the detail of:
 >> 1
 Title: La La Land
 Year: 2018
@@ -150,7 +152,7 @@ Genre: Love
 ...
 ```
 
-Format: `seedetail movie`
+Format: `seedetail movie [enter] <movie_index>`
 
 Examples:
 ```
@@ -180,7 +182,7 @@ Please feel free to continue with other features :))
 ## Filter movies from your list by genres: `filter`
 Filters out and displays all movies in the watched and unwatched lists that fall under the specified genre.
 
-Format: filter <genre>
+Format: `filter <genre>`
 
 Examples:
 ```
@@ -196,15 +198,20 @@ To Watch
 
 > ❗ **Coming soon:** we will add a way to list/search genres, in case the user makes a typo.
 
-## Review a movie you have watched: `review`
+## Review a movie you have watched: `addreview`
 Adds a review for a watched movie. The user is first prompted for a text review, which ends once the user
 enters a blank line. The user is then asked for a numerical rating (out of 5).
 
-Format: `review <movie_index>`
+Format: `addreview [enter] <movie_index>`
 
 Examples:
 ```
->> review 1
+>> addreview
+
+1. Titanic
+These are the movies in your list
+
+>> 1
 
 Write your review. Use as many lines as you need. To end, simply input a blank line.
 ...
@@ -214,11 +221,11 @@ Reviews can also be deleted and viewed with the following commands:
 
 ### Delete a review: `deletereview`
 Delete a review for a watched movie.
-Format: `deletereview <movie_index>`
+Format: `deletereview [enter] <movie_index>`
 
 ### View a review: `viewreview`
 Allows you to see your review of a movie.
-Format: `viewreview <movie_index>`
+Format: `viewreview [enter] <movie_index>`
 
 ## Generate random movies from the genre entered by you: `random`
 Provide some random movies that fall in the genre entered
