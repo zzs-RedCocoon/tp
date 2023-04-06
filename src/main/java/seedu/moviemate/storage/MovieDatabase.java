@@ -1,9 +1,11 @@
 package seedu.moviemate.storage;
 
+import java.util.Random;
 import seedu.moviemate.movie.Movie;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -12,6 +14,7 @@ public class MovieDatabase {
     // Movie will be sorted, found by its String name.
     private static TreeMap<String, Movie> movieDatabase;
     private static final int MAX_RELEVANT_MOVIES = 5;
+    private static final int RANDOM_MOVIES_INTERVAL = 15;
 
     public MovieDatabase(ArrayList<String[]> movieStrings) throws IOException {
         System.out.print("Loading movie database...");
@@ -51,6 +54,33 @@ public class MovieDatabase {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
             }
+            if (movieCount.equals(MAX_RELEVANT_MOVIES)) {
+                break;
+            }
+        }
+        return relevantMovies;
+    }
+
+    /**
+     * Randomly find some movies that matches the genre entered by the user.
+     *
+     * @param userInputGenre The string genre entered by the user,
+     *                       which they would like to see some random movies of this genre
+     * @return An array list containing movie items that are under the userInputGenre.
+     */
+    public static ArrayList<Movie> randomMovieOfGenres(String userInputGenre) {
+        ArrayList<Movie> relevantMovies = new ArrayList<Movie>();
+        Integer movieCount = 0;
+        int index = 0;
+        Random rand = new Random();
+        int intInterval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
+        for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
+            if (index % intInterval == 0
+                    && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
+                relevantMovies.add(entry.getValue());
+                movieCount += 1;
+            }
+            index += 1;
             if (movieCount.equals(MAX_RELEVANT_MOVIES)) {
                 break;
             }

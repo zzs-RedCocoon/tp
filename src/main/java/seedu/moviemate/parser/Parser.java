@@ -1,19 +1,20 @@
 package seedu.moviemate.parser;
 
-import seedu.moviemate.ui.Ui;
 import seedu.moviemate.command.AddToWatchListCommand;
 import seedu.moviemate.command.AddWatchedListCommand;
-import seedu.moviemate.command.Command;
-import seedu.moviemate.command.RemoveListCommand;
-import seedu.moviemate.command.HelpCommand;
-import seedu.moviemate.command.ListCommand;
-import seedu.moviemate.command.WatchListCommand;
-import seedu.moviemate.command.SeeDetailCommand;
-import seedu.moviemate.command.AddReviewCommand;
+import seedu.moviemate.command.RandomMovieCommand;
 import seedu.moviemate.command.DeleteReviewCommand;
+import seedu.moviemate.command.Command;
+import seedu.moviemate.command.HelpCommand;
+import seedu.moviemate.command.SeeDetailCommand;
+import seedu.moviemate.command.RemoveListCommand;
 import seedu.moviemate.command.ViewReviewCommand;
-import seedu.moviemate.command.FilterCommand;
+import seedu.moviemate.command.WatchListCommand;
 import seedu.moviemate.command.ExitCommand;
+import seedu.moviemate.command.ListCommand;
+import seedu.moviemate.command.FilterCommand;
+import seedu.moviemate.command.AddReviewCommand;
+import seedu.moviemate.ui.Ui;
 
 /**
  * Parses user input.
@@ -50,6 +51,8 @@ public class Parser {
             return new ViewReviewCommand();
         case "filter":
             return new FilterCommand(commandArg);
+        case "random":
+            return new RandomMovieCommand(commandArg);
         case "exit": // fallthrough
         case "bye":
             return new ExitCommand();
