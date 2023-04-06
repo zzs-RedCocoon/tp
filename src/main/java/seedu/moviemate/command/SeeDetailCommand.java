@@ -23,15 +23,19 @@ public class SeeDetailCommand extends Command {
         ui.showListMessage(movieList);
         System.out.println("Please enter the movie index that you would like to see the detail of!");
         String inputIndex = ui.inputCommand();
-        int seeDetailWatchedIndex = Parser.parseIndex(inputIndex, 1, movieList.movieList.size());
-        if (seeDetailWatchedIndex < 0) {
-            System.out.println(String.format(
-                    "Please try entering the seedetail command again and make sure the index is valid. \n" +
-                            "The valid index range is 1 to %d", movieList.movieList.size()));
-            return;
+        while (true) {
+            int seeDetailWatchedIndex = Parser.parseIndex(inputIndex, 1, movieList.movieList.size());
+            if (seeDetailWatchedIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", movieList.movieList.size()));
+                inputIndex = ui.inputCommand();
+            }
+            else {
+                System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
+                ui.showDetailMessage();
+                break;
+            }
         }
-        System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
-        ui.showDetailMessage();
     }
 
     public void seeMovieDetailByName(Ui ui) {
