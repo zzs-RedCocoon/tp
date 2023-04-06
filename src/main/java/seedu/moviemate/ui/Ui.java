@@ -3,6 +3,7 @@ package seedu.moviemate.ui;
 import seedu.moviemate.movie.Movie;
 import seedu.moviemate.movie.MovieList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -116,5 +117,24 @@ public class Ui {
     public static void showDetailMessage() {
         System.out.println("The movie details are showed above!");
         System.out.println("Please feel free to continue with other features :))");
+    }
+
+    /**
+     * This method shows the movies in the ArrayList to the user.
+     *
+     * @param movies The ArrayList that contains the movies.
+     */
+    public static void showMovies(ArrayList<Movie> movies) {
+        int index = 1; // 1-based index for displaying to users
+        if (movies.size() != 0) {
+            System.out.println("Below are the random movies that fall in the genre entered :))");
+            for (Movie movie: movies) {
+                System.out.println(index + ". " + movie.toString());
+                index += 1;
+            }
+            System.out.println("Feel free to add it to your movie list!");
+        } else {
+            System.out.println("There is no relevant movies found, please try again!");
+        }
     }
 }
