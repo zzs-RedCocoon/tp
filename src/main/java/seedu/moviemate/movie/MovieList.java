@@ -7,7 +7,6 @@ import seedu.moviemate.ui.Ui;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
 
 /**
  * MovieList class containing the list of movies.
