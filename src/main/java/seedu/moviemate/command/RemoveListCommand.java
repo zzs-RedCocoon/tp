@@ -17,7 +17,7 @@ public class RemoveListCommand extends Command {
 
     public void removeMovieList(MovieList movieList, Ui ui){
         if (movieList.empty()) {
-            ui.printRemoveEmptyMovieList();
+            ui.printRemoveMovieListEmpty();
             return;
         }
         Ui.showListMessage(movieList);
@@ -26,7 +26,7 @@ public class RemoveListCommand extends Command {
             String input = Ui.inputCommand();
             int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
-                ui.printInvalidIndex(1, movieList.movieList.size());
+                ui.printRequireValidIndex(1, movieList.movieList.size());
                 continue;
             }
             movieList.remove(removeIndex);
