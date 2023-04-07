@@ -7,7 +7,6 @@ import seedu.moviemate.ui.Ui;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
 
 /**
  * MovieList class containing the list of movies.
@@ -25,6 +24,7 @@ public class MovieList {
 
     /**
      * Overloaded constructor with filled MovieList.
+     *
      * @param movieList List of movies.
      */
     public MovieList(Collection<Movie> movieList) {
@@ -57,11 +57,11 @@ public class MovieList {
     public static void findMovieDetail(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println( "No relevant movie found, please try entering the movie name again!");
+            System.out.println("No relevant movie found, please try entering the movie name again!");
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
@@ -77,8 +77,7 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
-            }
-            else {
+            } else {
                 movie = relevantMovies.get(index - 1);
                 if (movie.getMovieDetail() != null) {
                     System.out.println(movie.getMovieDetail());
@@ -89,16 +88,20 @@ public class MovieList {
             }
         }
     }
+
     /**
      * Add a movie to the contained list.
+     *
      * @param movie a movie.
      */
     public void add(Movie movie) {
         this.movieList.add(movie);
     }
+
     /**
      * Adds a movie to the WATCHED list from the list of movies.
-     * @param inputTitle title of movie as input by user.
+     *
+     * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
      */
@@ -110,7 +113,7 @@ public class MovieList {
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
@@ -126,8 +129,7 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
-            }
-            else {
+            } else {
                 movie = relevantMovies.get(addIndex - 1);
                 break;
             }
@@ -140,8 +142,7 @@ public class MovieList {
         if (!watchedList.contains(movie)) {
             watchedList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
-        }
-        else {
+        } else {
             System.out.println("That movie is already in your list.");
         }
 
@@ -149,7 +150,8 @@ public class MovieList {
 
     /**
      * Adds a movie to the TO-WATCH list from the list of movies.
-     * @param inputTitle title of movie as input by user.
+     *
+     * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
      */
@@ -161,7 +163,7 @@ public class MovieList {
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
@@ -177,8 +179,7 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
-            }
-            else {
+            } else {
                 movie = relevantMovies.get(addIndex - 1);
                 break;
             }
@@ -204,8 +205,7 @@ public class MovieList {
         if (!toWatchList.contains(movie)) {
             toWatchList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
-        }
-        else {
+        } else {
             System.out.println("That movie is already in your list.");
         }
 
@@ -226,8 +226,7 @@ public class MovieList {
         String classname = getClass().getName();
         if (classname.equals("seedu.moviemate.movie.WatchedList")) {
             System.out.println("In watched list:");
-        }
-        else if (classname.equals("seedu.moviemate.movie.ToWatchList")) {
+        } else if (classname.equals("seedu.moviemate.movie.ToWatchList")) {
             System.out.println("In to-watch list:");
         }
         int i = 1;
@@ -241,8 +240,10 @@ public class MovieList {
             System.out.println("There are no movies of this genre in this list");
         }
     }
+
     /**
      * Remove a specific movie from the contained list.
+     *
      * @param movie a movie.
      */
     public void remove(Movie movie) {
@@ -251,6 +252,7 @@ public class MovieList {
 
     /**
      * Remove a movie from the contained list.
+     *
      * @param index 1-indexed index of the movie in list.
      */
     public void remove(int index) {

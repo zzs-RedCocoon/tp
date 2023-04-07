@@ -1,13 +1,12 @@
 package seedu.moviemate.command;
 
-import seedu.moviemate.movie.Movie;
 import seedu.moviemate.movie.ToWatchList;
 import seedu.moviemate.movie.WatchedList;
 import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
 
-public class RemoveListCommand extends Command{
+public class RemoveListCommand extends Command {
 
     private String removeListType;
 
@@ -30,8 +29,7 @@ public class RemoveListCommand extends Command{
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
                 input = Ui.inputCommand();
-            }
-            else {
+            } else {
                 watchedList.remove(removeIndex);
                 break;
             }
@@ -53,8 +51,7 @@ public class RemoveListCommand extends Command{
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", toWatchList.movieList.size()));
                 input = Ui.inputCommand();
-            }
-            else {
+            } else {
                 toWatchList.remove(removeIndex);
                 break;
             }
@@ -75,8 +72,6 @@ public class RemoveListCommand extends Command{
             break;
         }
     }
-
-
 
 
 }

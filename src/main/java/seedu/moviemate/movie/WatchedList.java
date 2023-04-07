@@ -10,7 +10,7 @@ public class WatchedList extends MovieList {
     public WatchedList() {
         super();
     }
-    
+
     public WatchedList(ArrayList<String[]> loaded) {
         super(loaded);
     }
@@ -34,8 +34,7 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
-            }
-            else {
+            } else {
                 currentMovie = this.getMovie(index);
                 break;
             }
@@ -69,8 +68,7 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
-            }
-            else {
+            } else {
                 currentMovie = this.getMovie(index);
                 break;
             }
@@ -105,8 +103,7 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
-            }
-            else {
+            } else {
                 currentMovie = this.getMovie(index);
                 break;
             }
