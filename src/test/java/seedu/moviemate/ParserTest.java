@@ -14,6 +14,16 @@ public class ParserTest {
     public void testParseCommand() {
         Ui ui = new Ui();
         Command command;
+        // Test adding a movie to the watched list
+        command = Parser.parseCommand("watched The Movie", ui);
+        assertTrue(command instanceof AddWatchedListCommand);
+
+        // Test exit
+        command = Parser.parseCommand("exit", ui);
+        assertTrue(command instanceof ExitCommand);
+        // Test exit
+        command = Parser.parseCommand("bye", ui);
+        assertTrue(command instanceof ExitCommand);
 
         // Test adding a movie to the watch list
         command = Parser.parseCommand("towatch The Matrix", ui);
