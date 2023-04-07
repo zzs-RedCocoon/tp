@@ -15,36 +15,34 @@ public class RemoveListCommand extends Command {
         this.removeListType = removeListType;
     }
 
-    public void removeMovieList(MovieList movieList){
-        //remove from towatch list
+    public void removeMovieList(MovieList movieList, Ui ui){
         if (movieList.empty()) {
-            System.out.println("This list is empty. Nothing to remove!");
+            ui.printRemoveEmptyMovieList();
             return;
         }
         Ui.showListMessage(movieList);
 
-        String input = Ui.inputCommand();
         while (true) {
+            String input = Ui.inputCommand();
             int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", movieList.movieList.size()));
-                input = Ui.inputCommand();
-            } else {
-                movieList.remove(removeIndex);
-                break;
+                ui.printInvalidIndex(1, movieList.movieList.size());
+                continue;
             }
+            movieList.remove(removeIndex);
+            break;
         }
     }
-    
+
+
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (removeListType) {
         case "watched":
-            removeMovieList(watchedList);
+            removeMovieList(watchedList, ui);
             break;
         case "towatch":
-            removeMovieList(toWatchList);
+            removeMovieList(toWatchList, ui);
             break;
         default:
             System.out.println("Please follow the format: remove [watched/towatch]");

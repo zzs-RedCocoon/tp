@@ -140,4 +140,12 @@ public class Ui {
             System.out.println("There is no relevant movies found, please try again!");
         }
     }
+
+    public static void printRemoveEmptyMovieList(){
+        System.out.println("This list is empty. Nothing to remove!");
+    }
+
+    public static void printInvalidIndex(int l, int r){
+        System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
+    }
 }
