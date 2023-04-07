@@ -1,7 +1,14 @@
 package seedu.moviemate;
 
 import org.junit.jupiter.api.Test;
-import seedu.moviemate.command.*;
+import seedu.moviemate.command.AddToWatchListCommand;
+import seedu.moviemate.command.AddWatchedListCommand;
+import seedu.moviemate.command.Command;
+import seedu.moviemate.command.ExitCommand;
+import seedu.moviemate.command.RemoveListCommand;
+import seedu.moviemate.command.SeeDetailCommand;
+import seedu.moviemate.command.HelpCommand;
+
 import seedu.moviemate.parser.Parser;
 import seedu.moviemate.ui.Ui;
 
