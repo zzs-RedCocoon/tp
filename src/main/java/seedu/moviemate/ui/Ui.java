@@ -37,6 +37,7 @@ public class Ui {
         System.out.println("Thanks for using Movie Mate!");
         System.out.println("Hope to see you again soon :))");
     }
+
     public static void printLine() {
         System.out.println("-------------------------------------------------------------------------");
     }
@@ -75,22 +76,24 @@ public class Ui {
 
     /**
      * Shows successfully added movie to the watched/ to-watch list
+     *
      * @param movie The String containing movie title, year, runtime, and genre
      */
     public static void showAddMovieMessage(String movie) {
         System.out.println("You have successfully added the movie into your list!");
-        System.out.println("Here is the movie detail");
+        System.out.println("Here are the movie details:");
         System.out.println(movie);
         System.out.println("Feel free to continue with other features");
     }
 
     /**
      * Show the movie list, watched or to-watch, to the user.
+     *
      * @param movieList The movie list to show
      */
     public static void showListMessage(MovieList movieList) {
         Integer watchId = 1;
-        for (Movie watched: movieList.movieList) {
+        for (Movie watched : movieList.movieList) {
             System.out.print(watchId);
             System.out.print(". ");
             System.out.println(watched.getTitle());
@@ -99,8 +102,7 @@ public class Ui {
         printLine();
         if (watchId == 1) {
             System.out.println("Currently, your list is empty.");
-        }
-        else {
+        } else {
             System.out.println("These are the movies in your list");
         }
     }
@@ -111,11 +113,12 @@ public class Ui {
     public static void showDeleteMessage() {
         System.out.println("The movie has been deleted for you!");
     }
+
     /**
      * Show feedback message to the user after showing the movie detail
      */
     public static void showDetailMessage() {
-        System.out.println("The movie details are showed above!");
+        System.out.println("The movie details are shown above!");
         System.out.println("Please feel free to continue with other features :))");
     }
 
@@ -128,7 +131,7 @@ public class Ui {
         int index = 1; // 1-based index for displaying to users
         if (movies.size() != 0) {
             System.out.println("Below are the random movies that fall in the genre entered :))");
-            for (Movie movie: movies) {
+            for (Movie movie : movies) {
                 System.out.println(index + ". " + movie.toString());
                 index += 1;
             }

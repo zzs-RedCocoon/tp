@@ -6,7 +6,7 @@ import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
 
-public class RemoveListCommand extends Command{
+public class RemoveListCommand extends Command {
 
     private String removeListType;
 
@@ -22,15 +22,18 @@ public class RemoveListCommand extends Command{
         }
         Ui.showListMessage(watchedList);
 
-        String inputIndex = Ui.inputCommand();
-        int removeWatchedIndex = Parser.parseIndex(inputIndex, 1, watchedList.movieList.size());
-        if (removeWatchedIndex < 0) {
-            System.out.println(String.format(
-                    "Please try entering the remove command again and make sure the index is valid. \n" +
-                    "The valid index range is 1 to %d", watchedList.movieList.size()));
-            return;
+        String input = Ui.inputCommand();
+        while (true) {
+            int removeIndex = Parser.parseIndex(input, 1, watchedList.movieList.size());
+            if (removeIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
+                input = Ui.inputCommand();
+            } else {
+                watchedList.remove(removeIndex);
+                break;
+            }
         }
-        watchedList.remove(removeWatchedIndex);
     }
 
     public void removeToWatchList(ToWatchList toWatchList) {
@@ -41,15 +44,18 @@ public class RemoveListCommand extends Command{
         }
         Ui.showListMessage(toWatchList);
 
-        String inputIndex = Ui.inputCommand();
-        int removeToWatchIndex = Parser.parseIndex(inputIndex, 1, toWatchList.movieList.size());
-        if (removeToWatchIndex < 0) {
-            System.out.println(String.format(
-                    "Please try entering the remove command again and make sure the index is valid. \n" +
-                    "The valid index range is 1 to %d",  toWatchList.movieList.size()));
-            return;
+        String input = Ui.inputCommand();
+        while (true) {
+            int removeIndex = Parser.parseIndex(input, 1, toWatchList.movieList.size());
+            if (removeIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", toWatchList.movieList.size()));
+                input = Ui.inputCommand();
+            } else {
+                toWatchList.remove(removeIndex);
+                break;
+            }
         }
-        toWatchList.remove(removeToWatchIndex);
     }
 
     @Override
@@ -66,8 +72,6 @@ public class RemoveListCommand extends Command{
             break;
         }
     }
-
-
 
 
 }
