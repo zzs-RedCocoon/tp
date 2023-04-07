@@ -133,23 +133,23 @@ public class Ui {
         }
     }
 
-    public static void printRemoveMovieListEmpty() {
+    public void printRemoveMovieListEmpty() {
         System.out.println("This list is empty. Nothing to remove!");
     }
 
-    public static void printSeedetailEmpty() {
+    public void printSeedetailEmpty() {
         System.out.println("There are no movies in your list. Nothing to show!");
     }
 
-    public static void printSeedetailHelp() {
+    public void printSeedetailHelp() {
         System.out.println("Please enter the movie index that you would like to see the detail of!");
     }
 
-    public static void printSeedetailByNameHelp() {
+    public void printSeedetailByNameHelp() {
         System.out.println("Please enter the movie name that you would like to see the detail of!");
     }
 
-    public static void printSeedetailFormatHelp() {
+    public void printSeedetailFormatHelp() {
         System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
     }
     
@@ -161,11 +161,11 @@ public class Ui {
         System.out.println("Please feel free to continue with other features :))");
     }
 
-    public static void printMovieDetail(String movieDetail) {
+    public void printMovieDetail(String movieDetail) {
         System.out.println(movieDetail);
     }
 
-    public static void printRequireValidIndex(int l, int r) {
+    public void printRequireValidIndex(int l, int r) {
         System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
     }
 }
