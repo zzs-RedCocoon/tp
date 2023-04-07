@@ -42,7 +42,7 @@ public class MovieListTest {
 
         // Assert that the movie list now contains only 2 movies
         assertEquals(2, movieListObj.movieList.size());
-        
+
         // Assert that the second movie (index 1) has been removed
         assertEquals(title1, movieListObj.movieList.get(0).getTitle());
         assertEquals(title3, movieListObj.movieList.get(1).getTitle());
