@@ -6,7 +6,9 @@ import seedu.moviemate.movie.MovieList;
 import seedu.moviemate.storage.MovieDatabase;
 import seedu.moviemate.storage.Storage;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -31,7 +33,7 @@ public class MovieListTest {
         movieListObj.add(MovieDatabase.find("cat").get(0));
         movieListObj.add(MovieDatabase.find("cat").get(1));
         movieListObj.add(MovieDatabase.find("cat").get(2));
-        System.out.println(movieListObj.movieList.size());
+        // System.out.println(movieListObj.movieList.size());
 
         String title1 = movieListObj.movieList.get(0).getTitle();
         String title2 = movieListObj.movieList.get(1).getTitle();
@@ -46,6 +48,29 @@ public class MovieListTest {
         // Assert that the second movie (index 1) has been removed
         assertEquals(title1, movieListObj.movieList.get(0).getTitle());
         assertEquals(title3, movieListObj.movieList.get(1).getTitle());
+    }
+    @Test
+    public void testList() {
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+
+        MovieList movieListObj = new MovieList();
+        movieListObj.add(MovieDatabase.find("t").get(0));
+        movieListObj.add(MovieDatabase.find("t").get(1));
+        String movie1 = movieListObj.movieList.get(0).toString();
+        String movie2 = movieListObj.movieList.get(1).toString();
+
+        // Call the list method and capture the output
+        movieListObj.list();
+        String output = outputStream.toString();
+
+        // Check that the output is as expected
+        String expectedOutput = "1. " + movie1 + "\n" +
+                "2. " + movie2 + "\n";
+        assertEquals(expectedOutput, output);
     }
 }
 
