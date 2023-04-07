@@ -121,13 +121,6 @@ public class Movie implements Comparable<Movie> {
     @Override
     public String toString() {
         return String.format("%s (%d) %s", this.title, this.year, this.getGenresString());
-        /*
-        return "Title: " + title + "\n" +
-                "Year: " + year + "\n" +
-                "Run time: " + runTimeMinutes + "\n" +
-                "Genres: " + genres;
-
-         */
     }
     public String getMovieDetail() {
         String detail = "Title: " + this.title + "\n" +

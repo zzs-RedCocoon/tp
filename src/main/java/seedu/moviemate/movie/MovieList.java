@@ -1,12 +1,12 @@
 package seedu.moviemate.movie;
 
+import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.MovieDatabase;
 import seedu.moviemate.ui.Ui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
 
 /**
  * MovieList class containing the list of movies.
@@ -24,6 +24,7 @@ public class MovieList {
 
     /**
      * Overloaded constructor with filled MovieList.
+     *
      * @param movieList List of movies.
      */
     public MovieList(Collection<Movie> movieList) {
@@ -56,76 +57,82 @@ public class MovieList {
     public static void findMovieDetail(String inputTitle) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println( "No relevant movie found, please try entering the movie name again!");
+            System.out.println("No relevant movie found, please try entering the movie name again!");
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then show the detail of the movie you chose, thanks!");
         Ui.printLine();
-        Scanner scan = new Scanner(System.in);;
-        String s = scan.nextLine();
+
+        String input = Ui.inputCommand();
         Movie movie;
-        try {
-            movie = relevantMovies.get(Integer.parseInt(s) - 1);
-            if (movie.getMovieDetail() != null) {
-                System.out.println(movie.getMovieDetail());
+        while (true) {
+            int index = Parser.parseIndex(input, 1, relevantMovies.size());
+            if (index < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
+                input = Ui.inputCommand();
+            } else {
+                movie = relevantMovies.get(index - 1);
+                if (movie.getMovieDetail() != null) {
+                    System.out.println(movie.getMovieDetail());
+                }
+                Ui.printLine();
+                Ui.showDetailMessage();
+                break;
             }
-            Ui.printLine();
-            Ui.showDetailMessage();
-            return;
-        } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.\n" + "Please try entering the command again.");
-            return;
-        } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.\n" + "Please try entering the command again.");
-            return;
         }
     }
+
     /**
      * Add a movie to the contained list.
+     *
      * @param movie a movie.
      */
     public void add(Movie movie) {
         this.movieList.add(movie);
     }
+
     /**
-     * Adds a movie from the list of movies.
-     * @param inputTitle title of movie as input by user.
+     * Adds a movie to the WATCHED list from the list of movies.
+     *
+     * @param inputTitle  title of movie as input by user.
+     * @param watchedList list of watched movies
+     * @param toWatchList list of movies user plans to watch
      */
     public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println("No relevant movie found, please try entering the movie name again!");
-            Ui.printLine();
+            System.out.println("No relevant movie found, please try entering the watched " +
+                    "command and movie name again!");
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
         Ui.printLine();
-        Scanner scan = new Scanner(System.in);;
-        String s = scan.nextLine();
 
+        String input = Ui.inputCommand();
         Movie movie;
-        try {
-            movie = relevantMovies.get(Integer.parseInt(s) - 1);
-        } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.\n" +
-                    "Please try entering the command again to add movie!");
-            return;
-        } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.\n" +
-                    "Please try entering the command again to add movie!");
-            return;
+        while (true) {
+            int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
+            if (addIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
+                input = Ui.inputCommand();
+            } else {
+                movie = relevantMovies.get(addIndex - 1);
+                break;
+            }
         }
 
         //if movie being added to watched list is in to-watch list, it is deleted in to-watch list
@@ -135,42 +142,47 @@ public class MovieList {
         if (!watchedList.contains(movie)) {
             watchedList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
-        }
-        else {
+        } else {
             System.out.println("That movie is already in your list.");
         }
 
     }
 
+    /**
+     * Adds a movie to the TO-WATCH list from the list of movies.
+     *
+     * @param inputTitle  title of movie as input by user.
+     * @param watchedList list of watched movies
+     * @param toWatchList list of movies user plans to watch
+     */
     public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println("No relevant movie found, please try entering the movie name again!");
-            Ui.printLine();
+            System.out.println("No relevant movie found, please try entering the towatch " +
+                    "command and movie name again!");
             return;
         }
         int id = 1;
-        for (Movie relevantMovie: relevantMovies) {
+        for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
         Ui.printLine();
-        Scanner scan = new Scanner(System.in);;
-        String s = scan.nextLine();
 
+        String input = Ui.inputCommand();
         Movie movie;
-        try {
-            movie = relevantMovies.get(Integer.parseInt(s) - 1);
-        } catch (NumberFormatException e) { // cannot parse string to int
-            System.out.println("Movie id should be number.\n" +
-                    "Please try entering the command again to add movie!");
-            return;
-        } catch (IndexOutOfBoundsException e) { //id out of range
-            System.out.println("Movie id is out of range.\n" +
-                    "Please try entering the command again to add movie!");
-            return;
+        while (true) {
+            int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
+            if (addIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
+                input = Ui.inputCommand();
+            } else {
+                movie = relevantMovies.get(addIndex - 1);
+                break;
+            }
         }
 
         //if movie being added to to-watch list is in watched list, user is prompted if they want
@@ -179,11 +191,11 @@ public class MovieList {
             System.out.println("You have already watched this movie!\n" +
                     "Should we delete it from your watched list? [Y/N]");
             while (true) {
-                s = scan.nextLine();
-                if (s.equalsIgnoreCase("N")) {
+                input = Ui.inputCommand();
+                if (input.equalsIgnoreCase("N")) {
                     return;
                 }
-                if (s.equalsIgnoreCase("Y")) {
+                if (input.equalsIgnoreCase("Y")) {
                     break;
                 } else {
                     System.out.println("Invalid format. Please enter either 'Y' or 'N'.");
@@ -193,8 +205,7 @@ public class MovieList {
         if (!toWatchList.contains(movie)) {
             toWatchList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
-        }
-        else {
+        } else {
             System.out.println("That movie is already in your list.");
         }
 
@@ -212,7 +223,12 @@ public class MovieList {
     }
 
     public void filter(String genre) {
-        System.out.println("In " + getClass().getName() + ":");
+        String classname = getClass().getName();
+        if (classname.equals("seedu.moviemate.movie.WatchedList")) {
+            System.out.println("In watched list:");
+        } else if (classname.equals("seedu.moviemate.movie.ToWatchList")) {
+            System.out.println("In to-watch list:");
+        }
         int i = 1;
         for (Movie movie : movieList) {
             if (Arrays.asList(movie.getGenresFilter()).contains(genre.toLowerCase())) {
@@ -224,8 +240,10 @@ public class MovieList {
             System.out.println("There are no movies of this genre in this list");
         }
     }
+
     /**
      * Remove a specific movie from the contained list.
+     *
      * @param movie a movie.
      */
     public void remove(Movie movie) {
@@ -234,6 +252,7 @@ public class MovieList {
 
     /**
      * Remove a movie from the contained list.
+     *
      * @param index 1-indexed index of the movie in list.
      */
     public void remove(int index) {
