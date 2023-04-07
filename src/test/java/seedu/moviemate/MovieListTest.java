@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MovieListTest {
     private static MovieDatabase movieDatabase;
@@ -71,6 +72,22 @@ public class MovieListTest {
         String expectedOutput = "1. " + movie1 + "\n" +
                 "2. " + movie2 + "\n";
         assertEquals(expectedOutput, output);
+    }
+
+    public void testGetMovie() {
+
+        // Add some movies to the list
+        MovieList movieListObj = new MovieList();
+        movieListObj.add(MovieDatabase.find("h").get(0));
+        movieListObj.add(MovieDatabase.find("h").get(1));
+
+        // Test getting an existing movie
+        Movie expectedMovie = new Movie(MovieDatabase.find("h").get(1));
+        Movie actualMovie = movieListObj.getMovie(1);
+        assertEquals(expectedMovie, actualMovie);
+
+        // Test getting a non-existent movie
+        assertNull(movieListObj.getMovie(0));
     }
 }
 
