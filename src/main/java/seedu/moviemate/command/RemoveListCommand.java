@@ -5,6 +5,7 @@ import seedu.moviemate.movie.WatchedList;
 import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
+import seedu.moviemate.movie.MovieList;
 
 public class RemoveListCommand extends Command {
 
@@ -14,58 +15,36 @@ public class RemoveListCommand extends Command {
         this.removeListType = removeListType;
     }
 
-    public void removeWatchedList(WatchedList watchedList) {
-        //remove from watched list
-        if (watchedList.empty()) {
-            System.out.println("Your watched list is empty. Nothing to remove!");
-            return;
-        }
-        Ui.showListMessage(watchedList);
-
-        String input = Ui.inputCommand();
-        while (true) {
-            int removeIndex = Parser.parseIndex(input, 1, watchedList.movieList.size());
-            if (removeIndex < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
-                input = Ui.inputCommand();
-            } else {
-                watchedList.remove(removeIndex);
-                break;
-            }
-        }
-    }
-
-    public void removeToWatchList(ToWatchList toWatchList) {
+    public void removeMovieList(MovieList movieList){
         //remove from towatch list
-        if (toWatchList.empty()) {
-            System.out.println("Your to-watch list is empty. Nothing to remove!");
+        if (movieList.empty()) {
+            System.out.println("This list is empty. Nothing to remove!");
             return;
         }
-        Ui.showListMessage(toWatchList);
+        Ui.showListMessage(movieList);
 
         String input = Ui.inputCommand();
         while (true) {
-            int removeIndex = Parser.parseIndex(input, 1, toWatchList.movieList.size());
+            int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
                 System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", toWatchList.movieList.size()));
+                        "Please enter a valid index from 1 to %d", movieList.movieList.size()));
                 input = Ui.inputCommand();
             } else {
-                toWatchList.remove(removeIndex);
+                movieList.remove(removeIndex);
                 break;
             }
         }
     }
-
+    
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (removeListType) {
         case "watched":
-            removeWatchedList(watchedList);
+            removeMovieList(watchedList);
             break;
         case "towatch":
-            removeToWatchList(toWatchList);
+            removeMovieList(toWatchList);
             break;
         default:
             System.out.println("Please follow the format: remove [watched/towatch]");
