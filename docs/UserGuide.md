@@ -75,17 +75,15 @@ Format: `watched <movie name>`
 Examples:
 ```
 >> watched La La
-
-    1. La La Land
-    2. La La Lol
+1. Acting Outlaws: The LA La Ride (2012)  [Documentary]
+2. Ana Maria in Novela Land (2015)  [Comedy,Drama,Fantasy]
 Please enter the id of the movie you are looking for
 The program will then proceed with adding the movie you chose, thanks!
 
 >> 1
-
 You have successfully added the movie into your list!
 Here is the movie detail
-    La La Land
+Acting Outlaws: The LA La Ride (2012)  [Documentary]
 Feel free to continue with other features
 ```
 
@@ -105,8 +103,10 @@ Format:\
 Example:
 ```
 >> list
-1. Movie Name 1
-2. Movie Name 2
+
+1. Avengers Endgame
+2. La La Land
+These are the movies in your list
 ```
 
 ### Remove a listing from either list: `remove`
@@ -122,8 +122,10 @@ Examples:
 >> remove watched
 1. Avengers: Endgame
 2. La La Land
+These are the movies in your list
 
 >> 1
+The movie has been deleted for you!
 
 >> list
 1. La La Land
@@ -141,15 +143,17 @@ Format:\
 Examples:
 ```
 >> seedetail watched
-Below are the movies from your watched list
 1. La La Land
 2. Captain America
-Please enter the index of the movie you would like to see the detail of:
+These are the movies in your list
+Please enter the index of the movie you would like to see the detail of!
+
 >> 1
 Title: La La Land
 Year: 2018
 Genre: Love
-...
+Runtime Minutes: 90
+The movie details are shown above!
 ```
 
 Format: `seedetail movie [enter] <movie_index>`
@@ -157,16 +161,17 @@ Format: `seedetail movie [enter] <movie_index>`
 Examples:
 ```
 >> seedetail movie
-Please enter the name of the movie you would like to see the detail of it!
+Please enter the name of the movie you would like to see the detail of!
+
 >> cat
-1. #cats_the_mewvie (2020)  [Documentary]
-2. 1948: Creation & Catastrophe (2017)  [Documentary]
-3. 2007: The Deadliest Year For Cats And Dogs In American History (2018)  [Documentary]
-4. 22nd Catch (2016)  [Romance]
-5. 3 Cats and a Man (2012)  [Drama]
+1. #cats_the_mewvie
+2. 1948: Creation & Catastrophe
+3. 2007: The Deadliest Year For Cats And Dogs In American History
+4. 22nd Catch
+5. 3 Cats and a Man
 Please enter the id of the movie you're looking for
 The program will then proceed with showing the detail of the movie you chose, thanks!
--------------------------------------------------------------------------
+
 >> 1
 Title: #cats_the_mewvie
 Year: 2020
@@ -188,10 +193,10 @@ Examples:
 ```
 >> filter comedy
 
-Watched
+In watched list:
 1. Bee Movie
 
-To Watch
+In to-watch list:
 1. Shrek
 2. Johnny English
 ```
@@ -207,14 +212,21 @@ Format: `addreview [enter] <movie_index>`
 Examples:
 ```
 >> addreview
-
 1. Titanic
 These are the movies in your list
 
 >> 1
-
+This is the current movie that you want to review:
+Titanic
 Write your review. Use as many lines as you need. To end, simply input a blank line.
-...
+
+>> Such a great movie!
+>>
+Text review added.
+Please rate the movie from [0 to 5]:
+
+>> 5
+Star review added.
 ```
 
 Reviews can also be deleted and viewed with the following commands:
@@ -223,9 +235,29 @@ Reviews can also be deleted and viewed with the following commands:
 Delete a review for a watched movie.
 Format: `deletereview [enter] <movie_index>`
 
+Examples:
+```
+>> deletereview
+1. Titanic
+These are the movies in your list
+
+>> 1
+Successfully deleted the review of movie 1.
+```
+
 ### View a review: `viewreview`
 Allows you to see your review of a movie.
 Format: `viewreview [enter] <movie_index>`
+
+Examples:
+```
+>> viewreview
+1. Titanic
+These are the movies in your list
+
+>> 1
+Review: Such a great movie!(5/5 stars)
+```
 
 ## Generate random movies from the genre entered by you: `random`
 Provide some random movies that fall in the genre entered

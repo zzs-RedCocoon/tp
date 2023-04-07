@@ -79,7 +79,7 @@ public class Ui {
      */
     public static void showAddMovieMessage(String movie) {
         System.out.println("You have successfully added the movie into your list!");
-        System.out.println("Here is the movie detail");
+        System.out.println("Here are the movie details:");
         System.out.println(movie);
         System.out.println("Feel free to continue with other features");
     }
@@ -115,7 +115,7 @@ public class Ui {
      * Show feedback message to the user after showing the movie detail
      */
     public static void showDetailMessage() {
-        System.out.println("The movie details are showed above!");
+        System.out.println("The movie details are shown above!");
         System.out.println("Please feel free to continue with other features :))");
     }
 
