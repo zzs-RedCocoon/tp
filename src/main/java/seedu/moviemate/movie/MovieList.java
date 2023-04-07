@@ -60,6 +60,11 @@ public class MovieList {
             System.out.println("No relevant movie found, please try entering the movie name again!");
             return;
         }
+        if (inputTitle.isBlank()) {
+            System.out.println("<Movie Name> cannot be left blank. Please try entering " +
+                    "the seedetail movie command and movie name again!");
+            return;
+        }
         int id = 1;
         for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
@@ -77,6 +82,9 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
+            } else if (index == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 movie = relevantMovies.get(index - 1);
                 if (movie.getMovieDetail() != null) {
@@ -112,6 +120,11 @@ public class MovieList {
                     "command and movie name again!");
             return;
         }
+        if (inputTitle.isBlank()) {
+            System.out.println("<Movie Name> cannot be left blank, please try entering " +
+                    "the watched command and movie name again!");
+            return;
+        }
         int id = 1;
         for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
@@ -129,6 +142,9 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
+            } else if (addIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 movie = relevantMovies.get(addIndex - 1);
                 break;
@@ -162,6 +178,11 @@ public class MovieList {
                     "command and movie name again!");
             return;
         }
+        if (inputTitle.isBlank()) {
+            System.out.println("<Movie Name> cannot be left blank, please try entering " +
+                    "the towatch command and movie name again!");
+            return;
+        }
         int id = 1;
         for (Movie relevantMovie : relevantMovies) {
             System.out.println(id + ". " + relevantMovie.toString());
@@ -179,6 +200,9 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
+            } else if (addIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 movie = relevantMovies.get(addIndex - 1);
                 break;
@@ -223,6 +247,11 @@ public class MovieList {
     }
 
     public void filter(String genre) {
+        if (genre.isBlank()) {
+            System.out.println("Genre description cannot be left blank. Please try entering " +
+                    "the filter command and genre again!");
+            return;
+        }
         String classname = getClass().getName();
         if (classname.equals("seedu.moviemate.movie.WatchedList")) {
             System.out.println("In watched list:");

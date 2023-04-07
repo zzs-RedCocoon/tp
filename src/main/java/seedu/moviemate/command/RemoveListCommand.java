@@ -29,6 +29,9 @@ public class RemoveListCommand extends Command {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
                 input = Ui.inputCommand();
+            } else if (removeIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 watchedList.remove(removeIndex);
                 break;
@@ -51,6 +54,9 @@ public class RemoveListCommand extends Command {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", toWatchList.movieList.size()));
                 input = Ui.inputCommand();
+            } else if (removeIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 toWatchList.remove(removeIndex);
                 break;
