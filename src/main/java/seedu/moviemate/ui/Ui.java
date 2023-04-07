@@ -115,11 +115,6 @@ public class Ui {
     }
 
     /**
-     * Show feedback message to the user after showing the movie detail
-     */
-
-
-    /**
      * This method shows the movies in the ArrayList to the user.
      *
      * @param movies The ArrayList that contains the movies.
@@ -157,7 +152,10 @@ public class Ui {
     public static void printSeedetailFormatHelp() {
         System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
     }
-
+    
+    /**
+     * Show feedback message to the user after showing the movie detail
+     */
     public static void printSeedetailSuccess() {
         System.out.println("The movie details are shown above!");
         System.out.println("Please feel free to continue with other features :))");
