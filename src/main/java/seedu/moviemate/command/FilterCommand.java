@@ -5,7 +5,7 @@ import seedu.moviemate.movie.ToWatchList;
 import seedu.moviemate.ui.Ui;
 import seedu.moviemate.movie.WatchedList;
 
-public class FilterCommand extends Command {
+public class FilterCommand implements Command {
     private String genre;
 
     public FilterCommand(String genre) {

@@ -9,7 +9,7 @@ import seedu.moviemate.ui.Ui;
 
 import java.util.ArrayList;
 
-public class RandomMovieCommand extends Command{
+public class RandomMovieCommand implements Command {
     private String inputGenre;
     public RandomMovieCommand (String inputGenre) {
         this.inputGenre = inputGenre;

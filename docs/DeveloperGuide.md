@@ -78,7 +78,7 @@ based on the input. Parser thus relies on `Command`.
 Parser also has another method to parse index, which makes use of [`Integer::parseInt`](https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String))
 but adds functionality to check for index bounds. This method is heavily used by features related to our Movie lists.
 
-### Storage
+### Storage Component
 > Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/storage).
 
 The [`Storage`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/storage/Storage.java)
@@ -98,6 +98,11 @@ classes are also included in this package. These deal with methods to read, stor
 Upon opening of MovieMate, `MovieDatabase` stores the movies in its collection (In the form of `Movie` class). This allows
 for easy parsing of data.
 
+### Command Component
+> Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/command).
+
+[`Command`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/command/Command.java)
+is an interface that specifies a single abstract method, `execute`. Each Command
 
 
 
