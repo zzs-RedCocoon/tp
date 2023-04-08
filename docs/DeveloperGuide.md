@@ -115,7 +115,7 @@ Most Commands interact with classes within the `Movie` package. Some are utility
 
 ## Implementation 
 <!-- Zhan hong working on this section-->
-# Review Feature
+### Review Feature
 **API:** [Review.java](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/Review.java)
 
 Here's a partial class diagram of the `Review` component:
@@ -144,7 +144,7 @@ This value is updated into `reviewStars`.
 
 **Step 4.** Finally, `Scanner` is closed and `Review` is done setting.
 
-# Movie List Feature
+### Movie List Feature
 **API:** [Movie.java](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/MovieList.java)
 
 Here's a partial class diagram of the `MovieList` component:
@@ -224,6 +224,8 @@ incremented. If false, nothing will be displayed.
 
 **Step 5.** After the entire iteration is complete, if i == 1, it means no movies were found containing the input genre in their
 genre array. Feedback message displayed accordingly and `filter` returns.
+
+---
 
 ## Product scope
 ### Target user profile
