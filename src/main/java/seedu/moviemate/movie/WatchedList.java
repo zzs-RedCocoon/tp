@@ -34,6 +34,9 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
+            } else if (index == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 currentMovie = this.getMovie(index);
                 break;
@@ -68,6 +71,9 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
+            } else if (index == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 currentMovie = this.getMovie(index);
                 break;
@@ -81,7 +87,6 @@ public class WatchedList extends MovieList {
         } else {
             System.out.println("The movie has no review. No need to delete!");
         }
-
 
     }
 
@@ -103,6 +108,9 @@ public class WatchedList extends MovieList {
                         "Please enter a valid index from 1 to %d", movieList.size()));
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
+            } else if (index == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
             } else {
                 currentMovie = this.getMovie(index);
                 break;

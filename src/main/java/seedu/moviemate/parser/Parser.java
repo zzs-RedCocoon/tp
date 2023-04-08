@@ -74,7 +74,7 @@ public class Parser {
         }
 
         //index out of range
-        if (index < l || index > r) {
+        if (index < l - 1 || index > r) { //edited so return 0 is possible for cancelling command
             System.out.println("Movie id out of range");
             return -1;
         }
