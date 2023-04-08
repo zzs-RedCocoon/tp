@@ -3,23 +3,31 @@
 allowmixing
 
 Package " "<<Rectangle>>{
-    Class UI
-    Class Parser
-    Class MovieMate
-    Class Movie
-    Class Storage
+    Class UI COLOR_UI
+    Class Parser COLOR_PARSER
+    Class MovieMate COLOR_MAIN
+    Class Movie COLOR_MOVIE
+    Class Storage COLOR_STORAGE
 }
 
+Class "Local Files" COLOR_STORAGE
+Database "Movie List" COLOR_MOVIE
 Actor User
 
 'MovieMate handles all of this!'
-MovieMate --> UI
-MovieMate --> Parser
-MovieMate --> Movie
-MovieMate --> Storage
+MovieMate -down-> UI
+MovieMate -down-> Movie
+MovieMate -down-> Storage
+
+UI ..> Parser
+Movie --> Storage
+Storage ..> Movie
+Parser ..> MovieMate
+
+Storage ..> "Local Files" :save/read
+Storage ..> "Movie List"
 
 User .right.> UI
-UI ..> Parser
 
 
 @enduml

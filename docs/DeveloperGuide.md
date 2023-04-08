@@ -7,19 +7,25 @@ title: Developer Guide
 
 # Developer Guide: Movie Mate
 
+---
+
 ## Acknowledgements
 
 Many thanks to Akshay, Ngiap Hin, and [AddressBook3](https://github.com/se-edu/addressbook-level3) for the help.
+
+---
 
 ## Setting Up
 
 Setup guide for developing MovieMate can be found [here](SetupGuide.md).
 
+---
+
 ## Design & implementation
 
 ### Architecture
 
-todo: architechture image here.
+![Architecture.png](PUMLFiles/Architecture.png)
 
 The **Architecture Diagram** above gives a high-level design of MovieMate.
 
@@ -27,16 +33,14 @@ Given below is a quick overview of main components and how they interact with ea
 
 #### Main Components
 
-TODO: Fix this link;
-
-The main class is found in [`MovieMate`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/MovieMate.java). It is responsible for managing
+The main class is [`MovieMate`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/MovieMate.java). It is responsible for managing
 calls to the other classes and establishing required files.
 
 `MovieMate` makes use of some core general components: (LINKS TODO)
-- [`UI`](#)
-- [`Storage`](#)
-- [`Parser`](#)
-- [`Command`](#)
+- [`UI`](#): The UI of the app.
+- [`Storage`](#): Responsible for read/write of data.
+- [`Parser`](#): Interprets user input and read data.
+- [`Command`](#): Logic of MovieMate.
 
 Finally, all the movie-related classes are packaged in [`Movie`](#).
 

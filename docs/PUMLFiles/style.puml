@@ -1,14 +1,16 @@
 !define COLOR_MAIN #d5d5d3
 
-!define COLOR_PARSER #477c4e
+!define COLOR_PARSER #5E807F
 
-!define COLOR_UI #e69d96
+!define COLOR_UI #EAF2D7
 
 !define COLOR_MOVIE_LIST #de5b00
 
 !define COLOR_MOVIE #4FBEDE
 
 !define COLOR_BLOCK #ffeeff
+
+!define COLOR_STORAGE #EDAF97
 
 'Taken from https://github.com/se-edu/addressbook-level3/blob/master/docs/diagrams/style.puml'
 'This is to ensure we fully comply with style requirements'
