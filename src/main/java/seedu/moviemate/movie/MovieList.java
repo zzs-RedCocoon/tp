@@ -327,6 +327,12 @@ public class MovieList {
         String genreStrings = movieStrings[4];
         String[] genres = parseGenres(genreStrings);
 
+        assert movieStrings != null : "Movie strings array cannot be null";
+        assert movieStrings.length == 5 : "Movie strings array must have length of 5";
+        assert id != null : "Movie ID cannot be null";
+        assert title != null : "Movie title cannot be null";
+        assert genreStrings != null : "Movie genres string cannot be null";
+
         Movie movie = new Movie(id, title, year, runTime, genres);
         return movie;
     }
@@ -360,7 +366,6 @@ public class MovieList {
             e.getMessage();
         }
 
-        // Do you want to return null or throw new exception?
         return null;
     }
 
