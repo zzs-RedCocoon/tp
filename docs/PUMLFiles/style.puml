@@ -7,6 +7,7 @@
 !define COLOR_STORAGE #EDAF97
 !define COLOR_COMMAND #1e6ab3
 
+
 'Taken from https://github.com/se-edu/addressbook-level3/blob/master/docs/diagrams/style.puml'
 'This is to ensure we fully comply with style requirements'
 'Removing non-standard stuff.'
@@ -17,6 +18,10 @@ skinparam Shadowing false
 skinparam DefaultTextAlignment center
 skinparam packageStyle Rectangle
 
+
 hide footbox
-hide members
 hide circle
+
+'change to standard UML icons'
+skinparam classAttributeIconSize 0
+

@@ -42,7 +42,7 @@ calls to the other classes and establishing required files.
 - [`Parser`](#parser-component): Interprets user input and read data.
 - [`Command`](#command-component): Logic of MovieMate.
 
-Finally, all the movie-related classes are packaged in [`Movie`](#). Among its contents are `MovieList` and `Movie`.
+Finally, all the movie-related classes are packaged in [`Movie`](#movie-component). Among its contents are `MovieList` and `Movie`.
 
 #### Interactions
 
@@ -110,6 +110,18 @@ Most Commands interact with classes within the `Movie` package. Some are utility
 
 > :bulb: For a full list of command functionalities, you may refer to the [User Guide](UserGuide.md).
 > Also see [Implementation](#implementation) on how some Commands are built.
+
+### Movie Component
+> Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/movie).
+
+
+![MovieClass.png](PUMLFiles%2FMovieClass.png)
+
+This component deals with the movies, which are a core data point in MovieMate. This includes `Movie` classes themselves
+and `MovieList` classes that form a collection of Movies.
+
+Both Movie Lists do not differ by much, but the Watched list tracks movies you have watched, and thus has extra capabilities,
+that is, assigning reviews. The `MovieEntry` class extends off `Movie` to add a Review component (See [Review](#review-feature)).
 
 ---
 
