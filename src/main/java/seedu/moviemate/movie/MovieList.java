@@ -132,8 +132,9 @@ public class MovieList {
      * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
+     * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
+    public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the watched " +
@@ -150,25 +151,25 @@ public class MovieList {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
-        System.out.println("Please enter the id of the movie you're looking for\n" +
-                "The program will then proceed with adding the movie you chose, thanks!");
-        Ui.printLine();
+        ui.printPromptIndex();
 
-        String input = Ui.inputCommand();
+        String input = ui.inputCommand();
         Movie movie;
         while (true) {
             int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
             if (addIndex < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
-                input = Ui.inputCommand();
-            } else if (addIndex == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
-                return;
-            } else {
-                movie = relevantMovies.get(addIndex - 1);
-                break;
+                ui.printRequireValidIndex(1, relevantMovies.size());
+                input = ui.inputCommand();
+                continue;
             }
+            if (addIndex == 0) {
+                ui.printExitInputIndex();
+                return;
+            }
+            // happy path
+            movie = relevantMovies.get(addIndex - 1);
+            break;
+
         }
 
         //if movie being added to watched list is in to-watch list, it is deleted in to-watch list
@@ -190,8 +191,9 @@ public class MovieList {
      * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
+     * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList) {
+    public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the towatch " +
@@ -208,11 +210,9 @@ public class MovieList {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
-        System.out.println("Please enter the id of the movie you're looking for\n" +
-                "The program will then proceed with adding the movie you chose, thanks!");
-        Ui.printLine();
+        ui.printPromptIndex();
 
-        String input = Ui.inputCommand();
+        String input = ui.inputCommand();
         Movie movie;
         while (true) {
             int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
@@ -220,13 +220,15 @@ public class MovieList {
                 System.out.println(String.format(
                         "Please enter a valid index from 1 to %d", relevantMovies.size()));
                 input = Ui.inputCommand();
-            } else if (addIndex == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
-                return;
-            } else {
-                movie = relevantMovies.get(addIndex - 1);
-                break;
+                continue;
             }
+            if (addIndex == 0) {
+                ui.printExitInputIndex();
+                return;
+            }
+            // happy path
+            movie = relevantMovies.get(addIndex - 1);
+            break;
         }
 
         //if movie being added to to-watch list is in watched list, user is prompted if they want
@@ -327,18 +329,13 @@ public class MovieList {
         String genreStrings = movieStrings[4];
         String[] genres = parseGenres(genreStrings);
 
+        assert movieStrings != null : "Movie strings array cannot be null";
+        assert movieStrings.length == 5 : "Movie strings array must have length of 5";
+        assert id != null : "Movie ID cannot be null";
+        assert title != null : "Movie title cannot be null";
+        assert genreStrings != null : "Movie genres string cannot be null";
+
         Movie movie = new Movie(id, title, year, runTime, genres);
-        // Commenting this out first because Review is no longer a String.
-        /*
-        if (movieStrings.length == 5) {
-            // Make a normal Movie
-            return movie;
-        } else {
-            // movie entry.
-            String review = movieStrings[6];
-            return new MovieEntry(movie, review);
-        }
-        */
         return movie;
     }
 
@@ -371,7 +368,6 @@ public class MovieList {
             e.getMessage();
         }
 
-        // Do you want to return null or throw new exception?
         return null;
     }
 

@@ -21,13 +21,23 @@ import seedu.moviemate.ui.Ui;
  */
 public class Parser {
 
+    /**
+     * Parses a user input command and returns the corresponding Command object.
+     * The user input command is expected to be a string containing a command type and its arguments.
+     * The method splits the input command into its components and then switches on the command type to return
+     * the appropriate Command object. If the command type is not recognized, it returns a HelpCommand object.
+     *
+     * @param userInputCommand the string containing the user input command
+     * @param ui the Ui object to use for displaying messages to the user
+     * @return the Command object corresponding to the user input command
+     */
     public static Command parseCommand(String userInputCommand, Ui ui) {
         final String[] split = userInputCommand.trim().split("\\s+", 2);
         final String[] commandTypeAndParams = split.length == 2 ? split : new String[]{split[0], ""};
 
         String commandType = commandTypeAndParams[0];
         String commandArg = commandTypeAndParams[1];
-
+        assert userInputCommand != null : "User input command cannot be null";
         switch (commandType) {
         case "watched":
             return new AddWatchedListCommand(commandArg);
@@ -61,9 +71,19 @@ public class Parser {
         }
     }
 
-
+    /**
+     * Parses a string representing an index and returns its integer value if it falls within the given range [l, r].
+     * If the string cannot be parsed into an integer or is out of the range [l, r], the method returns -1.
+     * Otherwise, the method returns the parsed integer index.
+     *
+     * @param indexString the string representing the index to be parsed
+     * @param l the lower bound of the index range (inclusive)
+     * @param r the upper bound of the index range (inclusive)
+     * @return the integer value of the parsed index, or -1 if the index is out of range or cannot be parsed
+     */
     public static int parseIndex(String indexString, int l, int r) {
         int index = 0;
+        assert l <= r : "Lower bound must be less than or equal to upper bound";
 
         //cannot parse string to index
         try {

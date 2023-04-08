@@ -69,6 +69,24 @@ public class Ui {
      */
     public static void printHelp() {
         System.out.println("First time using Movie Mate?");
+
+        System.out.println("Here are some commands available in MovieMate:");
+        System.out.println("Format: watched <movie name>");
+        System.out.println("Usage: add a watched movie to your watched list.");
+        printLine();
+        System.out.println("Format: list");
+        System.out.println("Usage: list out all movie in your watched list.");
+        printLine();
+        System.out.println("Format: random <genre>");
+        System.out.println("Usage: get some random movies that fits in the genre entered");
+        printLine();
+        System.out.println("Format: seedetail movie");
+        System.out.println("The system the will then prompt you to enter the movie name " +
+                "and proceed with other instruction.");
+        System.out.println("Usage: see detail of a movie");
+        printLine();
+
+        System.out.println("To know more about MovieMate's command. Please check the user guide.");
         System.out.println("Here is the link to the user guide: ");
         System.out.println("https://ay2223s2-cs2113-w12-4.github.io/tp/UserGuide.html");
         System.out.println("Hope it helps, and have a nice day!");
@@ -83,7 +101,7 @@ public class Ui {
         System.out.println("You have successfully added the movie into your list!");
         System.out.println("Here are the movie details:");
         System.out.println(movie);
-        System.out.println("Feel free to continue with other features");
+        System.out.println("Feel free to continue with other features!");
     }
 
     /**
@@ -92,7 +110,7 @@ public class Ui {
      * @param movieList The movie list to show
      */
     public static void showListMessage(MovieList movieList) {
-        Integer watchId = 1;
+        int watchId = 1;
         for (Movie watched : movieList.movieList) {
             System.out.print(watchId);
             System.out.print(". ");
@@ -103,7 +121,7 @@ public class Ui {
         if (watchId == 1) {
             System.out.println("Currently, your list is empty.");
         } else {
-            System.out.println("These are the movies in your list");
+            System.out.println("These are the movies in your list.");
         }
     }
 
@@ -167,5 +185,13 @@ public class Ui {
 
     public void printRequireValidIndex(int l, int r) {
         System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
+    }
+    public void printExitInputIndex() {
+        System.out.println("Exit input acknowledged. Cancelling last command...");
+    }
+    public void printPromptIndex() {
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with adding the movie you chose, thanks!");
+        printLine();
     }
 }
