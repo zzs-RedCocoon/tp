@@ -8,6 +8,7 @@ Package " "<<Rectangle>>{
     Class MovieMate COLOR_MAIN
     Class Movie COLOR_MOVIE
     Class Storage COLOR_STORAGE
+    Class Command COLOR_COMMAND
 }
 
 Class "Local Files" COLOR_STORAGE
@@ -22,7 +23,8 @@ MovieMate -down-> Storage
 UI ..> Parser
 Movie --> Storage
 Storage ..> Movie
-Parser ..> MovieMate
+Parser ..> Command
+Command ..> MovieMate
 
 Storage ..> "Local Files" :save/read
 Storage ..> "Movie List"

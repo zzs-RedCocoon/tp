@@ -42,7 +42,18 @@ calls to the other classes and establishing required files.
 - [`Parser`](#): Interprets user input and read data.
 - [`Command`](#): Logic of MovieMate.
 
-Finally, all the movie-related classes are packaged in [`Movie`](#).
+Finally, all the movie-related classes are packaged in [`Movie`](#). Among its contents are `MovieList` and `Movie`.
+
+#### Interactions
+
+Please refer to the example sequence diagram below to show how components interact with each other.
+For instance, we have a scenario where the user inputs `watched La La`.
+
+![ExampleSequence.png](PUMLFiles%2FExampleSequence.png)
+
+As you can see, individual components handle specific responsibilities, but all mostly controlled by MovieMate.
+
+The below sections go into detail on each component.
 
 ## Product scope
 ### Target user profile
