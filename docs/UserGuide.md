@@ -44,16 +44,10 @@ For example, you can start by typing the `help` command.
 > 
 > Commands that do not take in parameters (such as `help`) will ignore any additional parameters.\
 > e.g. inputting `help 123` will be interpreted as `help`.
-> 
-<<<<<<< HEAD
+>
 > In the below examples, text following `>>` indicates user input.
 > In addition, text without following `>>` indicates system output.
-
-=======
-> In the examples below, text following `>>` indicates user input.
->
-> For any prompt for an index input, you can input a '0' to cancel the current command.
->>>>>>> ffc6599b870e36f771811a9354887da7aef6b337
+> For any command that followed with prompting for an index input, you can input a '0' to cancel the current command.
 
 ## Viewing help: `help`
 Will print the extract of the commands that the user can use.
