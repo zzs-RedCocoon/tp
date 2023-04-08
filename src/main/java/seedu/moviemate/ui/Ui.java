@@ -115,14 +115,6 @@ public class Ui {
     }
 
     /**
-     * Show feedback message to the user after showing the movie detail
-     */
-    public static void showDetailMessage() {
-        System.out.println("The movie details are shown above!");
-        System.out.println("Please feel free to continue with other features :))");
-    }
-
-    /**
      * This method shows the movies in the ArrayList to the user.
      *
      * @param movies The ArrayList that contains the movies.
@@ -139,5 +131,41 @@ public class Ui {
         } else {
             System.out.println("There is no relevant movies found, please try again!");
         }
+    }
+
+    public void printRemoveMovieListEmpty() {
+        System.out.println("This list is empty. Nothing to remove!");
+    }
+
+    public void printSeedetailEmpty() {
+        System.out.println("There are no movies in your list. Nothing to show!");
+    }
+
+    public void printSeedetailHelp() {
+        System.out.println("Please enter the movie index that you would like to see the detail of!");
+    }
+
+    public void printSeedetailByNameHelp() {
+        System.out.println("Please enter the movie name that you would like to see the detail of!");
+    }
+
+    public void printSeedetailFormatHelp() {
+        System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
+    }
+    
+    /**
+     * Show feedback message to the user after showing the movie detail
+     */
+    public static void printSeedetailSuccess() {
+        System.out.println("The movie details are shown above!");
+        System.out.println("Please feel free to continue with other features :))");
+    }
+
+    public void printMovieDetail(String movieDetail) {
+        System.out.println(movieDetail);
+    }
+
+    public void printRequireValidIndex(int l, int r) {
+        System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
     }
 }
