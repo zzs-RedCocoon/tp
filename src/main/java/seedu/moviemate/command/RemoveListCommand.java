@@ -21,27 +21,22 @@ public class RemoveListCommand extends Command {
             return;
         }
         Ui.showListMessage(movieList);
-
+        System.out.println("Please enter the id of the movie you would like to remove");
         while (true) {
             String input = Ui.inputCommand();
             int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
-                input = Ui.inputCommand();
-                ui.printRequireValidIndex(1, movieList.movieList.size());
-                continue;
-            } else if (removeIndex == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
-                return;
-            } else {
-                watchedList.remove(removeIndex);
-                break;
                 ui.printRequireValidIndex(1, movieList.movieList.size());
                 continue;
             }
+            if (removeIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                break;
+            }
+            // happy path
             movieList.remove(removeIndex);
             break;
+
         }
     }
 
