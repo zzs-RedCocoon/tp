@@ -81,7 +81,8 @@ public class Ui {
         System.out.println("Usage: get some random movies that fits in the genre entered");
         printLine();
         System.out.println("Format: seedetail movie");
-        System.out.println("The system the will then prompt you to enter the movie name and proceed with other instruction.");
+        System.out.println("The system the will then prompt you to enter the movie name " +
+                "and proceed with other instruction.");
         System.out.println("Usage: see detail of a movie");
         printLine();
 
