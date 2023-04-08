@@ -21,7 +21,7 @@ Setup guide for developing MovieMate can be found [here](SetupGuide.md).
 
 ---
 
-## Design & implementation
+## Design
 
 ### Architecture
 
@@ -38,9 +38,9 @@ calls to the other classes and establishing required files.
 
 `MovieMate` makes use of some core general components: (LINKS TODO)
 - [`UI`](#ui-component): The UI of the app.
-- [`Storage`](#parser-component): Responsible for read/write of data.
-- [`Parser`](#): Interprets user input and read data.
-- [`Command`](#): Logic of MovieMate.
+- [`Storage`](#storage-component): Responsible for read/write of data.
+- [`Parser`](#parser-component): Interprets user input and read data.
+- [`Command`](#command-component): Logic of MovieMate.
 
 Finally, all the movie-related classes are packaged in [`Movie`](#). Among its contents are `MovieList` and `Movie`.
 
@@ -73,7 +73,7 @@ addressing the user.
 > Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/parser).
 
 Parser is utilised by `UI` to make sense of user input. One of its main methods is `parseCommand`, which returns a `Command`
-based on the input. Parser thus relies on `Command`.
+based on the input. Parser thus relies on [`Command`](#command-component).
 
 Parser also has another method to parse index, which makes use of [`Integer::parseInt`](https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String))
 but adds functionality to check for index bounds. This method is heavily used by features related to our Movie lists.
@@ -102,14 +102,18 @@ for easy parsing of data.
 > Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/command).
 
 [`Command`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/command/Command.java)
-is an interface that specifies a single abstract method, `execute`. Each Command
+is an interface that specifies a single abstract method, `execute`. Each Command performs a task in MovieMate.
 
+Commands are issued by the user, which are parsed by [`Parser`](#parser-component) into `Command` instances to be executed by `MovieMate`.
 
+Most Commands interact with classes within the `Movie` package. Some are utility Commands (such as `ExitCommand` or `HelpCommand`)
 
+> :bulb: For a full list of command functionalities, you may refer to the [User Guide](UserGuide.md).
+> Also see [Implementation](#implementation) on how some Commands are built.
 
 ---
 
-
+## Implementation 
 <!-- Zhan hong working on this section-->
 # Review Feature
 **API:** [Review.java](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/Review.java)
