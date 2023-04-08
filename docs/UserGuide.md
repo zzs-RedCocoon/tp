@@ -13,7 +13,7 @@ Moreover, it allows you to filter specific types of movies to help you search fo
     - [Remove a listing from watched/to-watch list: `remove`](#remove-a-listing-from-either-list--remove)
   - [See a movie's details: `seedetail`](#see-a-movies-details--seedetail)
   - [Filter movies from your list by genres: `filter`](#filter-movies-from-your-list-by-genres--filter)
-  - [Review a movie you have watched: `review`](#review-a-movie-you-have-watched--review)
+  - [Review a movie you have watched: `review`](#review-a-movie-you-have-watched--addreview)
     - [Delete a review: `deletereview`](#delete-a-review--deletereview)
     - [View a review: `viewreview`](#view-a-review--viewreview)
   - [Exit and save: `bye` or `exit`](#exit-and-save--bye-or-exit)
@@ -21,7 +21,7 @@ Moreover, it allows you to filter specific types of movies to help you search fo
 
 <hr>
 
-# Quick Start {#start}
+# Quick Start
 
 1. Ensure you have Java 11 or above installed in your Computer. 
 2. Download the latest `moviemate.jar` from [here](https://github.com/AY2223S2-CS2113-W12-4/tp/releases).
@@ -107,7 +107,7 @@ Feel free to continue with other features
 Adds an unwatched movie to your to-watch list.
 
 Format: `towatch <movie name> [enter] <movie index>`
-> ❗ **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
+> ❗ **Note:** Functionality is similar to [`watched`](#add-a-movie-you-have-watched--watched).
 
 ### List out movies you have watched or plan to watch: `list`/`watchlist`
 Show a list of all the movies you have watched.
