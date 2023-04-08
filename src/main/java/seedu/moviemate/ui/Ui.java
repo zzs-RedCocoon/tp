@@ -188,4 +188,9 @@ public class Ui {
     public void printExitInputIndex() {
         System.out.println("Exit input acknowledged. Cancelling last command...");
     }
+    public void printPromptIndex() {
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then proceed with adding the movie you chose, thanks!");
+        printLine();
+    }
 }
