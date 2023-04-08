@@ -37,8 +37,8 @@ The main class is [`MovieMate`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob
 calls to the other classes and establishing required files.
 
 `MovieMate` makes use of some core general components: (LINKS TODO)
-- [`UI`](#): The UI of the app.
-- [`Storage`](#): Responsible for read/write of data.
+- [`UI`](#ui-component): The UI of the app.
+- [`Storage`](#parser-component): Responsible for read/write of data.
 - [`Parser`](#): Interprets user input and read data.
 - [`Command`](#): Logic of MovieMate.
 
@@ -54,6 +54,33 @@ For instance, we have a scenario where the user inputs `watched La La`.
 As you can see, individual components handle specific responsibilities, but all mostly controlled by MovieMate.
 
 The below sections go into detail on each component.
+
+---
+
+### UI Component
+> Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/ui).
+
+Because MovieMate is purely a command-line interface, the UI component is very simple.
+It handles input and output.
+
+UI only helps to receive input. Further input validation and parsing is handled by [`Parser`](#parser-component).
+
+UI is the main driver for printing feedback to the user. All the pre-written messages are stored in UI.
+Thus, just about every component has an association with UI, going through UI to connect to the user instead of directly
+addressing the user.
+
+### Parser Component
+> Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/parser).
+
+Parser is utilised by `UI` to make sense of user input. One of its main methods is `parseCommand`, which returns a `Command`
+based on the input. Parser thus relies on `Command`.
+
+Parser also has another method to parse index, which makes use of [`Integer::parseInt`](https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String))
+but adds functionality to check for index bounds. This method is heavily used by features related to our Movie lists.
+
+###
+
+---
 
 ## Product scope
 ### Target user profile
