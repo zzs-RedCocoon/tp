@@ -23,6 +23,8 @@ public class SeeDetailCommand extends Command {
             return;
         }
         ui.showListMessage(movieList);
+        System.out.println("Please enter the id of the movie you would like to see the detail of!");
+        String inputIndex = ui.inputCommand();
         ui.printSeedetailHelp();
 
         while (true) {
@@ -31,6 +33,16 @@ public class SeeDetailCommand extends Command {
             if (seeDetailWatchedIndex < 0) {
                 ui.printRequireValidIndex(1, movieList.movieList.size());
                 continue;
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", movieList.movieList.size()));
+                inputIndex = ui.inputCommand();
+            } else if (seeDetailWatchedIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
+            } else {
+                System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
+                ui.showDetailMessage();
+                break;
             }
 
             //happy path
@@ -41,6 +53,7 @@ public class SeeDetailCommand extends Command {
     }
 
     public void seeMovieDetailByName(Ui ui) {
+        System.out.println("Please enter the name of the movie you would like to see the detail of!");
         ui.printSeedetailByNameHelp();
         String movieName = ui.inputCommand();
         MovieList.findMovieDetail(movieName);

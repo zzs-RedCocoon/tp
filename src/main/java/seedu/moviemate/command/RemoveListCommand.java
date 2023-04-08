@@ -26,6 +26,17 @@ public class RemoveListCommand extends Command {
             String input = Ui.inputCommand();
             int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", watchedList.movieList.size()));
+                input = Ui.inputCommand();
+                ui.printRequireValidIndex(1, movieList.movieList.size());
+                continue;
+            } else if (removeIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
+            } else {
+                watchedList.remove(removeIndex);
+                break;
                 ui.printRequireValidIndex(1, movieList.movieList.size());
                 continue;
             }
@@ -34,6 +45,30 @@ public class RemoveListCommand extends Command {
         }
     }
 
+    public void removeToWatchList(ToWatchList toWatchList) {
+        //remove from towatch list
+        if (toWatchList.empty()) {
+            System.out.println("Your to-watch list is empty. Nothing to remove!");
+            return;
+        }
+        Ui.showListMessage(toWatchList);
+
+        String input = Ui.inputCommand();
+        while (true) {
+            int removeIndex = Parser.parseIndex(input, 1, toWatchList.movieList.size());
+            if (removeIndex < 0) {
+                System.out.println(String.format(
+                        "Please enter a valid index from 1 to %d", toWatchList.movieList.size()));
+                input = Ui.inputCommand();
+            } else if (removeIndex == 0) {
+                System.out.println("Exit input acknowledged. Cancelling last command...");
+                return;
+            } else {
+                toWatchList.remove(removeIndex);
+                break;
+            }
+        }
+    }
 
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {

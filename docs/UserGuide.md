@@ -45,7 +45,9 @@ For example, you can start by typing the `help` command.
 > Commands that do not take in parameters (such as `help`) will ignore any additional parameters.\
 > e.g. inputting `help 123` will be interpreted as `help`.
 > 
-> In the below examples, text following `>>` indicates user input.
+> In the examples below, text following `>>` indicates user input.
+>
+> For any prompt for an index input, you can input a '0' to cancel the current command.
 
 ## Viewing help: `help`
 Will print all the commands that the user can use.
@@ -55,6 +57,7 @@ Format: `help`
 Example:
 ```
 >> help
+
 First time using MovieMate? Below is the quick guide for you to get to know about how to use the app ...
 Add A Movie to the watched List: watched
 Adds a movie to the list of watched movies.
@@ -65,7 +68,7 @@ If the item currently exists in the watchlist, it will be moved to the watched l
 ## Add a movie you have watched: `watched`
 Adds a movie to your watched list.
 
-Format: `watched <movie name>`
+Format: `watched <movie name> [enter] <movie index>`
 
 > ❗ **Tip**: you may provide an incomplete title.
 > You will then be prompted to pick among a few similar titles.
@@ -90,7 +93,7 @@ Feel free to continue with other features
 ## Add a movie you want to watch: `towatch`
 Adds an unwatched movie to your to-watch list.
 
-Format: `towatch <movie name>`
+Format: `towatch <movie name> [enter] <movie index>`
 > ❗ **Note:** Functionality is similar to [`watched`](#add-a-movie-youve-watched--watched).
 
 ### List out movies you have watched or plan to watch: `list`/`watchlist`
@@ -114,8 +117,8 @@ Removes a movie from either list of movies.
 You will first choose which list to remove from, and then separately provide the movie number to delete.
 
 Format:\
-`remove watched [enter] <movie_index>` to remove a movie from your watchlist.\
-`remove towatch [enter] <movie_index>` to remove a movie from your to-watch list.
+`remove watched [enter] <movie index>` to remove a movie from your watchlist.\
+`remove towatch [enter] <movie index>` to remove a movie from your to-watch list.
 
 Examples:
 ```
@@ -137,8 +140,8 @@ See the details of the movie as provided by the database, by index or movie name
 This does not include user-specific properties, like reviews.
 
 Format:\
-`seedetail watched [enter] <movie_index>` to see the detail of a movie in your watched list.\
-`seedetail towatch [enter] <movie_index>` to see the detail of a movie in your to-watch list.
+`seedetail watched [enter] <movie index>` to see the detail of a movie in your watched list.\
+`seedetail towatch [enter] <movie index>` to see the detail of a movie in your to-watch list.
 
 Examples:
 ```
@@ -156,7 +159,7 @@ Runtime Minutes: 90
 The movie details are shown above!
 ```
 
-Format: `seedetail movie [enter] <movie_index>`
+Format: `seedetail movie [enter] <movie index>`
 
 Examples:
 ```
@@ -164,11 +167,11 @@ Examples:
 Please enter the name of the movie you would like to see the detail of!
 
 >> cat
-1. #cats_the_mewvie
-2. 1948: Creation & Catastrophe
-3. 2007: The Deadliest Year For Cats And Dogs In American History
-4. 22nd Catch
-5. 3 Cats and a Man
+1. #cats_the_mewvie (2020)  [Documentary]
+2. 1948: Creation & Catastrophe (2017)  [Documentary]
+3. 2007: The Deadliest Year For Cats And Dogs In American History (2018)  [Documentary]
+4. 22nd Catch (2016)  [Romance]
+5. 3 Cats and a Man (2012)  [Drama]
 Please enter the id of the movie you're looking for
 The program will then proceed with showing the detail of the movie you chose, thanks!
 
@@ -207,7 +210,7 @@ In to-watch list:
 Adds a review for a watched movie. The user is first prompted for a text review, which ends once the user
 enters a blank line. The user is then asked for a numerical rating (out of 5).
 
-Format: `addreview [enter] <movie_index>`
+Format: `addreview [enter] <movie index>`
 
 Examples:
 ```
@@ -233,7 +236,7 @@ Reviews can also be deleted and viewed with the following commands:
 
 ### Delete a review: `deletereview`
 Delete a review for a watched movie.
-Format: `deletereview [enter] <movie_index>`
+Format: `deletereview [enter] <movie index>`
 
 Examples:
 ```
@@ -247,7 +250,7 @@ Successfully deleted the review of movie 1.
 
 ### View a review: `viewreview`
 Allows you to see your review of a movie.
-Format: `viewreview [enter] <movie_index>`
+Format: `viewreview [enter] <movie index>`
 
 Examples:
 ```
