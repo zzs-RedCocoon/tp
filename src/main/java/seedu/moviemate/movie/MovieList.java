@@ -132,6 +132,7 @@ public class MovieList {
      * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
+     * @param ui the Ui object to use for displaying messages to the user
      */
     public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
@@ -190,6 +191,7 @@ public class MovieList {
      * @param inputTitle  title of movie as input by user.
      * @param watchedList list of watched movies
      * @param toWatchList list of movies user plans to watch
+     * @param ui the Ui object to use for displaying messages to the user
      */
     public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
