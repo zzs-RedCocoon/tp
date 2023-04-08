@@ -241,11 +241,12 @@ genre array. Feedback message displayed accordingly and `filter` returns.
 
 ## Product scope
 ### Target user profile
-Movie Lovers, people who love to watch movies and need an app to keep track of the movies they have watched and want to watch in the future.
+This product is for moviegoers who would prefer a simple way to book movies and keep track of, and rate what they have watched.
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+MovieMate provides a platform for the avid moviegoer to keep track of the movies they’ve watched, 
+rate the movie that they just watched, or keep track of what they plan to watch.
 
 ## User Stories
 
@@ -262,14 +263,12 @@ Movie Lovers, people who love to watch movies and need an app to keep track of t
 | v2.0    |user| get some random movie of certain genre      | get some inspiration of which movie to watch                           |
 
 
-## Non-Functional Requirements
-
-{Give non-functional requirements}
-
-## Glossary
-
-* *glossary item* - Definition
+[//]: # (Glossary and Non-functional requirements, let's leave out for now)
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+1. Download and Run jar file from [releases](https://github.com/AY2223S2-CS2113-W12-4/tp/releases).
+Download the latest jar release and copy it into a directory (preferably empty).
+Run in the commmand line `java -jar <jar_file_name>.jar` where `<jar_file_name>` is the name of the jarfile downloaded.
+
+2. Run some commands as found in [User Guide](UserGuide.md).
