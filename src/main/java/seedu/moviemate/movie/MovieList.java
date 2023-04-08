@@ -42,9 +42,29 @@ public class MovieList {
         return this.movieList.isEmpty();
     }
 
-    public boolean contains(Movie movie) {
-        return this.movieList.contains(movie);
+    /**
+     * Gets the index of a movie in the movieList
+     * Also can be used to check if a movie is inside the list at all
+     * @param movie to get the index of
+     * @return index in list, -1 if movie is not found
+     */
+    public int getIndex(Movie movie) {
+        //must do this instead of simply this.movieList.indexOf because Movie with review
+        //and same Movie without review are treated differently by program, so find/indexOf
+        //will be unable to locate the movie with review even if it is actually in the list
+        int index = 1;
+        for (Movie mv : this.movieList) {
+            if ((mv.getTitle()).equals(movie.getTitle())
+                && mv.getYear() == movie.getYear()
+                    && mv.getRunTimeMinutes() == movie.getRunTimeMinutes()
+                        && (mv.getGenresString()).equals(movie.getGenresString())) {
+                return index;
+            }
+            index += 1;
+        }
+        return -1;
     }
+
 
     /**
      * Used for see detail by movie name.
@@ -152,14 +172,14 @@ public class MovieList {
         }
 
         //if movie being added to watched list is in to-watch list, it is deleted in to-watch list
-        if (toWatchList.contains(movie)) {
+        if (toWatchList.getIndex(movie) != -1) {
             toWatchList.remove(movie);
         }
-        if (!watchedList.contains(movie)) {
+        if (watchedList.getIndex(movie) == -1) {
             watchedList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
         } else {
-            System.out.println("That movie is already in your list.");
+            System.out.println("That movie is already in your watched list.");
         }
 
     }
@@ -211,7 +231,7 @@ public class MovieList {
 
         //if movie being added to to-watch list is in watched list, user is prompted if they want
         //to remove it from watched list
-        if (watchedList.contains(movie)) {
+        if (watchedList.getIndex(movie) != -1) {
             System.out.println("You have already watched this movie!\n" +
                     "Should we delete it from your watched list? [Y/N]");
             while (true) {
@@ -220,17 +240,22 @@ public class MovieList {
                     return;
                 }
                 if (input.equalsIgnoreCase("Y")) {
+                    //must delete any existing review for the movie, otherwise remove will bug out
+                    int MovieIndex = watchedList.getIndex(movie);
+                    Movie deletedMovie = new Movie(movie);
+                    watchedList.movieList.set(MovieIndex - 1, deletedMovie);
+                    watchedList.remove(deletedMovie);
                     break;
                 } else {
                     System.out.println("Invalid format. Please enter either 'Y' or 'N'.");
                 }
             }
         }
-        if (!toWatchList.contains(movie)) {
+        if (toWatchList.getIndex(movie) == -1) {
             toWatchList.add(movie);
             Ui.showAddMovieMessage(movie.toString());
         } else {
-            System.out.println("That movie is already in your list.");
+            System.out.println("That movie is already in your to-watch list.");
         }
 
     }

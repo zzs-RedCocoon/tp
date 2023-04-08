@@ -34,7 +34,7 @@ public class SeeDetailCommand extends Command {
             } else if (seeDetailWatchedIndex == 0) {
                 System.out.println("Exit input acknowledged. Cancelling last command...");
                 return;
-            }else {
+            } else {
                 System.out.println(movieList.getMovieDetail(seeDetailWatchedIndex));
                 ui.showDetailMessage();
                 break;
