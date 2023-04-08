@@ -46,20 +46,29 @@ For example, you can start by typing the `help` command.
 > e.g. inputting `help 123` will be interpreted as `help`.
 > 
 > In the below examples, text following `>>` indicates user input.
+> In addition, text without following `>>` indicates system output.
+
 
 ## Viewing help: `help`
-Will print all the commands that the user can use.
+Will print the extract of the commands that the user can use.
+It will also provide the link of user guide to the user.
 
 Format: `help`
 
 Example:
 ```
 >> help
-First time using MovieMate? Below is the quick guide for you to get to know about how to use the app ...
-Add A Movie to the watched List: watched
-Adds a movie to the list of watched movies.
-If the item currently exists in the watchlist, it will be moved to the watched list.
+First time using Movie Mate?
+Here are some commands available in MovieMate:
+Format: watched <movie name>
+Usage: add a watched movie to your watched list.
+------------------------------------------------
 ...
+To know more about MovieMate's command. Please check the user guide.
+Here is the link to the user guide: 
+https://ay2223s2-cs2113-w12-4.github.io/tp/UserGuide.html
+Hope it helps, and have a nice day!
+-------------------------------------------------------------------------
 ```
 
 ## Add a movie you have watched: `watched`
@@ -68,7 +77,7 @@ Adds a movie to your watched list.
 Format: `watched <movie name>`
 
 > ❗ **Tip**: you may provide an incomplete title.
-> You will then be prompted to pick among a few similar titles.
+> You will then be prompted to pick a movie among a few similar titles.
 > 
 > If the movie exists in your to-watch list, this will move the list to your watched list.
 
@@ -77,8 +86,12 @@ Examples:
 >> watched La La
 1. Acting Outlaws: The LA La Ride (2012)  [Documentary]
 2. Ana Maria in Novela Land (2015)  [Comedy,Drama,Fantasy]
-Please enter the id of the movie you are looking for
+3. Gary Numan: Android in La La Land (2016)  [Biography,Documentary,Music]
+4. Going Down in LA-LA Land (2011)  [Comedy,Drama,Romance]
+5. I cavalieri della laguna (2014)  [Documentary]
+Please enter the id of the movie you're looking for
 The program will then proceed with adding the movie you chose, thanks!
+-------------------------------------------------------------------------
 
 >> 1
 You have successfully added the movie into your list!

@@ -69,6 +69,23 @@ public class Ui {
      */
     public static void printHelp() {
         System.out.println("First time using Movie Mate?");
+
+        System.out.println("Here are some commands available in MovieMate:");
+        System.out.println("Format: watched <movie name>");
+        System.out.println("Usage: add a watched movie to your watched list.");
+        printLine();
+        System.out.println("Format: list");
+        System.out.println("Usage: list out all movie in your watched list.");
+        printLine();
+        System.out.println("Format: random <genre>");
+        System.out.println("Usage: get some random movies that fits in the genre entered");
+        printLine();
+        System.out.println("Format: seedetail movie");
+        System.out.println("The system the will then prompt you to enter the movie name and proceed with other instruction.");
+        System.out.println("Usage: see detail of a movie");
+        printLine();
+
+        System.out.println("To know more about MovieMate's command. Please check the user guide.");
         System.out.println("Here is the link to the user guide: ");
         System.out.println("https://ay2223s2-cs2113-w12-4.github.io/tp/UserGuide.html");
         System.out.println("Hope it helps, and have a nice day!");
