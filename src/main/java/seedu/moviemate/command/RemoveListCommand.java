@@ -7,7 +7,7 @@ import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
 import seedu.moviemate.movie.MovieList;
 
-public class RemoveListCommand extends Command {
+public class RemoveListCommand implements Command {
 
     private String removeListType;
 

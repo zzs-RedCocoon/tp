@@ -7,7 +7,7 @@ import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
 
-public class SeeDetailCommand extends Command {
+public class SeeDetailCommand implements Command {
 
     private String movieListType;
 

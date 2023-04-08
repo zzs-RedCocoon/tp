@@ -5,7 +5,7 @@ import seedu.moviemate.movie.ToWatchList;
 import seedu.moviemate.ui.Ui;
 import seedu.moviemate.movie.WatchedList;
 
-public class AddWatchedListCommand extends Command {
+public class AddWatchedListCommand implements Command {
 
     private String inputTitle;
 
