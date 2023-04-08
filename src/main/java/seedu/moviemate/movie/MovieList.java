@@ -328,17 +328,6 @@ public class MovieList {
         String[] genres = parseGenres(genreStrings);
 
         Movie movie = new Movie(id, title, year, runTime, genres);
-        // Commenting this out first because Review is no longer a String.
-        /*
-        if (movieStrings.length == 5) {
-            // Make a normal Movie
-            return movie;
-        } else {
-            // movie entry.
-            String review = movieStrings[6];
-            return new MovieEntry(movie, review);
-        }
-        */
         return movie;
     }
 

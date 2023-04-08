@@ -27,7 +27,7 @@ public class Parser {
 
         String commandType = commandTypeAndParams[0];
         String commandArg = commandTypeAndParams[1];
-
+        assert userInputCommand != null : "User input command cannot be null";
         switch (commandType) {
         case "watched":
             return new AddWatchedListCommand(commandArg);
@@ -64,6 +64,7 @@ public class Parser {
 
     public static int parseIndex(String indexString, int l, int r) {
         int index = 0;
+        assert l <= r : "Lower bound must be less than or equal to upper bound";
 
         //cannot parse string to index
         try {
