@@ -118,22 +118,15 @@ public class Movie implements Comparable<Movie> {
         }
         return " [" + genres.substring(0, genres.length() - 1) + "]";
     }
+
     @Override
     public String toString() {
         return String.format("%s (%d) %s", this.title, this.year, this.getGenresString());
-        /*
-        return "Title: " + title + "\n" +
-                "Year: " + year + "\n" +
-                "Run time: " + runTimeMinutes + "\n" +
-                "Genres: " + genres;
-
-         */
     }
+
     public String getMovieDetail() {
-        String detail = "Title: " + this.title + "\n" +
-                "Year: " + this.year + "\n" +
-                "Genres: " + this.getGenresString() + "\n" +
-                "Runtime Minutes: " + this.runTimeMinutes;
+        String detail = String.format("Title: %s \nYear: %s\nGenres: %s\nRuntime Minutes: %s",
+                getTitle() ,getYear(), getGenresString(), getRunTimeMinutes());
         return detail;
     }
 }

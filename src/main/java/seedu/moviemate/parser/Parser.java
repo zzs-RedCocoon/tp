@@ -69,12 +69,13 @@ public class Parser {
         try {
             index = Integer.parseInt(indexString);
         } catch (NumberFormatException e) {
+            System.out.println("Movie id should be number");
             return -1;
         }
 
         //index out of range
-        if (index < l || index > r) {
-            System.out.println("The index entered is not valid, please try again!");
+        if (index < l - 1 || index > r) { //edited so return 0 is possible for cancelling command
+            System.out.println("Movie id out of range");
             return -1;
         }
         return index;

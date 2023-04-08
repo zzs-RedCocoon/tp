@@ -37,6 +37,7 @@ public class Ui {
         System.out.println("Thanks for using Movie Mate!");
         System.out.println("Hope to see you again soon :))");
     }
+
     public static void printLine() {
         System.out.println("-------------------------------------------------------------------------");
     }
@@ -75,22 +76,24 @@ public class Ui {
 
     /**
      * Shows successfully added movie to the watched/ to-watch list
+     *
      * @param movie The String containing movie title, year, runtime, and genre
      */
     public static void showAddMovieMessage(String movie) {
         System.out.println("You have successfully added the movie into your list!");
-        System.out.println("Here is the movie detail");
+        System.out.println("Here are the movie details:");
         System.out.println(movie);
         System.out.println("Feel free to continue with other features");
     }
 
     /**
      * Show the movie list, watched or to-watch, to the user.
+     *
      * @param movieList The movie list to show
      */
     public static void showListMessage(MovieList movieList) {
         Integer watchId = 1;
-        for (Movie watched: movieList.movieList) {
+        for (Movie watched : movieList.movieList) {
             System.out.print(watchId);
             System.out.print(". ");
             System.out.println(watched.getTitle());
@@ -99,8 +102,7 @@ public class Ui {
         printLine();
         if (watchId == 1) {
             System.out.println("Currently, your list is empty.");
-        }
-        else {
+        } else {
             System.out.println("These are the movies in your list");
         }
     }
@@ -110,13 +112,6 @@ public class Ui {
      */
     public static void showDeleteMessage() {
         System.out.println("The movie has been deleted for you!");
-    }
-    /**
-     * Show feedback message to the user after showing the movie detail
-     */
-    public static void showDetailMessage() {
-        System.out.println("The movie details are showed above!");
-        System.out.println("Please feel free to continue with other features :))");
     }
 
     /**
@@ -128,7 +123,7 @@ public class Ui {
         int index = 1; // 1-based index for displaying to users
         if (movies.size() != 0) {
             System.out.println("Below are the random movies that fall in the genre entered :))");
-            for (Movie movie: movies) {
+            for (Movie movie : movies) {
                 System.out.println(index + ". " + movie.toString());
                 index += 1;
             }
@@ -136,5 +131,41 @@ public class Ui {
         } else {
             System.out.println("There is no relevant movies found, please try again!");
         }
+    }
+
+    public void printRemoveMovieListEmpty() {
+        System.out.println("This list is empty. Nothing to remove!");
+    }
+
+    public void printSeedetailEmpty() {
+        System.out.println("There are no movies in your list. Nothing to show!");
+    }
+
+    public void printSeedetailHelp() {
+        System.out.println("Please enter the movie index that you would like to see the detail of!");
+    }
+
+    public void printSeedetailByNameHelp() {
+        System.out.println("Please enter the movie name that you would like to see the detail of!");
+    }
+
+    public void printSeedetailFormatHelp() {
+        System.out.println("Please follow the format: seedetail [watched/towatch/movie]");
+    }
+    
+    /**
+     * Show feedback message to the user after showing the movie detail
+     */
+    public static void printSeedetailSuccess() {
+        System.out.println("The movie details are shown above!");
+        System.out.println("Please feel free to continue with other features :))");
+    }
+
+    public void printMovieDetail(String movieDetail) {
+        System.out.println(movieDetail);
+    }
+
+    public void printRequireValidIndex(int l, int r) {
+        System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
     }
 }
