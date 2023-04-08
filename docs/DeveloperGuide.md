@@ -78,44 +78,31 @@ based on the input. Parser thus relies on `Command`.
 Parser also has another method to parse index, which makes use of [`Integer::parseInt`](https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String))
 but adds functionality to check for index bounds. This method is heavily used by features related to our Movie lists.
 
-###
+### Storage
+> Package [here](https://github.com/AY2223S2-CS2113-W12-4/tp/tree/master/src/main/java/seedu/moviemate/storage).
+
+The [`Storage`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/storage/Storage.java)
+class mainly deals with reading and writing of user data for persistence.
+To note, the `Storage::writeToFile` method is called when the user issues an exit command.
+Exiting in other ways (such as closing the window) may lead to unsaved data.
+
+Note that `Storage` itself does not technically depend on other classes like `MovieList`. Its methods are built to be general-purpose
+as much as possible so other classes may potentially use it in the future for similar purposes.
+
+The [`MovieDatabase`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/storage/MovieDatabase.java)
+and [`ReadCSVFile`](https://github.com/AY2223S2-CS2113-W12-4/tp/blob/master/src/main/java/seedu/moviemate/storage/ReadCSVFile.java)
+classes are also included in this package. These deal with methods to read, store, and parse through the list of movies. 
+
+> :bulb: For a more detailed look at the list of movies, please see the [Setup Guide](SetupGuide.md#database)).
+
+Upon opening of MovieMate, `MovieDatabase` stores the movies in its collection (In the form of `Movie` class). This allows
+for easy parsing of data.
+
+
+
+
 
 ---
-
-## Product scope
-### Target user profile
-Movie Lovers, people who love to watch movies and need an app to keep track of the movies they have watched and want to watch in the future.
-
-### Value proposition
-
-{Describe the value proposition: what problem does it solve?}
-
-## User Stories
-
-| Version | As a ... | I want to ...                               | So that I can ...                                                      |
-|---------|----------|---------------------------------------------|------------------------------------------------------------------------|
-| v1.0    |new user| see usage instructions                      | refer to them when I forget how to use the application                 |
-| v1.0    |user| add a watched/ to-watch movie by short name | add a watched/to-watch movie without having to type out the whole name |
-| v1.0    |user| add a watched/ to-watch movie               | keep track of the movie I have watched/ want to watch                  |
-| v1.0    |user| delete a watched/ to-watch movie            | keep track of the movie I have watched/ want to watch                  |
-| v1.0    |user| store my movie lists on my laptop           | easily find the information of my movie list                           |
-| v2.0    |user| add a review to my watched movie            | keep track of my opinion about the movie                               |
-| v2.0    |user| delete a review to my watched movie         | keep track of my opinion about the movie                               |
-| v2.0    |user| see detail of a movie                       | know whether I have watched the movie or I would like to watch it      |
-| v2.0    |user| get some random movie of certain genre      | get some inspiration of which movie to watch                           |
-
-
-## Non-Functional Requirements
-
-{Give non-functional requirements}
-
-## Glossary
-
-* *glossary item* - Definition
-
-## Instructions for manual testing
-
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
 
 
 <!-- Zhan hong working on this section-->
@@ -228,3 +215,38 @@ incremented. If false, nothing will be displayed.
 
 **Step 5.** After the entire iteration is complete, if i == 1, it means no movies were found containing the input genre in their
 genre array. Feedback message displayed accordingly and `filter` returns.
+
+## Product scope
+### Target user profile
+Movie Lovers, people who love to watch movies and need an app to keep track of the movies they have watched and want to watch in the future.
+
+### Value proposition
+
+{Describe the value proposition: what problem does it solve?}
+
+## User Stories
+
+| Version | As a ... | I want to ...                               | So that I can ...                                                      |
+|---------|----------|---------------------------------------------|------------------------------------------------------------------------|
+| v1.0    |new user| see usage instructions                      | refer to them when I forget how to use the application                 |
+| v1.0    |user| add a watched/ to-watch movie by short name | add a watched/to-watch movie without having to type out the whole name |
+| v1.0    |user| add a watched/ to-watch movie               | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| delete a watched/ to-watch movie            | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| store my movie lists on my laptop           | easily find the information of my movie list                           |
+| v2.0    |user| add a review to my watched movie            | keep track of my opinion about the movie                               |
+| v2.0    |user| delete a review to my watched movie         | keep track of my opinion about the movie                               |
+| v2.0    |user| see detail of a movie                       | know whether I have watched the movie or I would like to watch it      |
+| v2.0    |user| get some random movie of certain genre      | get some inspiration of which movie to watch                           |
+
+
+## Non-Functional Requirements
+
+{Give non-functional requirements}
+
+## Glossary
+
+* *glossary item* - Definition
+
+## Instructions for manual testing
+
+{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
