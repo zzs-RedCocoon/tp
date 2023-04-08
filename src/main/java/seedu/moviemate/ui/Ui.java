@@ -100,7 +100,7 @@ public class Ui {
         System.out.println("You have successfully added the movie into your list!");
         System.out.println("Here are the movie details:");
         System.out.println(movie);
-        System.out.println("Feel free to continue with other features");
+        System.out.println("Feel free to continue with other features!");
     }
 
     /**
@@ -109,7 +109,7 @@ public class Ui {
      * @param movieList The movie list to show
      */
     public static void showListMessage(MovieList movieList) {
-        Integer watchId = 1;
+        int watchId = 1;
         for (Movie watched : movieList.movieList) {
             System.out.print(watchId);
             System.out.print(". ");
@@ -120,7 +120,7 @@ public class Ui {
         if (watchId == 1) {
             System.out.println("Currently, your list is empty.");
         } else {
-            System.out.println("These are the movies in your list");
+            System.out.println("These are the movies in your list.");
         }
     }
 
@@ -184,5 +184,8 @@ public class Ui {
 
     public void printRequireValidIndex(int l, int r) {
         System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
+    }
+    public void printExitInputIndex() {
+        System.out.println("Exit input acknowledged. Cancelling last command...");
     }
 }

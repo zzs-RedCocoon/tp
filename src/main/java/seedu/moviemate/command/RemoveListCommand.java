@@ -30,7 +30,7 @@ public class RemoveListCommand extends Command {
                 continue;
             }
             if (removeIndex == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
+                ui.printExitInputIndex();
                 break;
             }
             // happy path
