@@ -382,8 +382,8 @@ public class MovieList {
      * @return the detail of the movie in string type
      */
     public String getMovieDetail(int index) {
-        int i = index - 1;
-        Movie movie = this.movieList.get(i);
+        int finalIndex = index - 1;
+        Movie movie = this.movieList.get(finalIndex);
 
         String detail = movie.getMovieDetail();
         return detail;
