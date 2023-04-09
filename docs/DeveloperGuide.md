@@ -1,7 +1,7 @@
 * Table of Contents
 {:toc}
 
-# Developer Guide: Movie Mate
+# MovieMate Developer Guide
 
 ---
 
