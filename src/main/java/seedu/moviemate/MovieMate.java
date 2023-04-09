@@ -45,7 +45,7 @@ public class MovieMate {
             System.out.println("Critical error: You might be missing a database file.");
             System.exit(1);
         }
-        
+        this.start();
         watchedList = new WatchedList(storage.load(watchedListPath));
         toWatchList = new ToWatchList(storage.load(toWatchListPath));
     }
@@ -69,7 +69,6 @@ public class MovieMate {
     }
 
     public void run() {
-        this.start();
         Command command;
         do {
             String userInput = ui.inputCommand();
