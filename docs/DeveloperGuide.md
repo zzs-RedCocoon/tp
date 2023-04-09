@@ -246,20 +246,46 @@ rate the movie that they just watched, or keep track of what they plan to watch.
 
 ## User Stories
 
-| Version | As a ... | I want to ...                               | So that I can ...                                                      |
-|---------|----------|---------------------------------------------|------------------------------------------------------------------------|
-| v1.0    |new user| see usage instructions                      | refer to them when I forget how to use the application                 |
-| v1.0    |user| add a watched/ to-watch movie by short name | add a watched/to-watch movie without having to type out the whole name |
-| v1.0    |user| add a watched/ to-watch movie               | keep track of the movie I have watched/ want to watch                  |
-| v1.0    |user| delete a watched/ to-watch movie            | keep track of the movie I have watched/ want to watch                  |
-| v1.0    |user| store my movie lists on my laptop           | easily find the information of my movie list                           |
-| v2.0    |user| add a review to my watched movie            | keep track of my opinion about the movie                               |
-| v2.0    |user| delete a review to my watched movie         | keep track of my opinion about the movie                               |
-| v2.0    |user| see detail of a movie                       | know whether I have watched the movie or I would like to watch it      |
-| v2.0    |user| get some random movie of certain genre      | get some inspiration of which movie to watch                           |
+| Version | As a ... | I want to ...                                                        | So that I can ...                                                      |
+|---------|----------|----------------------------------------------------------------------|------------------------------------------------------------------------|
+| v1.0    |new user| see usage instructions                                               | refer to them when I forget how to use the application                 |
+| v1.0    |user| list a watched/ to-watch movie list                                  | see all movies in my watched/ to-watch list                            |
+| v1.0    |user| add a watched/ to-watch movie by short name                          | add a watched/to-watch movie without having to type out the whole name |
+| v1.0    |user| add a watched/ to-watch movie                                        | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| delete a watched/ to-watch movie                                     | keep track of the movie I have watched/ want to watch                  |
+| v1.0    |user| store my movie lists on my laptop                                    | easily find the information of my movie list                           |
+| v1.0    |user| exit the program smoothly                                            | continue to work on other things.                                      |
+| v2.0    |user| add a review to my watched movie                                     | keep track of my opinion about the movie                               |
+| v2.0    |user| delete a review to my watched movie                                  | keep track of my opinion about the movie                               |
+| v2.0    |user| see detail of a movie                                                | know whether I have watched the movie or I would like to watch it      |
+| v2.0    |user| get some random movie of certain genre                               | get some inspiration of which movie to watch                           |
+| v2.0    |user| make sure there is no duplicate in my watched list and to-watch list | prevent from watching the movie I have watched before                  |
+| v2.0    |user| get proper feedback message for the command entered/ executed        | know whether the command was executed successfully                     |
 
 
 [//]: # (Glossary and Non-functional requirements, let's leave out for now)
+
+
+
+### Non-Functional Requirements
+
+1. Efficiency: The application should be able to respond to user requests quickly, even for large movie lists.
+2. Reliability: The application should be able to store and retrieve movie lists accurately and consistently.
+3. Security: The application should protect user data by securely storing movie lists.
+4. User-friendly interface: The application should have a user-friendly interface that is easy to navigate and understand.
+5. Compatibility: The application should be compatible with different operating systems and devices.
+
+
+### Glossary:
+
+1. Movie: A film that a user wants to watch or has watched.
+2. Watched list: A list that contains the movies the user has already watched.
+3. To-watch list: A list that contains the movies the user wants to watch.
+4. Review: The user's opinion or feedback about a movie.
+5. Movie list: A collection of movies, either the watched list or to-watch list.
+6. Genre: A category of films that share similar themes, plots, and characters.
+
+
 
 ## Instructions for manual testing
 

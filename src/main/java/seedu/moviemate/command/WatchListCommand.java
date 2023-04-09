@@ -9,8 +9,7 @@ public class WatchListCommand implements Command {
 
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
-        // list the towatch list
-        //toWatchList.list();
+        // list the to-watch list
         Ui.showListMessage(toWatchList);
     }
 }

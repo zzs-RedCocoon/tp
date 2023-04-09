@@ -20,7 +20,6 @@ public class MovieMate {
     private static Ui ui;
     private static Parser parser;
     private static Logger logger;
-    // TODO: Probably de-static everything that doesn't need to be static.
     private static Storage storage;
     private static WatchedList watchedList;
     private static ToWatchList toWatchList;
@@ -28,7 +27,7 @@ public class MovieMate {
 
     private static String watchedListPath;
     private static String toWatchListPath;
-    private String name;
+    private String userName;
 
 
 
@@ -52,17 +51,17 @@ public class MovieMate {
 
 
     private void start() {
-        this.name = storage.loadName();
-        if (this.name.equals("")) {
-            this.name = ui.showWelcomeMessage();
+        this.userName = storage.loadName();
+        if (this.userName.equals("")) {
+            this.userName = ui.showWelcomeMessage();
         } else {
-            this.name = ui.showWelcomeMessage(this.name);
+            this.userName = ui.showWelcomeMessage(this.userName);
         }
     }
 
     private void exit() {
         ui.showExitMessage();
-        storage.writeToFile("", this.name);
+        storage.writeToFile("", this.userName);
         storage.writeToFile(watchedListPath, watchedList.getFileWriteFormat());
         storage.writeToFile(toWatchListPath, toWatchList.getFileWriteFormat());
         System.exit(0);
