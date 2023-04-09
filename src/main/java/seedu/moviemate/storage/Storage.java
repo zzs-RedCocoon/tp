@@ -14,7 +14,7 @@ import java.util.Scanner;
 public final class Storage {
 
     private static final String DB_PATH = "/movies_db.csv";
-    public static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
+    private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
     private static final String FILE_DELIMITER = "|";
     private final String mainFilePath; // This refers to the default storage path for general information.
 
