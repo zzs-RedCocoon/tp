@@ -15,6 +15,16 @@ public class RemoveListCommand implements Command {
         this.removeListType = removeListType;
     }
 
+    /**
+     * Removes a movie from the given movie list based on user input.
+     * The method prompts the user for the movie index to be removed
+     * and ensures that the input is a valid index within the range.
+     * If the input is invalid, the user is prompted again until a valid input is received.
+     * If the user inputs 0, the method exits.
+     *
+     * @param movieList the MovieList from which a movie will be removed
+     * @param ui the Ui object responsible for printing output and receiving user input
+     */
     public void removeMovieList(MovieList movieList, Ui ui){
         if (movieList.empty()) {
             ui.printRemoveMovieListEmpty();
