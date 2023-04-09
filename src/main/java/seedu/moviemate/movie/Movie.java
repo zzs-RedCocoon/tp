@@ -50,7 +50,6 @@ public class Movie implements Comparable<Movie> {
     /**
      * Default comparator.
      * Sorting rules: Alphabetical title, then year.
-     * TODO: need to compareTo titleID in case there is a same movie same year?
      * @param o the object to be compared.
      * @return
      */
@@ -63,7 +62,6 @@ public class Movie implements Comparable<Movie> {
 
     public String getWriteFormat() {
         String splitGenres = this.splitGenres();
-        // TODO: See if i can extract the delimiter somehow...
         // ID|Title|Year|RunTime|Genres
         return String.format("%s|%s|%d|%d|%s",
                 this.titleID,
@@ -78,11 +76,11 @@ public class Movie implements Comparable<Movie> {
         for (String genre : this.genres) {
             output += genre + ",";
         }
-        // Remove last comma
+        // Remove the last comma
         return output.substring(0, output.length() - 1);
     }
 
-    /* Getters all here below */
+    /* Getters are all here below */
     public String getTitleID() {
         return titleID;
     }
@@ -124,6 +122,11 @@ public class Movie implements Comparable<Movie> {
         return String.format("%s (%d) %s", this.title, this.year, this.getGenresString());
     }
 
+    /**
+     * Get the detail of a movie
+     *
+     * @return The detail of the movie in a string type, including year, title, genres, and run time minutes
+     */
     public String getMovieDetail() {
         String detail = String.format("Title: %s \nYear: %s\nGenres: %s\nRuntime Minutes: %s",
                 getTitle() ,getYear(), getGenresString(), getRunTimeMinutes());
