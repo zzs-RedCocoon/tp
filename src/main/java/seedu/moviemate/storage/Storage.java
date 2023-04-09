@@ -69,18 +69,20 @@ public final class Storage {
     }
 
     /**
-     * Loads and parses each line of data in the save file.
-     * @return ArrayList ({@link java.util.ArrayList}) of String (Movie in parseable string format).
+     * Loads and parses each line in the text file at path specified.
+     * @param filePath Specified file path.
+     * @return ArrayList ({@link java.util.ArrayList}) of String. Each line is one element.
      */
-    public ArrayList<String[]> load(String path) {
-        if (path.isEmpty()) {
+    public ArrayList<String[]> load(String filePath) {
+        if (filePath.isEmpty()) {
             // Fallback to default.
-            path = this.mainFilePath;
+            filePath = this.mainFilePath;
         }
 
-        openFile(path);
+        // Ensure file exists.
+        openFile(filePath);
 
-        File f = new File(path);
+        File f = new File(filePath);
         Scanner s;
         ArrayList<String[]> output = new ArrayList<String[]>();
         try {
@@ -89,6 +91,7 @@ public final class Storage {
                 String[] split = splitSaveFileLine(s.nextLine());
                 output.add(split);
             }
+            s.close();
         } catch (FileNotFoundException e) {
             System.out.println("No saved file found: " + e.getMessage());
         }
