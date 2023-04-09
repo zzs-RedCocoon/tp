@@ -12,17 +12,15 @@ import java.util.TreeMap;
 public class MovieDatabase {
 
     // Movie will be sorted, found by its String name.
-    private static TreeMap<String, Movie> movieDatabase;
+    private static TreeMap<String, Movie> moviesDatabase;
     private static final int MAX_RELEVANT_MOVIES = 5;
-    private static final int RANDOM_MOVIES_INTERVAL = 15;
+    private static final int RANDOM_MOVIES_INTERVAL = 20;
 
     public MovieDatabase(ArrayList<String[]> movieStrings) throws IOException {
         System.out.print("Loading movie database...");
         TreeMap<String, Movie> movies = new TreeMap<String, Movie>();
 
         // Get the headers first.
-        // Not sure if this is required, but good to have I guess?
-        // tconst, primaryTitle, startYear, runtimeMinutes, genres
         String[] headers = movieStrings.get(0);
         if (headers.length < 5) {
             System.out.println("There's something wrong with the CSV file.");
@@ -36,7 +34,7 @@ public class MovieDatabase {
 
             movies.put(movie.toString(), movie);
         }
-        this.movieDatabase = movies;
+        this.moviesDatabase = movies;
         System.out.println(" Okay, movie database loaded.");
     }
 
@@ -49,7 +47,7 @@ public class MovieDatabase {
     public static ArrayList<Movie> find(String userInputMovieName) {
         ArrayList<Movie> relevantMovies = new ArrayList<Movie>();
         Integer movieCount = 0;
-        for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
+        for (Map.Entry<String, Movie> entry : moviesDatabase.entrySet()) {
             if (entry.getKey().toLowerCase().contains(userInputMovieName.toLowerCase())) {
                 relevantMovies.add(entry.getValue());
                 movieCount += 1;
@@ -74,7 +72,7 @@ public class MovieDatabase {
         int index = 0;
         Random rand = new Random();
         int intInterval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
-        for (Map.Entry<String, Movie> entry : movieDatabase.entrySet()) {
+        for (Map.Entry<String, Movie> entry : moviesDatabase.entrySet()) {
             if (index % intInterval == 0
                     && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
                 relevantMovies.add(entry.getValue());

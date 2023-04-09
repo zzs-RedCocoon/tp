@@ -5,6 +5,9 @@ import seedu.moviemate.ui.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * A list of movies the user has watched.
+ */
 public class WatchedList extends MovieList {
 
     public WatchedList() {
@@ -16,7 +19,7 @@ public class WatchedList extends MovieList {
     }
 
     public void setReview(Ui ui, WatchedList watchedList) {
-        //no movie, cannot add any review
+        // no movie, cannot add any review
         if (watchedList.empty()) {
             System.out.println("There are no movies in your watched list. Please add some movies first.");
             return;
@@ -25,17 +28,16 @@ public class WatchedList extends MovieList {
         ui.showListMessage(watchedList);
 
         Movie currentMovie;
-        //get valid movie index
+        // get valid movie index
         String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());
         while (true) {
             if (index < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", movieList.size()));
+                ui.printRequireValidIndex(1, movieList.size());
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
             } else if (index == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
+                ui.printExitInputIndex();
                 return;
             } else {
                 currentMovie = this.getMovie(index);
@@ -54,7 +56,7 @@ public class WatchedList extends MovieList {
     }
 
     public void deleteReview(Ui ui, WatchedList watchedList) {
-        //no movie, cannot delete any review
+        // no movie, cannot delete any review
         if (watchedList.empty()) {
             System.out.println("There are no movies in your watched list. PLease add some movies first.");
             return;
@@ -62,17 +64,16 @@ public class WatchedList extends MovieList {
         ui.showListMessage(watchedList);
 
         Movie currentMovie;
-        //get valid movie index
+        // get valid movie index
         String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());
         while (true) {
             if (index < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", movieList.size()));
+                ui.printRequireValidIndex(1, movieList.size());
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
             } else if (index == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
+                ui.printExitInputIndex();
                 return;
             } else {
                 currentMovie = this.getMovie(index);
@@ -91,7 +92,7 @@ public class WatchedList extends MovieList {
     }
 
     public void viewReview(Ui ui, WatchedList watchedList) {
-        //no movie, cannot view review
+        // no movie, cannot view review
         if (watchedList.empty()) {
             System.out.println("There are no movies in your watched list. Please add some movies first.");
             return;
@@ -99,17 +100,16 @@ public class WatchedList extends MovieList {
         ui.showListMessage(watchedList);
 
         Movie currentMovie;
-        //get valid movie index
+        // get valid movie index
         String indexString = ui.inputCommand();
         int index = Parser.parseIndex(indexString, 1, movieList.size());
         while (true) {
             if (index < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", movieList.size()));
+                ui.printRequireValidIndex(1, movieList.size());
                 indexString = ui.inputCommand();
                 index = Parser.parseIndex(indexString, 1, movieList.size());
             } else if (index == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
+                ui.printExitInputIndex();
                 return;
             } else {
                 currentMovie = this.getMovie(index);
