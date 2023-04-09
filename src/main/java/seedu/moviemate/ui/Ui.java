@@ -178,6 +178,10 @@ public class Ui {
         System.out.println("The movie details are shown above!");
         System.out.println("Please feel free to continue with other features :))");
     }
+    public static void printSeedetailFail() {
+        System.out.println("Something went wrong");
+        System.out.println("Please try again...");
+    }
 
     public void printMovieDetail(String movieDetail) {
         System.out.println(movieDetail);
@@ -189,9 +193,14 @@ public class Ui {
     public void printExitInputIndex() {
         System.out.println("Exit input acknowledged. Cancelling last command...");
     }
-    public void printPromptIndex() {
+    public void printPromptIndexForAdd() {
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then proceed with adding the movie you chose, thanks!");
+        printLine();
+    }
+    public void printPromptIndexForDetail() {
+        System.out.println("Please enter the id of the movie you're looking for\n" +
+                "The program will then show the detail of the movie you chose, thanks!");
         printLine();
     }
 }

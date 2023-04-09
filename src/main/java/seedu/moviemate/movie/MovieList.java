@@ -75,7 +75,7 @@ public class MovieList {
      *
      * @param inputTitle Movie name entered by the user
      */
-    public static void findMovieDetail(String inputTitle) {
+    public static void findMovieDetail(String inputTitle, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the movie name again!");
@@ -91,28 +91,27 @@ public class MovieList {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
-        System.out.println("Please enter the id of the movie you're looking for\n" +
-                "The program will then show the detail of the movie you chose, thanks!");
-        Ui.printLine();
+        ui.printPromptIndexForDetail();
 
-        String input = Ui.inputCommand();
+        String input = ui.inputCommand();
         Movie movie;
         while (true) {
             int index = Parser.parseIndex(input, 1, relevantMovies.size());
             if (index < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
-                input = Ui.inputCommand();
+                ui.printRequireValidIndex(1, relevantMovies.size());
+                input = ui.inputCommand();
             } else if (index == 0) {
-                System.out.println("Exit input acknowledged. Cancelling last command...");
+                ui.printExitInputIndex();
                 return;
             } else {
                 movie = relevantMovies.get(index - 1);
                 if (movie.getMovieDetail() != null) {
                     System.out.println(movie.getMovieDetail());
+                    ui.printLine();
+                    ui.printSeedetailSuccess();
+                    return;
                 }
-                Ui.printLine();
-                Ui.printSeedetailSuccess();
+                ui.printSeedetailFail();
                 break;
             }
         }
@@ -152,7 +151,7 @@ public class MovieList {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
-        ui.printPromptIndex();
+        ui.printPromptIndexForAdd();
 
         String input = ui.inputCommand();
         Movie movie;
@@ -211,15 +210,14 @@ public class MovieList {
             System.out.println(id + ". " + relevantMovie.toString());
             id += 1;
         }
-        ui.printPromptIndex();
+        ui.printPromptIndexForAdd();
 
         String input = ui.inputCommand();
         Movie movie;
         while (true) {
             int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
             if (addIndex < 0) {
-                System.out.println(String.format(
-                        "Please enter a valid index from 1 to %d", relevantMovies.size()));
+                ui.printRequireValidIndex(1, relevantMovies.size());
                 input = Ui.inputCommand();
                 continue;
             }
@@ -232,8 +230,8 @@ public class MovieList {
             break;
         }
 
-        //if movie being added to to-watch list is in watched list, user is prompted if they want
-        //to remove it from watched list
+        // if movie being added to to-watch list is in watched list, user is prompted if they want
+        // to remove it from watched list
         if (watchedList.getIndex(movie) != -1) {
             System.out.println("You have already watched this movie!\n" +
                     "Should we delete it from your watched list? [Y/N]");
@@ -243,7 +241,7 @@ public class MovieList {
                     return;
                 }
                 if (input.equalsIgnoreCase("Y")) {
-                    //must delete any existing review for the movie, otherwise remove will bug out
+                    // must delete any existing review for the movie, otherwise remove will bug out
                     int MovieIndex = watchedList.getIndex(movie);
                     Movie deletedMovie = new Movie(movie);
                     watchedList.movieList.set(MovieIndex - 1, deletedMovie);
@@ -377,6 +375,12 @@ public class MovieList {
         return this.movieList.toString();
     }
 
+    /**
+     * Get the detail of the movie in the movie list by index.
+     *
+     * @param index The index of the movie for getting detail
+     * @return the detail of the movie in string type
+     */
     public String getMovieDetail(int index) {
         int i = index - 1;
         Movie movie = this.movieList.get(i);

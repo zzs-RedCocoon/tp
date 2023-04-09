@@ -46,7 +46,7 @@ public class SeeDetailCommand implements Command {
     public void seeMovieDetailByName(Ui ui) {
         ui.printSeedetailByNameHelp();
         String movieName = ui.inputCommand();
-        MovieList.findMovieDetail(movieName);
+        MovieList.findMovieDetail(movieName, ui);
     }
     //@@author chao2048
 
