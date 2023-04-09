@@ -14,15 +14,13 @@ import java.util.Scanner;
 public final class Storage {
 
     private static final String DB_PATH = "/movies_db.csv";
-    private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
+    public static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
     private static final String FILE_DELIMITER = "|";
-
-    // This refers to the default storage path for general information.
-    private final String mainFilePath;
+    private final String mainFilePath; // This refers to the default storage path for general information.
 
     /**
-     * Constructor with custom FilePath defined
-     * @param filePath Where the saved files are stored.
+     * Constructor with custom FilePath defined.
+     * @param filePath Where the general data is stored.
      */
     public Storage(String filePath) {
         this.mainFilePath = filePath;
@@ -30,27 +28,30 @@ public final class Storage {
     }
 
     /**
-     * Constructor without filepath defined.
-     * Uses default file path ({@value DEFAULT_FILE_PATH}) and runs constructor as usual.
+     * Constructor without arguments will default to the default file path ({@value DEFAULT_FILE_PATH}).
+     * This calls {@link Storage#Storage(String)} with that file path.
      */
     public Storage() {
         this(DEFAULT_FILE_PATH);
     }
 
     /**
-     * Open the saved file.
-     * Checks if the directory and text file exist, and writes to the file.
+     * Opens a file at the specified file path.
+     * If it does not exist, this will create the required directories and/or file.
+     *
+     * @param filePath Specified file path.
      */
     private void openFile(String filePath) {
         File file = new File(filePath);
 
-        // Create the directories required (if not exist)
+        // Create the directories required (if it does not exist).
         if (!file.getParentFile().exists()) {
             // Make directories, return true if successful.
             if (file.getParentFile().mkdirs()) {
                 System.out.println("Successfully created directory in " + file.getAbsolutePath());
             } else {
-                System.out.println("Directory exists or unable to create.");
+                // Unable to create directory, which should be an error.
+                System.out.println("Unable to create directories at: " + filePath);
             }
         }
 
@@ -60,10 +61,10 @@ public final class Storage {
             if (file.createNewFile()) {
                 System.out.println("New save file created in " + file.getAbsolutePath());
             } else {
-                System.out.println("Loaded your saved movies.");
+                System.out.println("Existing file found: " + file.getAbsolutePath());
             }
         } catch (IOException e) {
-            System.out.println("An error occurred in creating a new save file.");
+            System.out.println("An error occurred in creating file: " + filePath);
         }
     }
 
