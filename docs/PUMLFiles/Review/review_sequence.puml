@@ -3,22 +3,20 @@
 
 'review1, class diagram'
 actor User
-participant Sequence
-participant Review COLOR_MOVIE
+
+participant ":Review" as Review COLOR_MOVIE
 User -> Review
 activate Review
 
+create ":Scanner" as Scanner
 Review -> Scanner : setReview()
 activate Scanner
-Scanner --> Scanner : new Scanner(input)
-
 
 loop COLOR_BLOCK input not empty
 
     Scanner -> User
     User --> Scanner : Input
 end
-deactivate Scanner
 
 Scanner --> Review : return input
 Review -> Review : set reviewText
@@ -31,8 +29,10 @@ loop input not between 0 to 5
 end
 
 Scanner --> Review : return input
+deactivate Scanner
 
 Review -> Review : set reviewStars
+destroy Scanner
 
 Review --> User : feedback
 @enduml
