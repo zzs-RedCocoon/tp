@@ -9,9 +9,12 @@ markdown: kramdown
 kramdown:
   parse_block_html: true
 
+
 header_pages:
 - UserGuide.md
 - DeveloperGuide.md
 - AboutUs.md
 
 repository: "AY2223S2-CS2113-W12-4/tp"
+
+show_downloads: true
