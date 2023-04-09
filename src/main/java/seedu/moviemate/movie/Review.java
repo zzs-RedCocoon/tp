@@ -93,8 +93,10 @@ public class Review implements Comparable<Review> {
     public void setReviewText() {
         Scanner scan = new Scanner(System.in);
         String review = "";
-        System.out.println("Write your review. Use as many lines as you need. "
-                + "To end, simply input a blank line.");
+        final String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
+                + "To end, simply input a blank line.";
+        
+        System.out.println(REVIEW_INSTRUCTIONS);
         // String line = scan.nextLine();
 
         // Stop when empty.
@@ -135,7 +137,7 @@ public class Review implements Comparable<Review> {
      * Simply sort based on star value.
      */
     @Override
-    public int compareTo(Review r2) {
-        return (this.reviewStars - r2.getReviewStars());
+    public int compareTo(Review otherReview) {
+        return (this.reviewStars - otherReview.getReviewStars());
     }
 }
