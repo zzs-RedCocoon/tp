@@ -135,7 +135,7 @@ public class MovieList {
      * @param toWatchList list of movies user plans to watch
      * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addwatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
+    public void addWatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the watched " +
@@ -194,7 +194,7 @@ public class MovieList {
      * @param toWatchList list of movies user plans to watch
      * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addtowatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
+    public void addToWatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the towatch " +
