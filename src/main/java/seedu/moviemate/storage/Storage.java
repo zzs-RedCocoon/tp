@@ -10,22 +10,23 @@ import java.util.Scanner;
 
 /**
  * Class that handles data storage and loading.
- * Discerning eyes will realise this is, more or less, taken from Zhan Hong's iP.
  */
 public final class Storage {
 
     private static final String DB_PATH = "/movies_db.csv";
     private static final String DEFAULT_FILE_PATH = "data/moviemate_data.txt";
     private static final String FILE_DELIMITER = "|";
-    private final String filePath; // To store custom file path and for methods to reference.
+
+    // This refers to the default storage path for general information.
+    private final String mainFilePath;
 
     /**
      * Constructor with custom FilePath defined
      * @param filePath Where the saved files are stored.
      */
     public Storage(String filePath) {
-        this.filePath = filePath;
-        openFile(this.filePath);
+        this.mainFilePath = filePath;
+        openFile(this.mainFilePath);
     }
 
     /**
@@ -37,7 +38,7 @@ public final class Storage {
     }
 
     /**
-     * Open the saved file.<br>
+     * Open the saved file.
      * Checks if the directory and text file exist, and writes to the file.
      */
     private void openFile(String filePath) {
@@ -73,7 +74,7 @@ public final class Storage {
     public ArrayList<String[]> load(String path) {
         if (path.isEmpty()) {
             // Fallback to default.
-            path = this.filePath;
+            path = this.mainFilePath;
         }
 
         openFile(path);
@@ -94,7 +95,7 @@ public final class Storage {
     }
 
     public String loadName() {
-        File f = new File(this.filePath);
+        File f = new File(this.mainFilePath);
         Scanner s;
         try {
             s = new Scanner(f);
@@ -120,7 +121,7 @@ public final class Storage {
     public void writeToFile(String path, String textToAdd) {
         if (path.isEmpty()) {
             // Fallback to default.
-            path = this.filePath;
+            path = this.mainFilePath;
         }
         try {
             FileWriter writer = new FileWriter(path);
