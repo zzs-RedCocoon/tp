@@ -37,12 +37,16 @@ the workflow and processes.
   - Issue tracker, milestones, and labels were set up by me.
   - I also managed the releases for v1.0 and v2.0.
 - I also helped set up the GitHub page, modifying its configs and contributing quite a bit to the DG and UG.
+  - Added links in the header for user experience.
   - Most of the DG was primarily written by me.
   - I added the UML style and worked on most of the diagrams too.
   - I helped to re-format and migrate the UG from our Google Docs to markdown formatting.
 - I helped to coordinate team meetings and keep the team on track.
     - I made some PR reviews to maintain code standards or to uphold programming principles.
-    Check out the PRs I've reviewed [here](https://github.com/AY2223S2-CS2113-W12-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Achoongzhanhong). Some are more comprehensive.
+    Check out the PRs I've reviewed [here](https://github.com/AY2223S2-CS2113-W12-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Achoongzhanhong).
+    - Some nontrivial PR reviews: [#9](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/9), [#29](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/29),
+    [#43](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/43), [#49](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/49),
+    [#58](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/58).
 
 3. **Outside of MovieMate Team Project**
 - I also tried to help my peers, and for peer reviews and PE-D bug testing I did submit above-average
