@@ -45,6 +45,7 @@ public class MovieList {
     /**
      * Gets the index of a movie in the movieList
      * Also can be used to check if a movie is inside the list at all
+     *
      * @param movie to get the index of
      * @return index in list, -1 if movie is not found
      */
