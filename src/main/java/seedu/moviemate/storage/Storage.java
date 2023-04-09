@@ -71,7 +71,8 @@ public final class Storage {
     /**
      * Loads and parses each line in the text file at path specified.
      * @param filePath Specified file path.
-     * @return ArrayList ({@link java.util.ArrayList}) of String. Each line is one element.
+     * @return ArrayList ({@link java.util.ArrayList}) of String.
+     *         Each element is a line split by delimiter.
      */
     public ArrayList<String[]> load(String filePath) {
         if (filePath.isEmpty()) {
@@ -98,6 +99,10 @@ public final class Storage {
         return output;
     }
 
+    /**
+     * Differs from {@link #load(String)} as its return value is a string
+     * @return First line in file.
+     */
     public String loadName() {
         File f = new File(this.mainFilePath);
         Scanner s;
@@ -107,29 +112,29 @@ public final class Storage {
                 return s.nextLine();
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Oops, something wrong with file.");
+            System.out.println("Oops, something wrong with file:" + this.mainFilePath);
         }
-
         return "";
     }
 
+    // Helper function to split based on delimiter, with built-in escape character.
     private String[] splitSaveFileLine(String line) {
         return line.split("\\"+ FILE_DELIMITER);
     }
 
     /**
      * Writes input text to file.
-     * This will overwrite existing contents (Intended, for updating)
-     * @param textToAdd Everything to be written into the file.
+     * This will overwrite existing contents.
+     * @param textToWrite Everything to be written into the file.
      */
-    public void writeToFile(String path, String textToAdd) {
+    public void writeToFile(String path, String textToWrite) {
         if (path.isEmpty()) {
             // Fallback to default.
             path = this.mainFilePath;
         }
         try {
             FileWriter writer = new FileWriter(path);
-            writer.write(textToAdd);
+            writer.write(textToWrite);
             // Add newline
             writer.write(System.lineSeparator());
             writer.close();
@@ -138,10 +143,13 @@ public final class Storage {
         }
     }
 
+    /**
+     * Calls on CSV Reader to load and read the database.
+     * It is using InputStream as the database is meant to be packed in JAR in the respective path {@value DB_PATH}.
+     * @return Arraylist of String[], each element is a line, and each String is each value after split by comma.
+     */
     public ArrayList<String[]> loadDatabase() {
         InputStream is = getClass().getResourceAsStream(DB_PATH);
-
         return ReadCSVFile.readEntireCSV(is);
     }
-
 }
