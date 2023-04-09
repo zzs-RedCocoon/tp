@@ -15,5 +15,4 @@ public class ToWatchList extends MovieList{
         super(load);
     }
 
-    // TODO: more methods here specific to toWatchList.
 }

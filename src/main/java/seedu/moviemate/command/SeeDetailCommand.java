@@ -17,7 +17,7 @@ public class SeeDetailCommand implements Command {
     }
 
     public void seeMovieDetail(MovieList movieList, Ui ui) {
-        // list watched/towatch list for the user to choose
+        // list watched/to-watch list for the user to choose
         if (movieList.empty()) {
             ui.printSeedetailEmpty();
             return;
@@ -36,7 +36,7 @@ public class SeeDetailCommand implements Command {
                 ui.printExitInputIndex();
                 break;
             }
-            //happy path
+            // happy path
             ui.printMovieDetail(movieList.getMovieDetail(seeDetailWatchedIndex));
             ui.printSeedetailSuccess();
             break;
