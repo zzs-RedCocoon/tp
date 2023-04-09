@@ -6,6 +6,8 @@ plugins:
 title: "MovieMate"
 
 markdown: kramdown
+kramdown:
+  parse_block_html: true
 
 header_pages:
 - UserGuide.md
