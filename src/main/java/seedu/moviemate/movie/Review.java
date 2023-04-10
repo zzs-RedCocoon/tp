@@ -64,7 +64,7 @@ public class Review implements Comparable<Review> {
         }
     }
 
-    public void setReviewStars() {
+    private void setReviewStars() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
@@ -83,6 +83,9 @@ public class Review implements Comparable<Review> {
 
     }
 
+    /**
+     * @return The review stars (integer 0 to 5).
+     */
     public int getReviewStars() {
         return this.reviewStars;
     }
@@ -90,7 +93,7 @@ public class Review implements Comparable<Review> {
     /**
      * Sets the review text, which actually requires scanner.
      */
-    public void setReviewText() {
+    private void setReviewText() {
         Scanner scan = new Scanner(System.in);
         String review = "";
         final String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
@@ -113,6 +116,9 @@ public class Review implements Comparable<Review> {
         this.reviewText = review;
     }
 
+    /**
+     * @return The text review.
+     */
     public String getReviewText() {
         return this.reviewText;
     }
@@ -131,8 +137,7 @@ public class Review implements Comparable<Review> {
                 + "(%d/5 stars)",
                 this.reviewText, this.reviewStars);
     }
-
-
+    
     /**
      * Simply sort based on star value.
      */
