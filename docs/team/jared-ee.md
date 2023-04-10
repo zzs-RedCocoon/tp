@@ -26,8 +26,7 @@ Given below are my contributions to the project.
       respective lists, only to be later merged into a single method, removeMovieList.
 
 
-* **Code contributed**: [https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=jared-ee&breakdown=true&sort=groupTitle%20dsc&sortWithin=title&since=2023-02-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other]()
-
+* **Code contributed**: [here](https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=jared-ee&breakdown=true)
 * **Project management**:
     * Managed releases `v1.0` - `v2.1` (3 releases) on GitHub
 
