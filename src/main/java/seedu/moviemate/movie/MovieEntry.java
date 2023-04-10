@@ -1,12 +1,9 @@
 package seedu.moviemate.movie;
 
-import java.util.Date;
-
 /**
  * User-interacted Movie to be listed in {@link MovieList} MovieList.
  */
 public class MovieEntry extends Movie {
-    private Date dateWatched;
     private Review review;
 
     public MovieEntry(String titleID, String title, int year, int runTimeMinutes, String[] genres) {
@@ -33,10 +30,6 @@ public class MovieEntry extends Movie {
      */
     public void setReview() {
         this.review.setReview();
-    }
-
-    public void deleteReview() {
-        this.review.deleteReviewText();
     }
 
     public String getReview() {

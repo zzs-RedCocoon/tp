@@ -127,23 +127,25 @@ public class MovieList {
     }
 
     /**
-     * Adds a movie to the WATCHED list from the list of movies.
-     *
-     * @param inputTitle  title of movie as input by user.
-     * @param watchedList list of watched movies
-     * @param toWatchList list of movies user plans to watch
-     * @param ui the Ui object to use for displaying messages to the user
+     * This is a simple add to list that's meant to be overridden.
+     * NOTE: Dev tried to fix this to uphold programming principles but stopped for lack of time.
+     * This should be an abstract method and class by right, but there are too many bugs to resolve.
+     * @param inputTitle Title of Movie to look up
+     * @param watchedList List of Watched movies
+     * @param toWatchList List of To-Watch movies
+     * @param ui The UI
      */
-    public void addWatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
+    public void addToList(
+            String inputTitle, MovieList watchedList, MovieList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
-            System.out.println("No relevant movie found, please try entering the watched " +
+            System.out.println("No relevant movie found, please try entering the towatch " +
                     "command and movie name again!");
             return;
         }
         if (inputTitle.isBlank()) {
             System.out.println("<Movie Name> cannot be left blank, please try entering " +
-                    "the watched command and movie name again!");
+                    "the towatch command and movie name again!");
             return;
         }
         int id = 1;
@@ -169,97 +171,10 @@ public class MovieList {
             // happy path
             movie = relevantMovies.get(addIndex - 1);
             break;
-
         }
-
-        //if movie being added to watched list is in to-watch list, it is deleted in to-watch list
-        if (toWatchList.getIndex(movie) != -1) {
-            toWatchList.remove(movie);
-        }
-        if (watchedList.getIndex(movie) == -1) {
-            watchedList.add(movie);
-            Ui.showAddMovieMessage(movie.toString());
-        } else {
-            System.out.println("That movie is already in your watched list.");
-        }
-
-    }
-
-    /**
-     * Adds a movie to the TO-WATCH list from the list of movies.
-     *
-     * @param inputTitle  title of movie as input by user.
-     * @param watchedList list of watched movies
-     * @param toWatchList list of movies user plans to watch
-     * @param ui the Ui object to use for displaying messages to the user
-     */
-    public void addToWatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
-        ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
-        if (relevantMovies.size() == 0) {
-            System.out.println("No relevant movie found, please try entering the towatch " +
-                    "command and movie name again!");
-            return;
-        }
-        if (inputTitle.isBlank()) {
-            System.out.println("<Movie Name> cannot be left blank, please try entering " +
-                    "the towatch command and movie name again!");
-            return;
-        }
-        int id = 1;
-        for (Movie relevantMovie : relevantMovies) {
-            System.out.println(id + ". " + relevantMovie.toString());
-            id += 1;
-        }
-        ui.printPromptIndexForAdd();
-
-        String input = ui.inputCommand();
-        Movie movie;
-        while (true) {
-            int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
-            if (addIndex < 0) {
-                ui.printRequireValidIndex(1, relevantMovies.size());
-                input = Ui.inputCommand();
-                continue;
-            }
-            if (addIndex == 0) {
-                ui.printExitInputIndex();
-                return;
-            }
-            // happy path
-            movie = relevantMovies.get(addIndex - 1);
-            break;
-        }
-
-        // if movie being added to to-watch list is in watched list, user is prompted if they want
-        // to remove it from watched list
-        if (watchedList.getIndex(movie) != -1) {
-            System.out.println("You have already watched this movie!\n" +
-                    "Should we delete it from your watched list? [Y/N]");
-            while (true) {
-                input = Ui.inputCommand();
-                if (input.equalsIgnoreCase("N")) {
-                    return;
-                }
-                if (input.equalsIgnoreCase("Y")) {
-                    // must delete any existing review for the movie, otherwise remove will bug out
-                    int MovieIndex = watchedList.getIndex(movie);
-                    Movie deletedMovie = new Movie(movie);
-                    watchedList.movieList.set(MovieIndex - 1, deletedMovie);
-                    watchedList.remove(deletedMovie);
-                    break;
-                } else {
-                    System.out.println("Invalid format. Please enter either 'Y' or 'N'.");
-                }
-            }
-        }
-        if (toWatchList.getIndex(movie) == -1) {
-            toWatchList.add(movie);
-            Ui.showAddMovieMessage(movie.toString());
-        } else {
-            System.out.println("That movie is already in your to-watch list.");
-        }
-
-    }
+        watchedList.add(movie);
+        Ui.showAddMovieMessage(movie.toString());
+    };
 
     /**
      * Prints all the movies inside.

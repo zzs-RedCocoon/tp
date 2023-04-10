@@ -11,9 +11,11 @@ import java.util.ArrayList;
 
 public class RandomMovieCommand implements Command {
     private String inputGenre;
+
     public RandomMovieCommand (String inputGenre) {
         this.inputGenre = inputGenre;
     }
+
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         ArrayList<Movie> relevantMovies = MovieDatabase.randomMovieOfGenres(inputGenre);
