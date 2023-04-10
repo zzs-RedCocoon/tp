@@ -19,6 +19,13 @@ public class WatchedList extends MovieList {
         super(loaded);
     }
 
+    /**
+     * Sets a review for a movie currently in the watched list
+     * If review already exists for that movie, old review is overwritten with new one
+     *
+     * @param ui the Ui
+     * @param watchedList list of watched movies
+     */
     public void setReview(Ui ui, WatchedList watchedList) {
         // no movie, cannot add any review
         if (watchedList.empty()) {
@@ -56,6 +63,13 @@ public class WatchedList extends MovieList {
         this.movieList.set(index - 1, reviewedMovie);
     }
 
+    /**
+     * Deletes a review for a movie currently in the watched list
+     * If review does not exist for that movie, nothing changes
+     *
+     * @param ui the Ui
+     * @param watchedList list of watched movies
+     */
     public void deleteReview(Ui ui, WatchedList watchedList) {
         // no movie, cannot delete any review
         if (watchedList.empty()) {
@@ -92,6 +106,12 @@ public class WatchedList extends MovieList {
 
     }
 
+    /**
+     * Prints out review the user has previously written for a movie in the watched list
+     *
+     * @param ui the Ui
+     * @param watchedList list of watched movies
+     */
     public void viewReview(Ui ui, WatchedList watchedList) {
         // no movie, cannot view review
         if (watchedList.empty()) {

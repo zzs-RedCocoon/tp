@@ -38,6 +38,11 @@ public class MovieList {
         }
     }
 
+    /**
+     * Checks if related movie list is empty. For ease of use when calling.
+     *
+     * @return true if movie list is empty
+     */
     public boolean empty() {
         return this.movieList.isEmpty();
     }
@@ -50,9 +55,7 @@ public class MovieList {
      * @return index in list, -1 if movie is not found
      */
     public int getIndex(Movie movie) {
-        //must do this instead of simply this.movieList.indexOf because Movie with review
-        //and same Movie without review are treated differently by program, so find/indexOf
-        //will be unable to locate the movie with review even if it is actually in the list
+        //individual elements of input movie are compared against those in every movie of list
         int index = 1;
         for (Movie mv : this.movieList) {
             if ((mv.getTitle()).equals(movie.getTitle())
@@ -130,6 +133,7 @@ public class MovieList {
      * This is a simple add to list that's meant to be overridden.
      * NOTE: Dev tried to fix this to uphold programming principles but stopped for lack of time.
      * This should be an abstract method and class by right, but there are too many bugs to resolve.
+     *
      * @param inputTitle Title of Movie to look up
      * @param watchedList List of Watched movies
      * @param toWatchList List of To-Watch movies
@@ -187,6 +191,11 @@ public class MovieList {
         }
     }
 
+    /**
+     * Lists out all movies in watched and to-watch lists containing the input genre
+     *
+     * @param genre input movie genre to look up
+     */
     public void filter(String genre) {
         if (genre.isBlank()) {
             System.out.println("Genre description cannot be left blank. Please try entering " +
@@ -235,6 +244,12 @@ public class MovieList {
         }
     }
 
+    /**
+     * Initializes an object in the Movie class
+     *
+     * @param movieStrings all the information required to be stored in Movie, as a single string
+     * @return initialized Movie
+     */
     public Movie createMovie(String[] movieStrings) {
         String id = movieStrings[0];
         String title = movieStrings[1];
@@ -253,6 +268,12 @@ public class MovieList {
         return movie;
     }
 
+    /**
+     * Parses genre array to be represented in the format: [genre1,genre2,genre3]
+     *
+     * @param genreStrings all genres in the array listed as a single string
+     * @return genre array parsed to the correct format
+     */
     private String[] parseGenres(String genreStrings) {
         String[] genres = genreStrings.split(",");
         return genres;
@@ -269,8 +290,8 @@ public class MovieList {
     /**
      * To be used by user-facing operations to automatically account for indexing problems.
      *
-     * @param index
-     * @return
+     * @param index index in list of desired movie
+     * @return movie at correct index in list
      */
     public Movie getMovie(int index) {
         int i = index - 1;
