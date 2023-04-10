@@ -9,10 +9,10 @@ import java.util.Scanner;
  * and a star review (0 to 5 scale).
  */
 public class Review implements Comparable<Review> {
+    private static String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
+            + "To end, simply input a blank line.";
     private String reviewText;
     private int reviewStars;
-    private static final String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
-            + "To end, simply input a blank line.";
 
 
     /**
