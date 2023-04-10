@@ -45,7 +45,7 @@ public class ToWatchList extends MovieList{
             int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
             if (addIndex < 0) {
                 ui.printRequireValidIndex(1, relevantMovies.size());
-                input = Ui.inputCommand();
+                input = ui.inputCommand();
                 continue;
             }
             if (addIndex == 0) {
@@ -63,7 +63,7 @@ public class ToWatchList extends MovieList{
             System.out.println("You have already watched this movie!\n" +
                     "Should we delete it from your watched list? [Y/N]");
             while (true) {
-                input = Ui.inputCommand();
+                input = ui.inputCommand();
                 if (input.equalsIgnoreCase("N")) {
                     return;
                 }

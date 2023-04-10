@@ -161,7 +161,7 @@ public class MovieList {
             int addIndex = Parser.parseIndex(input, 1, relevantMovies.size());
             if (addIndex < 0) {
                 ui.printRequireValidIndex(1, relevantMovies.size());
-                input = Ui.inputCommand();
+                input = ui.inputCommand();
                 continue;
             }
             if (addIndex == 0) {

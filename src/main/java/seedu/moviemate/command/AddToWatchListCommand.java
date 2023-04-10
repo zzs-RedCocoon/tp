@@ -14,7 +14,6 @@ public class AddToWatchListCommand implements Command {
 
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
-        // add to to-watch list
         toWatchList.addToList(inputTitle, watchedList, toWatchList, ui);
     }
 }

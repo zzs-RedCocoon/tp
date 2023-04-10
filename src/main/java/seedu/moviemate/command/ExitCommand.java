@@ -9,7 +9,7 @@ public class ExitCommand implements Command {
 
     @Override
     public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
-        //Ui...
+        // Does nothing.
     }
 
     public static boolean isExit(Command command) {

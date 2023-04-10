@@ -33,7 +33,7 @@ public class RemoveListCommand implements Command {
         Ui.showListMessage(movieList);
         System.out.println("Please enter the id of the movie you would like to remove");
         while (true) {
-            String input = Ui.inputCommand();
+            String input = ui.inputCommand();
             int removeIndex = Parser.parseIndex(input, 1, movieList.movieList.size());
             if (removeIndex < 0) {
                 ui.printRequireValidIndex(1, movieList.movieList.size());

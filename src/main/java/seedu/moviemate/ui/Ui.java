@@ -17,7 +17,7 @@ public class Ui {
      *
      * @return The string that the user entered
      */
-    public static String inputCommand() {
+    public String inputCommand() {
         Scanner scan = new Scanner(System.in);
         String s = "";
         s = scan.nextLine();
