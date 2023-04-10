@@ -11,9 +11,10 @@ You can additionally give a review to the movies you have watched. It also featu
 The user interacts with it using a CLI, and it is written in Java.
 
 ### Summary of Contributions
-> [RepoSense page](https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=choongzhanhong&breakdown=true)
+> :link: [RepoSense page](https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=choongzhanhong&breakdown=true)
 
-1. **Project Foundation**
+
+**Project Foundation**
 
 I mostly helped to build the foundation of the code and overall project, including base classes and functionalities. So, I had
 a rough class structure and architecture in mind before we began.
@@ -31,7 +32,7 @@ You may find that my code contributions are larger at the start as I helped to s
 Near the end, I did slow down a little to work on documentation instead of code, as I felt I could offer
 more help in writing, but still helped review PRs.
 
-2. **Team Structure**
+**Team Structure**
 - I set up the repository and workflow (issues and milestones), as well as helped direct my team to understand
 the workflow and processes.
   - Issue tracker, milestones, and labels were set up by me.
@@ -48,7 +49,7 @@ the workflow and processes.
     [#43](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/43), [#49](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/49),
     [#58](https://github.com/AY2223S2-CS2113-W12-4/tp/pull/58).
 
-3. **Outside of MovieMate Team Project**
+**Outside of MovieMate Team Project**
 - I also tried to help my peers, and for peer reviews and PE-D bug testing I did submit above-average
 number of reviews for both (and received notice of it in my email both times ^o^).
 - I also made (few) posts to the [issues page](https://github.com/nus-cs2113-AY2223S2/forum/issues?q=is%3Aopen++author%3Achoongzhanhong).

@@ -33,4 +33,11 @@ some [tweaks are needed in IntelliJ](https://se-education.org/guides/tutorials/i
 
 We use the `title.basics` database for movies as found on [https://www.imdb.com/interfaces/](IMDb Datasets).
 
-This should already be included in the repository and no further edits are required.
+This should already be included in the repository as `movies_db.csv` under the resources root.
+There are 5 columns in this CSV:
+
+| tconst    | primaryTitle | startYear       | runtimeMinutes              | genres         |
+|-----------|--------------|-----------------|-----------------------------|----------------|
+| Unique ID | Movie Title  | Year of Release | Movie Duration (in Minutes) | Up to 3 Genres |
+| tt0462335 | High-Rise    | 2015            | 119                         | Drama,Sci-Fi   |
+
