@@ -47,7 +47,7 @@ For example, you can start by typing the `help` command.
 >
 > In the below examples, text following `>>` indicates user input.
 > In addition, text without following `>>` indicates system output.
-> For any command that followed with prompting for an index input, you can input a '0' to cancel the current command.
+> For any command that is followed by a prompt for an index input, you can input a '0' to cancel the current command.
 
 ## Viewing help: `help`
 Will print the extract of the commands that the user can use.

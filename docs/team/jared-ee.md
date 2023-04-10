@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Jared Ee's Project Portfolio Page
 ---
 
@@ -22,9 +21,9 @@ Given below are my contributions to the project.
     * Justification: This feature improves the user experience when the user would like to reduce clutter or if they\
       have changed their mind on wanting a particular movie in the list.
     * Highlights: This enhancement affects existing commands and commands to be added in the future. The implementation\
-      too was challenging as it required changes to existing commands. Case in point, removeWatchedList and removeToWatchList\
-      were previously 2 methods performing the remove function for their respective lists, only to be later merged into\
-      a single method, removeMovieList.
+      too was challenging as it required changes to existing commands.\
+      removeWatchedList and removeToWatchList were previously 2 methods performing the remove function for their\
+      respective lists, only to be later merged into a single method, removeMovieList.
 
 
 * **Code contributed**: [https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=jared-ee&breakdown=true]()
@@ -43,9 +42,12 @@ Given below are my contributions to the project.
 
 * **Documentation**:
     * User Guide:
-        * Added initial documentation for all features.
+        * Added initial documentation for all features. Continued to update examples provided regularly to reflect the\
+          code's functionality accurately as it changed throughout the project. 
     * Developer Guide:
         * Added implementation details of the `filter` feature.
 
 * **Community**:
     * Reported bugs and suggestions for other teams in the class during PE Dry Run.
+    * Raised bugs discovered when testing to team-mates and asked for suggestions on ways to resolve them. If I could\
+      come up with a solution myself, I would implement it first and ask for feedback from the rest.

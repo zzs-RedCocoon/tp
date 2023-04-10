@@ -16,6 +16,14 @@ public class SeeDetailCommand implements Command {
         this.movieListType = movieListType;
     }
 
+    /**
+     * Used for see detail by list.
+     * The function will display the list and prompt the user to enter the index of a movie.
+     * It will then show the details of that movie to the user
+     *
+     * @param movieList relevant movie list
+     * @param ui the Ui
+     */
     public void seeMovieDetail(MovieList movieList, Ui ui) {
         // list watched/to-watch list for the user to choose
         if (movieList.empty()) {

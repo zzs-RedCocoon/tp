@@ -68,7 +68,8 @@ public class ToWatchList extends MovieList{
                     return;
                 }
                 if (input.equalsIgnoreCase("Y")) {
-                    // must delete any existing review for the movie, otherwise remove will bug out
+                    // any existing review for the movie is first deleted before the movie itself
+                    // is deleted from the list
                     int MovieIndex = watchedList.getIndex(movie);
                     Movie deletedMovie = new Movie(movie);
                     watchedList.movieList.set(MovieIndex - 1, deletedMovie);
