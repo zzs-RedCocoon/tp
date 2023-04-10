@@ -30,7 +30,9 @@ Given below are my contributions to the project.
     * Enhanced `watched` and `towatch` features, automatically remove movie from to-watch list if user tries to add that same movie to watched list. Conversely, informs user if they try to add a movie already in watched list to to-watch list and prompts for Y/N response if they would like to proceed with deleting it in watched list.
     * Enhanced any feature requiring integer input (i.e. all except `filter` and `bye`) by continuously prompting for further id input if invalid input is registered, instead of requiring the user the re-type the command name again. Input 0 (otherwise an invalid movie id) is accepted in case the user wants to cancel the last command.
 
-<div style="page-break-after: always;"></div>
+* page break
+* page break
+* page break
 
 * **Documentation**:
     * User Guide:
