@@ -79,8 +79,7 @@ public class Parser {
      * @param indexString the string representing the index to be parsed
      * @param l the lower bound of the index range (inclusive)
      * @param r the upper bound of the index range (inclusive)
-     * @return the integer value of the parsed index. 0 indicates user intention to cancel last command, -1 indicates
-     * integer is out of range/cannot be parsed. Else, integer indicates movie id.
+     * @return the integer value of the parsed index.
      */
     public static int parseIndex(String indexString, int l, int r) {
         int index = 0;

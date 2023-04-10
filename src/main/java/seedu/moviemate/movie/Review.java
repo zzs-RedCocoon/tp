@@ -11,6 +11,9 @@ import java.util.Scanner;
 public class Review implements Comparable<Review> {
     private String reviewText;
     private int reviewStars;
+    private static final String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
+            + "To end, simply input a blank line.";
+
 
     /**
      * Review constructor. If either parameter is missing, it will construct with blank ones.
@@ -96,11 +99,8 @@ public class Review implements Comparable<Review> {
     private void setReviewText() {
         Scanner scan = new Scanner(System.in);
         String review = "";
-        final String REVIEW_INSTRUCTIONS = "Write your review. Use as many lines as you need. "
-                + "To end, simply input a blank line.";
-        
+
         System.out.println(REVIEW_INSTRUCTIONS);
-        // String line = scan.nextLine();
 
         // Stop when empty.
         while (true) {
