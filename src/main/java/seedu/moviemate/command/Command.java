@@ -1,11 +1,12 @@
 package seedu.moviemate.command;
 
-import seedu.moviemate.movie.MovieList;
 import seedu.moviemate.storage.Storage;
+import seedu.moviemate.movie.ToWatchList;
 import seedu.moviemate.ui.Ui;
+import seedu.moviemate.movie.WatchedList;
 
 public interface Command {
-    void execute(MovieList watchedList, MovieList toWatchList, Ui ui, Storage storage);
+    void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage);
 }
 
 

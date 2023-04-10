@@ -1,5 +1,7 @@
 package seedu.moviemate.command;
 
+import seedu.moviemate.movie.ToWatchList;
+import seedu.moviemate.movie.WatchedList;
 import seedu.moviemate.parser.Parser;
 import seedu.moviemate.storage.Storage;
 import seedu.moviemate.ui.Ui;
@@ -50,7 +52,7 @@ public class RemoveListCommand implements Command {
 
 
     @Override
-    public void execute(MovieList watchedList, MovieList toWatchList, Ui ui, Storage storage) {
+    public void execute(WatchedList watchedList, ToWatchList toWatchList, Ui ui, Storage storage) {
         switch (removeListType) {
         case "watched":
             removeMovieList(watchedList, ui);
