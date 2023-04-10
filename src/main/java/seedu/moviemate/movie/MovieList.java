@@ -134,7 +134,7 @@ public class MovieList {
      * @param toWatchList list of movies user plans to watch
      * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addWatched(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
+    public void addWatched(String inputTitle, MovieList watchedList, MovieList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the watched " +
@@ -182,7 +182,6 @@ public class MovieList {
         } else {
             System.out.println("That movie is already in your watched list.");
         }
-
     }
 
     /**
@@ -193,7 +192,7 @@ public class MovieList {
      * @param toWatchList list of movies user plans to watch
      * @param ui the Ui object to use for displaying messages to the user
      */
-    public void addToWatch(String inputTitle, WatchedList watchedList, ToWatchList toWatchList, Ui ui) {
+    public void addToWatch(String inputTitle, MovieList watchedList, MovieList toWatchList, Ui ui) {
         ArrayList<Movie> relevantMovies = MovieDatabase.find(inputTitle);
         if (relevantMovies.size() == 0) {
             System.out.println("No relevant movie found, please try entering the towatch " +
