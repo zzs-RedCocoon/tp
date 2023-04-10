@@ -33,9 +33,6 @@ Given below are my contributions to the project.
 * **Page break**:
     * Page break
     * Page break
-    * Page break
-    * Page break
-    * Page break
 
 * **Documentation**:
     * User Guide:
