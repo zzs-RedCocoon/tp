@@ -128,7 +128,7 @@ that is, assigning reviews. The `MovieEntry` class extends off `Movie` to add a 
 
 Here's a partial class diagram of the `Review` component:
 
-![](/PUMLFiles/Review/review1.png)
+![](/PUMLFiles/Review/review_class.png)
 
 The `Review` component contains both a descriptive review `reviewText`,
 and a numerical review `reviewStars` (0 to 5 inclusive). Both are modified through the
@@ -138,11 +138,10 @@ and a numerical review `reviewStars` (0 to 5 inclusive). Both are modified throu
 through simply comparing `reviewStars`.
 
 How the `Review` component works:
+![](/PUMLFiles/Review/review_sequence.png)
 
 **Step 1.** `setReview()` is called, which creates a [`Scanner`](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html)
 to read user input.
-
-![](/PUMLFiles/Review/review2.png)
 
 **Step 2.** User input is read (multiple lines) until a blank line is found.
 Then, `reviewText` is updated with the text input.
