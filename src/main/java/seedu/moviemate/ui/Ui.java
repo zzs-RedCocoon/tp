@@ -189,6 +189,7 @@ public class Ui {
 
     public void printRequireValidIndex(int l, int r) {
         System.out.println(String.format("Please enter a valid index from %d to %d", l, r));
+        System.out.println("If you would like to exit the command, simply enter 0.");
     }
     public void printExitInputIndex() {
         System.out.println("Exit input acknowledged. Cancelling last command...");
@@ -202,5 +203,8 @@ public class Ui {
         System.out.println("Please enter the id of the movie you're looking for\n" +
                 "The program will then show the detail of the movie you chose, thanks!");
         printLine();
+    }
+    public void printEnterCommandPrompt() {
+        System.out.println("Please enter the next command:");
     }
 }

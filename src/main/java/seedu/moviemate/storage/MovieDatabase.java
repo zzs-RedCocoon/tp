@@ -72,6 +72,9 @@ public class MovieDatabase {
         int index = 0;
         Random rand = new Random();
         int intInterval = rand.nextInt(RANDOM_MOVIES_INTERVAL);
+        if (intInterval == 0) {
+            intInterval += 1;
+        }
         for (Map.Entry<String, Movie> entry : moviesDatabase.entrySet()) {
             if (index % intInterval == 0
                     && Arrays.asList(entry.getValue().getGenresFilter()).contains(userInputGenre.toLowerCase())) {
