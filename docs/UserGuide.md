@@ -334,3 +334,4 @@ Examples:
 Thanks for using Movie Mate!
 Hope to see you again soon :))
 ```
+
