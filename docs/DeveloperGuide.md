@@ -138,6 +138,7 @@ and a numerical review `reviewStars` (0 to 5 inclusive). Both are modified throu
 through simply comparing `reviewStars`.
 
 How the `Review` component works:
+
 ![](/PUMLFiles/Review/review_sequence.png)
 
 **Step 1.** `setReview()` is called, which creates a [`Scanner`](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html)
