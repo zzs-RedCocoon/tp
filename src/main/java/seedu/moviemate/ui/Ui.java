@@ -204,4 +204,7 @@ public class Ui {
                 "The program will then show the detail of the movie you chose, thanks!");
         printLine();
     }
+    public void printEnterCommandPrompt() {
+        System.out.println("Please enter the next command:");
+    }
 }
